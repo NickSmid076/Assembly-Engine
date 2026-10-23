@@ -1,9 +1,28 @@
-node_modules
-.next
-out
-.DS_Store
+# deps / build
+node_modules/
+.next/
+.next-qa/
+out/
 *.tsbuildinfo
 next-env.d.ts
-.next-qa/
 .claude/skills/ae-visual-qa/scripts/node_modules/
+
+# env (keep the example)
+.env
+.env.*
+!.env.example
+
+# vercel
+.vercel/
+
+# misc
+*.log
+.DS_Store
+
+# screenshots (stay local)
 /--base/
+docs/**/*.png
+docs/**/*.jpg
+docs/**/*.jpeg
+docs/**/*.webp
+docs/**/*.gif
