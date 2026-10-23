@@ -1,0 +1,3332 @@
+{
+  "key": "group_service_sections",
+  "title": "Service page sections",
+  "fields": [
+    {
+      "key": "field_ss_sections",
+      "label": "Sections",
+      "name": "sections",
+      "type": "flexible_content",
+      "instructions": "DRAFT (service pages phase 2). One layout per block in components/blocks/*/schema.ts; zod validates on render. Order: hero, signature (or interim steps), proof (Brand only), process, scope, principles, faq, others, closing. Formal Dutch (u), no prices, example data labelled.",
+      "layouts": {
+        "layout_ss_service_hero": {
+          "key": "layout_ss_service_hero",
+          "name": "service_hero",
+          "label": "Service hero",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_ss_service_hero_service",
+              "name": "service",
+              "type": "select",
+              "label": "Service",
+              "choices": {
+                "brand": "brand",
+                "acquisition": "acquisition",
+                "operations": "operations",
+                "invoicing": "invoicing",
+                "reporting": "reporting"
+              },
+              "instructions": "Picks the module glyph."
+            },
+            {
+              "key": "field_ss_service_hero_eyebrow",
+              "name": "eyebrow",
+              "type": "text",
+              "label": "Eyebrow"
+            },
+            {
+              "key": "field_ss_service_hero_heading_parts",
+              "name": "heading_parts",
+              "type": "repeater",
+              "label": "Heading parts",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_service_hero_heading_parts_text",
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text",
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_service_hero_heading_parts_accent",
+                  "name": "accent",
+                  "type": "true_false",
+                  "label": "Accent",
+                  "ui": 1
+                }
+              ],
+              "min": 1,
+              "instructions": "The heading in parts; `accent` sets the second tone."
+            },
+            {
+              "key": "field_ss_service_hero_body",
+              "name": "body",
+              "type": "textarea",
+              "label": "Body",
+              "rows": 3,
+              "required": 1
+            },
+            {
+              "key": "field_ss_service_hero_primary_cta",
+              "name": "primary_cta",
+              "type": "link",
+              "label": "Primary cta",
+              "return_format": "array",
+              "required": 1
+            },
+            {
+              "key": "field_ss_service_hero_secondary_cta",
+              "name": "secondary_cta",
+              "type": "link",
+              "label": "Secondary cta",
+              "return_format": "array"
+            },
+            {
+              "key": "field_ss_service_hero_story_labels",
+              "name": "story_labels",
+              "type": "group",
+              "label": "Story labels",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_service_hero_story_labels_example",
+                  "name": "example",
+                  "type": "text",
+                  "label": "Example"
+                },
+                {
+                  "key": "field_ss_service_hero_story_labels_pause",
+                  "name": "pause",
+                  "type": "text",
+                  "label": "Pause"
+                },
+                {
+                  "key": "field_ss_service_hero_story_labels_play",
+                  "name": "play",
+                  "type": "text",
+                  "label": "Play"
+                },
+                {
+                  "key": "field_ss_service_hero_story_labels_replay",
+                  "name": "replay",
+                  "type": "text",
+                  "label": "Replay"
+                },
+                {
+                  "key": "field_ss_service_hero_story_labels_steps",
+                  "name": "steps",
+                  "type": "text",
+                  "label": "Steps"
+                }
+              ]
+            },
+            {
+              "key": "field_ss_service_hero_moment",
+              "name": "moment",
+              "type": "clone",
+              "label": "Moment",
+              "clone": [
+                "field_hm_moment"
+              ],
+              "display": "seamless",
+              "instructions": "The service's moment; see group_home_service_moment.json."
+            }
+          ]
+        },
+        "layout_ss_service_signature": {
+          "key": "layout_ss_service_signature",
+          "name": "service_signature",
+          "label": "Service signature",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_ss_service_signature_anchor",
+              "name": "anchor",
+              "type": "text",
+              "label": "Anchor"
+            },
+            {
+              "key": "field_ss_service_signature_heading_parts",
+              "name": "heading_parts",
+              "type": "repeater",
+              "label": "Heading parts",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_service_signature_heading_parts_text",
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text",
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_service_signature_heading_parts_accent",
+                  "name": "accent",
+                  "type": "true_false",
+                  "label": "Accent",
+                  "ui": 1
+                }
+              ],
+              "min": 1,
+              "instructions": "The heading in parts; `accent` sets the second tone."
+            },
+            {
+              "key": "field_ss_service_signature_points",
+              "name": "points",
+              "type": "repeater",
+              "label": "Points",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_service_signature_points_title",
+                  "name": "title",
+                  "type": "text",
+                  "label": "Title",
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_service_signature_points_text",
+                  "name": "text",
+                  "type": "textarea",
+                  "label": "Text",
+                  "rows": 3,
+                  "required": 1
+                }
+              ],
+              "min": 2,
+              "max": 4
+            },
+            {
+              "key": "field_ss_service_signature_component",
+              "name": "component",
+              "type": "flexible_content",
+              "label": "Component",
+              "max": 1,
+              "layouts": {
+                "layout_ss_reporting": {
+                  "key": "layout_ss_reporting",
+                  "name": "reporting",
+                  "label": "Reporting · traceable dashboard",
+                  "display": "block",
+                  "sub_fields": [
+                    {
+                      "key": "field_ss_service_signature_reporting_labels",
+                      "name": "labels",
+                      "type": "group",
+                      "label": "Labels",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_reporting_labels_example",
+                          "name": "example",
+                          "type": "text",
+                          "label": "Example"
+                        },
+                        {
+                          "key": "field_ss_service_signature_reporting_labels_hint",
+                          "name": "hint",
+                          "type": "text",
+                          "label": "Hint"
+                        },
+                        {
+                          "key": "field_ss_service_signature_reporting_labels_lineage",
+                          "name": "lineage",
+                          "type": "text",
+                          "label": "Lineage"
+                        },
+                        {
+                          "key": "field_ss_service_signature_reporting_labels_synced",
+                          "name": "synced",
+                          "type": "text",
+                          "label": "Synced"
+                        },
+                        {
+                          "key": "field_ss_service_signature_reporting_labels_formula",
+                          "name": "formula",
+                          "type": "text",
+                          "label": "Formula"
+                        },
+                        {
+                          "key": "field_ss_service_signature_reporting_labels_sources",
+                          "name": "sources",
+                          "type": "text",
+                          "label": "Sources"
+                        },
+                        {
+                          "key": "field_ss_service_signature_reporting_labels_from",
+                          "name": "from",
+                          "type": "text",
+                          "label": "From"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "field_ss_service_signature_reporting_dashboard",
+                      "name": "dashboard",
+                      "type": "group",
+                      "label": "Dashboard",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_reporting_dashboard_tool",
+                          "name": "tool",
+                          "type": "text",
+                          "label": "Tool"
+                        },
+                        {
+                          "key": "field_ss_service_signature_reporting_dashboard_title",
+                          "name": "title",
+                          "type": "text",
+                          "label": "Title"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "field_ss_service_signature_reporting_sources",
+                      "name": "sources",
+                      "type": "repeater",
+                      "label": "Sources",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_reporting_sources_id",
+                          "name": "id",
+                          "type": "text",
+                          "label": "Id",
+                          "required": 1,
+                          "instructions": "Short id, referenced by the figures."
+                        },
+                        {
+                          "key": "field_ss_service_signature_reporting_sources_tool",
+                          "name": "tool",
+                          "type": "text",
+                          "label": "Tool",
+                          "required": 1
+                        },
+                        {
+                          "key": "field_ss_service_signature_reporting_sources_what",
+                          "name": "what",
+                          "type": "text",
+                          "label": "What"
+                        }
+                      ],
+                      "min": 3,
+                      "max": 3
+                    },
+                    {
+                      "key": "field_ss_service_signature_reporting_kpis",
+                      "name": "kpis",
+                      "type": "repeater",
+                      "label": "Kpis",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_reporting_kpis_id",
+                          "name": "id",
+                          "type": "text",
+                          "label": "Id",
+                          "required": 1
+                        },
+                        {
+                          "key": "field_ss_service_signature_reporting_kpis_label",
+                          "name": "label",
+                          "type": "text",
+                          "label": "Label",
+                          "required": 1
+                        },
+                        {
+                          "key": "field_ss_service_signature_reporting_kpis_value",
+                          "name": "value",
+                          "type": "text",
+                          "label": "Value",
+                          "required": 1
+                        },
+                        {
+                          "key": "field_ss_service_signature_reporting_kpis_note",
+                          "name": "note",
+                          "type": "text",
+                          "label": "Note"
+                        },
+                        {
+                          "key": "field_ss_service_signature_reporting_kpis_sources",
+                          "name": "sources",
+                          "type": "repeater",
+                          "label": "Sources",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_reporting_kpis_sources_source",
+                              "name": "source",
+                              "type": "text",
+                              "label": "Source",
+                              "required": 1,
+                              "instructions": "A source id from above."
+                            },
+                            {
+                              "key": "field_ss_service_signature_reporting_kpis_sources_dataset",
+                              "name": "dataset",
+                              "type": "text",
+                              "label": "Dataset"
+                            },
+                            {
+                              "key": "field_ss_service_signature_reporting_kpis_sources_records",
+                              "name": "records",
+                              "type": "text",
+                              "label": "Records"
+                            },
+                            {
+                              "key": "field_ss_service_signature_reporting_kpis_sources_synced",
+                              "name": "synced",
+                              "type": "text",
+                              "label": "Synced",
+                              "instructions": "hh:mm or hh:mm:ss"
+                            }
+                          ],
+                          "min": 1,
+                          "max": 3
+                        },
+                        {
+                          "key": "field_ss_service_signature_reporting_kpis_formula",
+                          "name": "formula",
+                          "type": "text",
+                          "label": "Formula",
+                          "instructions": "Leave empty when the figure is read straight from its source."
+                        }
+                      ],
+                      "min": 4,
+                      "max": 4
+                    },
+                    {
+                      "key": "field_ss_service_signature_reporting_initial",
+                      "name": "initial",
+                      "type": "text",
+                      "label": "Initial",
+                      "instructions": "Id of the figure selected first."
+                    }
+                  ]
+                },
+                "layout_ss_operations": {
+                  "key": "layout_ss_operations",
+                  "name": "operations",
+                  "label": "Operations · dossier per client",
+                  "display": "block",
+                  "sub_fields": [
+                    {
+                      "key": "field_ss_service_signature_operations_labels",
+                      "name": "labels",
+                      "type": "group",
+                      "label": "Labels",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_operations_labels_example",
+                          "name": "example",
+                          "type": "text",
+                          "label": "Example"
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_labels_hint",
+                          "name": "hint",
+                          "type": "text",
+                          "label": "Hint"
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_labels_client",
+                          "name": "client",
+                          "type": "text",
+                          "label": "Client"
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_labels_period",
+                          "name": "period",
+                          "type": "text",
+                          "label": "Period"
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_labels_checklist",
+                          "name": "checklist",
+                          "type": "text",
+                          "label": "Checklist"
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_labels_progress",
+                          "name": "progress",
+                          "type": "text",
+                          "label": "Progress",
+                          "instructions": "Use {n} and {total}."
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_labels_route",
+                          "name": "route",
+                          "type": "text",
+                          "label": "Route"
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_labels_received",
+                          "name": "received",
+                          "type": "text",
+                          "label": "Received"
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_labels_missing",
+                          "name": "missing",
+                          "type": "text",
+                          "label": "Missing"
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_labels_inbox",
+                          "name": "inbox",
+                          "type": "text",
+                          "label": "Inbox"
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_labels_check",
+                          "name": "check",
+                          "type": "text",
+                          "label": "Check"
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_labels_matched",
+                          "name": "matched",
+                          "type": "text",
+                          "label": "Matched"
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_labels_planned",
+                          "name": "planned",
+                          "type": "text",
+                          "label": "Planned"
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_labels_steps",
+                          "name": "steps",
+                          "type": "group",
+                          "label": "Steps",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_operations_labels_steps_received",
+                              "name": "received",
+                              "type": "text",
+                              "label": "Received"
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_labels_steps_checked",
+                              "name": "checked",
+                              "type": "text",
+                              "label": "Checked"
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_labels_steps_named",
+                              "name": "named",
+                              "type": "text",
+                              "label": "Named"
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_labels_steps_filed",
+                              "name": "filed",
+                              "type": "text",
+                              "label": "Filed"
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_labels_steps_requested",
+                              "name": "requested",
+                              "type": "text",
+                              "label": "Requested"
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_labels_steps_day3",
+                              "name": "day3",
+                              "type": "text",
+                              "label": "Day3"
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_labels_steps_day7",
+                              "name": "day7",
+                              "type": "text",
+                              "label": "Day7"
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_labels_steps_waiting",
+                              "name": "waiting",
+                              "type": "text",
+                              "label": "Waiting"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_labels_channels",
+                          "name": "channels",
+                          "type": "group",
+                          "label": "Channels",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_operations_labels_channels_portal",
+                              "name": "portal",
+                              "type": "text",
+                              "label": "Portal"
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_labels_channels_email",
+                              "name": "email",
+                              "type": "text",
+                              "label": "Email"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_labels_sign",
+                          "name": "sign",
+                          "type": "group",
+                          "label": "Sign",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_operations_labels_sign_waiting",
+                              "name": "waiting",
+                              "type": "text",
+                              "label": "Waiting"
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_labels_sign_ready",
+                              "name": "ready",
+                              "type": "text",
+                              "label": "Ready"
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_labels_sign_signed",
+                              "name": "signed",
+                              "type": "text",
+                              "label": "Signed"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "field_ss_service_signature_operations_items",
+                      "name": "items",
+                      "type": "repeater",
+                      "label": "Items",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_operations_items_id",
+                          "name": "id",
+                          "type": "text",
+                          "label": "Id",
+                          "required": 1
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_items_label",
+                          "name": "label",
+                          "type": "text",
+                          "label": "Label",
+                          "required": 1
+                        }
+                      ],
+                      "min": 5,
+                      "max": 5,
+                      "instructions": "The period checklist, in drawer order."
+                    },
+                    {
+                      "key": "field_ss_service_signature_operations_clients",
+                      "name": "clients",
+                      "type": "repeater",
+                      "label": "Clients",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_operations_clients_id",
+                          "name": "id",
+                          "type": "text",
+                          "label": "Id",
+                          "required": 1
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_clients_name",
+                          "name": "name",
+                          "type": "text",
+                          "label": "Name",
+                          "required": 1
+                        }
+                      ],
+                      "min": 2,
+                      "max": 4
+                    },
+                    {
+                      "key": "field_ss_service_signature_operations_periods",
+                      "name": "periods",
+                      "type": "repeater",
+                      "label": "Periods",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_operations_periods_id",
+                          "name": "id",
+                          "type": "text",
+                          "label": "Id",
+                          "required": 1
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_periods_label",
+                          "name": "label",
+                          "type": "text",
+                          "label": "Label",
+                          "required": 1
+                        }
+                      ],
+                      "min": 2,
+                      "max": 3
+                    },
+                    {
+                      "key": "field_ss_service_signature_operations_dossiers",
+                      "name": "dossiers",
+                      "type": "repeater",
+                      "label": "Dossiers",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_operations_dossiers_client",
+                          "name": "client",
+                          "type": "text",
+                          "label": "Client",
+                          "required": 1,
+                          "instructions": "A client id."
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_dossiers_period",
+                          "name": "period",
+                          "type": "text",
+                          "label": "Period",
+                          "required": 1,
+                          "instructions": "A period id."
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_dossiers_deadline",
+                          "name": "deadline",
+                          "type": "text",
+                          "label": "Deadline"
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_dossiers_signoff",
+                          "name": "signoff",
+                          "type": "group",
+                          "label": "Signoff",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_operations_dossiers_signoff_state",
+                              "name": "state",
+                              "type": "select",
+                              "label": "State",
+                              "choices": {
+                                "waiting": "waiting",
+                                "ready": "ready",
+                                "signed": "signed"
+                              }
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_dossiers_signoff_text",
+                              "name": "text",
+                              "type": "text",
+                              "label": "Text"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_dossiers_docs",
+                          "name": "docs",
+                          "type": "repeater",
+                          "label": "Docs",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_operations_dossiers_docs_item",
+                              "name": "item",
+                              "type": "text",
+                              "label": "Item",
+                              "required": 1,
+                              "instructions": "An item id; same order as items."
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_dossiers_docs_status",
+                              "name": "status",
+                              "type": "select",
+                              "label": "Status",
+                              "choices": {
+                                "received": "received",
+                                "missing": "missing"
+                              }
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_dossiers_docs_via",
+                              "name": "via",
+                              "type": "select",
+                              "label": "Via",
+                              "choices": {
+                                "portal": "portal",
+                                "email": "email"
+                              },
+                              "instructions": "Received only."
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_dossiers_docs_at",
+                              "name": "at",
+                              "type": "text",
+                              "label": "At"
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_dossiers_docs_pages",
+                              "name": "pages",
+                              "type": "text",
+                              "label": "Pages"
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_dossiers_docs_name",
+                              "name": "name",
+                              "type": "text",
+                              "label": "Name",
+                              "instructions": "The filed name."
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_dossiers_docs_folder",
+                              "name": "folder",
+                              "type": "text",
+                              "label": "Folder"
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_dossiers_docs_requested",
+                              "name": "requested",
+                              "type": "text",
+                              "label": "Requested",
+                              "instructions": "Missing only."
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_dossiers_docs_day3",
+                              "name": "day3",
+                              "type": "text",
+                              "label": "Day3"
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_dossiers_docs_day7",
+                              "name": "day7",
+                              "type": "text",
+                              "label": "Day7"
+                            },
+                            {
+                              "key": "field_ss_service_signature_operations_dossiers_docs_sent",
+                              "name": "sent",
+                              "type": "number",
+                              "label": "Sent",
+                              "min": 0,
+                              "max": 2,
+                              "instructions": "Reminders sent so far."
+                            }
+                          ],
+                          "min": 5,
+                          "max": 5
+                        }
+                      ],
+                      "min": 1,
+                      "instructions": "One dossier for every client × period."
+                    },
+                    {
+                      "key": "field_ss_service_signature_operations_initial",
+                      "name": "initial",
+                      "type": "group",
+                      "label": "Initial",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_operations_initial_client",
+                          "name": "client",
+                          "type": "text",
+                          "label": "Client"
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_initial_period",
+                          "name": "period",
+                          "type": "text",
+                          "label": "Period"
+                        },
+                        {
+                          "key": "field_ss_service_signature_operations_initial_item",
+                          "name": "item",
+                          "type": "text",
+                          "label": "Item"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "layout_ss_brand": {
+                  "key": "layout_ss_brand",
+                  "name": "brand",
+                  "label": "Brand · brand guide → components → pages",
+                  "display": "block",
+                  "sub_fields": [
+                    {
+                      "key": "field_ss_service_signature_brand_labels",
+                      "name": "labels",
+                      "type": "group",
+                      "label": "Labels",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_brand_labels_example",
+                          "name": "example",
+                          "type": "text",
+                          "label": "Example"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_hint",
+                          "name": "hint",
+                          "type": "text",
+                          "label": "Hint"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_mode",
+                          "name": "mode",
+                          "type": "text",
+                          "label": "Mode"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_build",
+                          "name": "build",
+                          "type": "text",
+                          "label": "Build"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_proof",
+                          "name": "proof",
+                          "type": "text",
+                          "label": "Proof"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_page",
+                          "name": "page",
+                          "type": "text",
+                          "label": "Page"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_device",
+                          "name": "device",
+                          "type": "text",
+                          "label": "Device"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_devices",
+                          "name": "devices",
+                          "type": "group",
+                          "label": "Devices",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_brand_labels_devices_desktop",
+                              "name": "desktop",
+                              "type": "text",
+                              "label": "Desktop"
+                            },
+                            {
+                              "key": "field_ss_service_signature_brand_labels_devices_phone",
+                              "name": "phone",
+                              "type": "text",
+                              "label": "Phone"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_explode",
+                          "name": "explode",
+                          "type": "text",
+                          "label": "Explode"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_assemble",
+                          "name": "assemble",
+                          "type": "text",
+                          "label": "Assemble"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_madeOf",
+                          "name": "madeOf",
+                          "type": "text",
+                          "label": "Madeof"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_guide",
+                          "name": "guide",
+                          "type": "text",
+                          "label": "Guide"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_parts",
+                          "name": "parts",
+                          "type": "text",
+                          "label": "Parts"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_summary",
+                          "name": "summary",
+                          "type": "text",
+                          "label": "Summary",
+                          "instructions": "Placeholders {page}, {device}, {n}."
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_layers",
+                          "name": "layers",
+                          "type": "group",
+                          "label": "Layers",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_brand_labels_layers_guide",
+                              "name": "guide",
+                              "type": "text",
+                              "label": "Guide"
+                            },
+                            {
+                              "key": "field_ss_service_signature_brand_labels_layers_parts",
+                              "name": "parts",
+                              "type": "text",
+                              "label": "Parts"
+                            },
+                            {
+                              "key": "field_ss_service_signature_brand_labels_layers_page",
+                              "name": "page",
+                              "type": "text",
+                              "label": "Page"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_roles",
+                          "name": "roles",
+                          "type": "group",
+                          "label": "Roles",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_brand_labels_roles_mark",
+                              "name": "mark",
+                              "type": "text",
+                              "label": "Mark"
+                            },
+                            {
+                              "key": "field_ss_service_signature_brand_labels_roles_display",
+                              "name": "display",
+                              "type": "text",
+                              "label": "Display"
+                            },
+                            {
+                              "key": "field_ss_service_signature_brand_labels_roles_body",
+                              "name": "body",
+                              "type": "text",
+                              "label": "Body"
+                            },
+                            {
+                              "key": "field_ss_service_signature_brand_labels_roles_colour",
+                              "name": "colour",
+                              "type": "text",
+                              "label": "Colour"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_proofHint",
+                          "name": "proofHint",
+                          "type": "text",
+                          "label": "Proofhint"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_proofNote",
+                          "name": "proofNote",
+                          "type": "text",
+                          "label": "Proofnote"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_source",
+                          "name": "source",
+                          "type": "text",
+                          "label": "Source"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_usedIn",
+                          "name": "usedIn",
+                          "type": "text",
+                          "label": "usedIn"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_labels_pickToken",
+                          "name": "pickToken",
+                          "type": "text",
+                          "label": "pickToken"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "field_ss_service_signature_brand_brand",
+                      "name": "brand",
+                      "type": "group",
+                      "label": "Brand",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_brand_brand_firm",
+                          "name": "firm",
+                          "type": "text",
+                          "label": "Firm"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_brand_mark",
+                          "name": "mark",
+                          "type": "text",
+                          "label": "Mark"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_brand_tagline",
+                          "name": "tagline",
+                          "type": "text",
+                          "label": "Tagline"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_brand_url",
+                          "name": "url",
+                          "type": "text",
+                          "label": "Url"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_brand_nav",
+                          "name": "nav",
+                          "type": "repeater",
+                          "label": "Nav",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_brand_brand_nav_label",
+                              "name": "label",
+                              "type": "text",
+                              "label": "Label"
+                            }
+                          ],
+                          "min": 3,
+                          "max": 3,
+                          "instructions": "Exactly 3 menu items."
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_brand_type",
+                          "name": "type",
+                          "type": "group",
+                          "label": "Type",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_brand_brand_type_display",
+                              "name": "display",
+                              "type": "text",
+                              "label": "Display"
+                            },
+                            {
+                              "key": "field_ss_service_signature_brand_brand_type_body",
+                              "name": "body",
+                              "type": "text",
+                              "label": "Body"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_brand_colours",
+                          "name": "colours",
+                          "type": "repeater",
+                          "label": "Colours",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_brand_brand_colours_id",
+                              "name": "id",
+                              "type": "select",
+                              "label": "Id",
+                              "choices": {
+                                "ink": "Ink",
+                                "accent": "Accent",
+                                "tint": "Tint"
+                              }
+                            },
+                            {
+                              "key": "field_ss_service_signature_brand_brand_colours_name",
+                              "name": "name",
+                              "type": "text",
+                              "label": "Name"
+                            },
+                            {
+                              "key": "field_ss_service_signature_brand_brand_colours_hex",
+                              "name": "hex",
+                              "type": "text",
+                              "label": "Hex",
+                              "instructions": "#RRGGBB"
+                            }
+                          ],
+                          "min": 3,
+                          "max": 3
+                        }
+                      ],
+                      "instructions": "The fictional example brand (labelled Voorbeeld)."
+                    },
+                    {
+                      "key": "field_ss_service_signature_brand_components",
+                      "name": "components",
+                      "type": "repeater",
+                      "label": "Components",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_brand_components_id",
+                          "name": "id",
+                          "type": "select",
+                          "label": "Id",
+                          "choices": {
+                            "header": "header",
+                            "crumb": "crumb",
+                            "hero": "hero",
+                            "button": "button",
+                            "cards": "cards",
+                            "list": "list",
+                            "form": "form",
+                            "aside": "aside",
+                            "footer": "footer"
+                          }
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_components_label",
+                          "name": "label",
+                          "type": "text",
+                          "label": "Label"
+                        }
+                      ],
+                      "min": 9,
+                      "max": 9,
+                      "instructions": "One label per component; layouts live in code."
+                    },
+                    {
+                      "key": "field_ss_service_signature_brand_pages",
+                      "name": "pages",
+                      "type": "repeater",
+                      "label": "Pages",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_brand_pages_id",
+                          "name": "id",
+                          "type": "select",
+                          "label": "Id",
+                          "choices": {
+                            "home": "Home",
+                            "service": "Service",
+                            "contact": "Contact"
+                          }
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_pages_label",
+                          "name": "label",
+                          "type": "text",
+                          "label": "Label"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_pages_path",
+                          "name": "path",
+                          "type": "text",
+                          "label": "Path",
+                          "instructions": "May be empty (home)."
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_pages_crumb",
+                          "name": "crumb",
+                          "type": "text",
+                          "label": "Crumb"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_pages_heading",
+                          "name": "heading",
+                          "type": "text",
+                          "label": "Heading"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_pages_body",
+                          "name": "body",
+                          "type": "textarea",
+                          "label": "Body",
+                          "rows": 3
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_pages_button",
+                          "name": "button",
+                          "type": "text",
+                          "label": "Button"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_pages_items",
+                          "name": "items",
+                          "type": "repeater",
+                          "label": "Items",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_brand_pages_items_title",
+                              "name": "title",
+                              "type": "text",
+                              "label": "Title"
+                            },
+                            {
+                              "key": "field_ss_service_signature_brand_pages_items_text",
+                              "name": "text",
+                              "type": "text",
+                              "label": "Text"
+                            }
+                          ],
+                          "min": 3,
+                          "max": 3
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_pages_aside",
+                          "name": "aside",
+                          "type": "group",
+                          "label": "Aside",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_brand_pages_aside_label",
+                              "name": "label",
+                              "type": "text",
+                              "label": "Label"
+                            },
+                            {
+                              "key": "field_ss_service_signature_brand_pages_aside_title",
+                              "name": "title",
+                              "type": "text",
+                              "label": "Title"
+                            },
+                            {
+                              "key": "field_ss_service_signature_brand_pages_aside_text",
+                              "name": "text",
+                              "type": "text",
+                              "label": "Text"
+                            }
+                          ]
+                        }
+                      ],
+                      "min": 3,
+                      "max": 3
+                    },
+                    {
+                      "key": "field_ss_service_signature_brand_proof",
+                      "name": "proof",
+                      "type": "group",
+                      "label": "Proof",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_brand_proof_client",
+                          "name": "client",
+                          "type": "text",
+                          "label": "Client"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_proof_live",
+                          "name": "live",
+                          "type": "text",
+                          "label": "Live"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_proof_link",
+                          "name": "link",
+                          "type": "link",
+                          "label": "Link",
+                          "return_format": "array"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_proof_site",
+                          "name": "site",
+                          "type": "link",
+                          "label": "Site",
+                          "return_format": "array"
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_proof_pages",
+                          "name": "pages",
+                          "type": "repeater",
+                          "label": "Pages",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_brand_proof_pages_page",
+                              "name": "page",
+                              "type": "select",
+                              "label": "Page",
+                              "choices": {
+                                "home": "Home",
+                                "service": "Service",
+                                "contact": "Contact"
+                              }
+                            },
+                            {
+                              "key": "field_ss_service_signature_brand_proof_pages_url",
+                              "name": "url",
+                              "type": "text",
+                              "label": "Url"
+                            },
+                            {
+                              "key": "field_ss_service_signature_brand_proof_pages_images",
+                              "name": "images",
+                              "type": "group",
+                              "label": "Images",
+                              "layout": "block",
+                              "sub_fields": [
+                                {
+                                  "key": "field_ss_service_signature_brand_proof_pages_images_desktop",
+                                  "name": "desktop",
+                                  "type": "image",
+                                  "label": "Desktop",
+                                  "return_format": "array"
+                                },
+                                {
+                                  "key": "field_ss_service_signature_brand_proof_pages_images_phone",
+                                  "name": "phone",
+                                  "type": "image",
+                                  "label": "Phone",
+                                  "return_format": "array"
+                                }
+                              ]
+                            },
+                            {
+                              "key": "field_ss_service_signature_brand_proof_pages_facts",
+                              "name": "facts",
+                              "type": "repeater",
+                              "label": "Facts",
+                              "layout": "block",
+                              "sub_fields": [
+                                {
+                                  "key": "field_ss_service_signature_brand_proof_pages_facts_value",
+                                  "name": "value",
+                                  "type": "text",
+                                  "label": "Value"
+                                },
+                                {
+                                  "key": "field_ss_service_signature_brand_proof_pages_facts_label",
+                                  "name": "label",
+                                  "type": "text",
+                                  "label": "Label"
+                                },
+                                {
+                                  "key": "field_ss_service_signature_brand_proof_pages_facts_source",
+                                  "name": "source",
+                                  "type": "text",
+                                  "label": "Source"
+                                },
+                                {
+                                  "key": "field_ss_service_signature_brand_proof_pages_facts_device",
+                                  "name": "device",
+                                  "type": "select",
+                                  "label": "Device",
+                                  "choices": {
+                                    "all": "All",
+                                    "desktop": "Desktop",
+                                    "phone": "Phone"
+                                  }
+                                }
+                              ],
+                              "min": 1,
+                              "max": 5,
+                              "instructions": "Only sourced numbers."
+                            }
+                          ],
+                          "min": 3,
+                          "max": 3
+                        }
+                      ],
+                      "instructions": "The real case (Energielabel Breda): screenshots and sourced facts per page."
+                    },
+                    {
+                      "key": "field_ss_service_signature_brand_initial",
+                      "name": "initial",
+                      "type": "group",
+                      "label": "Initial",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_brand_initial_page",
+                          "name": "page",
+                          "type": "select",
+                          "label": "Id",
+                          "choices": {
+                            "home": "Home",
+                            "service": "Service",
+                            "contact": "Contact"
+                          }
+                        },
+                        {
+                          "key": "field_ss_service_signature_brand_initial_device",
+                          "name": "device",
+                          "type": "select",
+                          "label": "Device",
+                          "choices": {
+                            "desktop": "Desktop",
+                            "phone": "Phone"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "layout_ss_acquisition": {
+                  "key": "layout_ss_acquisition",
+                  "name": "acquisition",
+                  "label": "Acquisition · scored pipeline",
+                  "display": "block",
+                  "sub_fields": [
+                    {
+                      "key": "field_ss_service_signature_acquisition_labels",
+                      "name": "labels",
+                      "type": "group",
+                      "label": "Labels",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_example",
+                          "name": "example",
+                          "type": "text",
+                          "label": "Example"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_hint",
+                          "name": "hint",
+                          "type": "text",
+                          "label": "Hint"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_icp",
+                          "name": "icp",
+                          "type": "text",
+                          "label": "Icp"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_signals",
+                          "name": "signals",
+                          "type": "text",
+                          "label": "Signals"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_fits",
+                          "name": "fits",
+                          "type": "text",
+                          "label": "Fits"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_noFit",
+                          "name": "noFit",
+                          "type": "text",
+                          "label": "Nofit"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_score",
+                          "name": "score",
+                          "type": "text",
+                          "label": "Score",
+                          "instructions": "Use {n}."
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_dimensions",
+                          "name": "dimensions",
+                          "type": "group",
+                          "label": "Dimensions",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_acquisition_labels_dimensions_sector",
+                              "name": "sector",
+                              "type": "text",
+                              "label": "Sector"
+                            },
+                            {
+                              "key": "field_ss_service_signature_acquisition_labels_dimensions_size",
+                              "name": "size",
+                              "type": "text",
+                              "label": "Size"
+                            },
+                            {
+                              "key": "field_ss_service_signature_acquisition_labels_dimensions_region",
+                              "name": "region",
+                              "type": "text",
+                              "label": "Region"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_draft",
+                          "name": "draft",
+                          "type": "text",
+                          "label": "Draft"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_to",
+                          "name": "to",
+                          "type": "text",
+                          "label": "To"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_subject",
+                          "name": "subject",
+                          "type": "text",
+                          "label": "Subject"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_waiting",
+                          "name": "waiting",
+                          "type": "text",
+                          "label": "Waiting",
+                          "instructions": "Use {name}."
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_approve",
+                          "name": "approve",
+                          "type": "text",
+                          "label": "Approve"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_approved",
+                          "name": "approved",
+                          "type": "text",
+                          "label": "Approved",
+                          "instructions": "Use {name} and {time}."
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_noDraft",
+                          "name": "noDraft",
+                          "type": "text",
+                          "label": "Nodraft"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_week",
+                          "name": "week",
+                          "type": "text",
+                          "label": "Week"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_contacted",
+                          "name": "contacted",
+                          "type": "text",
+                          "label": "Contacted"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_replied",
+                          "name": "replied",
+                          "type": "text",
+                          "label": "Replied"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_booked",
+                          "name": "booked",
+                          "type": "text",
+                          "label": "Booked"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_labels_pending",
+                          "name": "pending",
+                          "type": "text",
+                          "label": "Pending",
+                          "instructions": "Use {n}."
+                        }
+                      ]
+                    },
+                    {
+                      "key": "field_ss_service_signature_acquisition_tool",
+                      "name": "tool",
+                      "type": "text",
+                      "label": "Tool"
+                    },
+                    {
+                      "key": "field_ss_service_signature_acquisition_approver",
+                      "name": "approver",
+                      "type": "text",
+                      "label": "Approver"
+                    },
+                    {
+                      "key": "field_ss_service_signature_acquisition_options",
+                      "name": "options",
+                      "type": "group",
+                      "label": "Options",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_acquisition_options_sector",
+                          "name": "sector",
+                          "type": "repeater",
+                          "label": "Sector",
+                          "layout": "block",
+                          "min": 2,
+                          "max": 3,
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_acquisition_options_sector_id",
+                              "name": "id",
+                              "type": "text",
+                              "label": "Id"
+                            },
+                            {
+                              "key": "field_ss_service_signature_acquisition_options_sector_label",
+                              "name": "label",
+                              "type": "text",
+                              "label": "Label"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_options_size",
+                          "name": "size",
+                          "type": "repeater",
+                          "label": "Size",
+                          "layout": "block",
+                          "min": 2,
+                          "max": 3,
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_acquisition_options_size_id",
+                              "name": "id",
+                              "type": "text",
+                              "label": "Id"
+                            },
+                            {
+                              "key": "field_ss_service_signature_acquisition_options_size_label",
+                              "name": "label",
+                              "type": "text",
+                              "label": "Label"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_options_region",
+                          "name": "region",
+                          "type": "repeater",
+                          "label": "Region",
+                          "layout": "block",
+                          "min": 2,
+                          "max": 3,
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_acquisition_options_region_id",
+                              "name": "id",
+                              "type": "text",
+                              "label": "Id"
+                            },
+                            {
+                              "key": "field_ss_service_signature_acquisition_options_region_label",
+                              "name": "label",
+                              "type": "text",
+                              "label": "Label"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "field_ss_service_signature_acquisition_firms",
+                      "name": "firms",
+                      "type": "repeater",
+                      "label": "Firms",
+                      "layout": "block",
+                      "min": 3,
+                      "max": 5,
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_acquisition_firms_id",
+                          "name": "id",
+                          "type": "text",
+                          "label": "Id"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_firms_name",
+                          "name": "name",
+                          "type": "text",
+                          "label": "Name"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_firms_contact",
+                          "name": "contact",
+                          "type": "text",
+                          "label": "Contact"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_firms_signal",
+                          "name": "signal",
+                          "type": "group",
+                          "label": "Signal",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_acquisition_firms_signal_type",
+                              "name": "type",
+                              "type": "text",
+                              "label": "Type"
+                            },
+                            {
+                              "key": "field_ss_service_signature_acquisition_firms_signal_text",
+                              "name": "text",
+                              "type": "text",
+                              "label": "Text"
+                            },
+                            {
+                              "key": "field_ss_service_signature_acquisition_firms_signal_when",
+                              "name": "when",
+                              "type": "text",
+                              "label": "When"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_firms_facts",
+                          "name": "facts",
+                          "type": "group",
+                          "label": "Facts",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_acquisition_firms_facts_sector",
+                              "name": "sector",
+                              "type": "group",
+                              "label": "Sector",
+                              "layout": "block",
+                              "sub_fields": [
+                                {
+                                  "key": "field_ss_service_signature_acquisition_firms_facts_sector_value",
+                                  "name": "value",
+                                  "type": "text",
+                                  "label": "Value"
+                                },
+                                {
+                                  "key": "field_ss_service_signature_acquisition_firms_facts_sector_matches",
+                                  "name": "matches",
+                                  "type": "repeater",
+                                  "label": "Matches",
+                                  "layout": "block",
+                                  "min": 1,
+                                  "max": 3,
+                                  "sub_fields": [
+                                    {
+                                      "key": "field_ss_service_signature_acquisition_firms_facts_sector_matches_id",
+                                      "name": "id",
+                                      "type": "text",
+                                      "label": "Id",
+                                      "instructions": "An option id this value satisfies."
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "key": "field_ss_service_signature_acquisition_firms_facts_size",
+                              "name": "size",
+                              "type": "group",
+                              "label": "Size",
+                              "layout": "block",
+                              "sub_fields": [
+                                {
+                                  "key": "field_ss_service_signature_acquisition_firms_facts_size_value",
+                                  "name": "value",
+                                  "type": "text",
+                                  "label": "Value"
+                                },
+                                {
+                                  "key": "field_ss_service_signature_acquisition_firms_facts_size_matches",
+                                  "name": "matches",
+                                  "type": "repeater",
+                                  "label": "Matches",
+                                  "layout": "block",
+                                  "min": 1,
+                                  "max": 3,
+                                  "sub_fields": [
+                                    {
+                                      "key": "field_ss_service_signature_acquisition_firms_facts_size_matches_id",
+                                      "name": "id",
+                                      "type": "text",
+                                      "label": "Id",
+                                      "instructions": "An option id this value satisfies."
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "key": "field_ss_service_signature_acquisition_firms_facts_region",
+                              "name": "region",
+                              "type": "group",
+                              "label": "Region",
+                              "layout": "block",
+                              "sub_fields": [
+                                {
+                                  "key": "field_ss_service_signature_acquisition_firms_facts_region_value",
+                                  "name": "value",
+                                  "type": "text",
+                                  "label": "Value"
+                                },
+                                {
+                                  "key": "field_ss_service_signature_acquisition_firms_facts_region_matches",
+                                  "name": "matches",
+                                  "type": "repeater",
+                                  "label": "Matches",
+                                  "layout": "block",
+                                  "min": 1,
+                                  "max": 3,
+                                  "sub_fields": [
+                                    {
+                                      "key": "field_ss_service_signature_acquisition_firms_facts_region_matches_id",
+                                      "name": "id",
+                                      "type": "text",
+                                      "label": "Id",
+                                      "instructions": "An option id this value satisfies."
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_firms_draft",
+                          "name": "draft",
+                          "type": "group",
+                          "label": "Draft",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_acquisition_firms_draft_subject",
+                              "name": "subject",
+                              "type": "text",
+                              "label": "Subject"
+                            },
+                            {
+                              "key": "field_ss_service_signature_acquisition_firms_draft_sent",
+                              "name": "sent",
+                              "type": "text",
+                              "label": "Sent"
+                            },
+                            {
+                              "key": "field_ss_service_signature_acquisition_firms_draft_lines",
+                              "name": "lines",
+                              "type": "repeater",
+                              "label": "Lines",
+                              "layout": "block",
+                              "min": 2,
+                              "max": 3,
+                              "sub_fields": [
+                                {
+                                  "key": "field_ss_service_signature_acquisition_firms_draft_lines_line",
+                                  "name": "line",
+                                  "type": "text",
+                                  "label": "Line"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "field_ss_service_signature_acquisition_week",
+                      "name": "week",
+                      "type": "group",
+                      "label": "Week",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_acquisition_week_contacted",
+                          "name": "contacted",
+                          "type": "number",
+                          "label": "Contacted"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_week_replied",
+                          "name": "replied",
+                          "type": "number",
+                          "label": "Replied"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_week_booked",
+                          "name": "booked",
+                          "type": "number",
+                          "label": "Booked"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "field_ss_service_signature_acquisition_initial",
+                      "name": "initial",
+                      "type": "group",
+                      "label": "Initial",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_acquisition_initial_sector",
+                          "name": "sector",
+                          "type": "text",
+                          "label": "Sector"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_initial_size",
+                          "name": "size",
+                          "type": "text",
+                          "label": "Size"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_initial_region",
+                          "name": "region",
+                          "type": "text",
+                          "label": "Region"
+                        },
+                        {
+                          "key": "field_ss_service_signature_acquisition_initial_firm",
+                          "name": "firm",
+                          "type": "text",
+                          "label": "Firm"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "layout_ss_invoicing": {
+                  "key": "layout_ss_invoicing",
+                  "name": "invoicing",
+                  "label": "Invoicing · hours to ledger",
+                  "display": "block",
+                  "sub_fields": [
+                    {
+                      "key": "field_ss_service_signature_invoicing_labels",
+                      "name": "labels",
+                      "type": "group",
+                      "label": "Labels",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_example",
+                          "name": "example",
+                          "type": "text",
+                          "label": "Example"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_hint",
+                          "name": "hint",
+                          "type": "text",
+                          "label": "Hint"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_client",
+                          "name": "client",
+                          "type": "text",
+                          "label": "Client"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_follow",
+                          "name": "follow",
+                          "type": "text",
+                          "label": "Follow"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_total",
+                          "name": "total",
+                          "type": "text",
+                          "label": "Total"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_subtotal",
+                          "name": "subtotal",
+                          "type": "text",
+                          "label": "Subtotal"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_vat",
+                          "name": "vat",
+                          "type": "text",
+                          "label": "Vat"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_sent",
+                          "name": "sent",
+                          "type": "text",
+                          "label": "Sent"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_due",
+                          "name": "due",
+                          "type": "text",
+                          "label": "Due"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_paid",
+                          "name": "paid",
+                          "type": "text",
+                          "label": "Paid"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_open",
+                          "name": "open",
+                          "type": "text",
+                          "label": "Open"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_overdue",
+                          "name": "overdue",
+                          "type": "text",
+                          "label": "Overdue"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_contains",
+                          "name": "contains",
+                          "type": "text",
+                          "label": "Contains"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_ofWhich",
+                          "name": "ofWhich",
+                          "type": "text",
+                          "label": "Ofwhich"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_linkSent",
+                          "name": "linkSent",
+                          "type": "text",
+                          "label": "Linksent"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_matched",
+                          "name": "matched",
+                          "type": "text",
+                          "label": "Matched",
+                          "instructions": "Use {n}."
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_booked",
+                          "name": "booked",
+                          "type": "text",
+                          "label": "Booked",
+                          "instructions": "Use {tool}."
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_stations",
+                          "name": "stations",
+                          "type": "group",
+                          "label": "Stations",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_invoicing_labels_stations_hours",
+                              "name": "hours",
+                              "type": "text",
+                              "label": "Hours"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_labels_stations_invoice",
+                              "name": "invoice",
+                              "type": "text",
+                              "label": "Invoice"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_labels_stations_payment",
+                              "name": "payment",
+                              "type": "text",
+                              "label": "Payment"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_labels_stations_ledger",
+                              "name": "ledger",
+                              "type": "text",
+                              "label": "Ledger"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_labels_reminders",
+                          "name": "reminders",
+                          "type": "group",
+                          "label": "Reminders",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_invoicing_labels_reminders_title",
+                              "name": "title",
+                              "type": "text",
+                              "label": "Title"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_labels_reminders_on",
+                              "name": "on",
+                              "type": "text",
+                              "label": "On"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_labels_reminders_off",
+                              "name": "off",
+                              "type": "text",
+                              "label": "Off"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_labels_reminders_sent",
+                              "name": "sent",
+                              "type": "text",
+                              "label": "Sent"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_labels_reminders_planned",
+                              "name": "planned",
+                              "type": "text",
+                              "label": "Planned"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_labels_reminders_skipped",
+                              "name": "skipped",
+                              "type": "text",
+                              "label": "Skipped"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_labels_reminders_offNote",
+                              "name": "offNote",
+                              "type": "text",
+                              "label": "Offnote"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_labels_reminders_toggle",
+                              "name": "toggle",
+                              "type": "text",
+                              "label": "Toggle",
+                              "instructions": "Use {client}."
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_labels_reminders_stopped",
+                              "name": "stopped",
+                              "type": "text",
+                              "label": "Stopped",
+                              "instructions": "Use {date}."
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "field_ss_service_signature_invoicing_tools",
+                      "name": "tools",
+                      "type": "group",
+                      "label": "Tools",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_invoicing_tools_hours",
+                          "name": "hours",
+                          "type": "text",
+                          "label": "Hours"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_tools_books",
+                          "name": "books",
+                          "type": "text",
+                          "label": "Books"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_tools_pay",
+                          "name": "pay",
+                          "type": "text",
+                          "label": "Pay"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "field_ss_service_signature_invoicing_clients",
+                      "name": "clients",
+                      "type": "repeater",
+                      "label": "Clients",
+                      "layout": "block",
+                      "min": 2,
+                      "max": 3,
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_invoicing_clients_id",
+                          "name": "id",
+                          "type": "text",
+                          "label": "Id"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_clients_name",
+                          "name": "name",
+                          "type": "text",
+                          "label": "Name"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_clients_period",
+                          "name": "period",
+                          "type": "text",
+                          "label": "Period"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_clients_lines",
+                          "name": "lines",
+                          "type": "repeater",
+                          "label": "Lines",
+                          "layout": "block",
+                          "min": 2,
+                          "max": 4,
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_lines_who",
+                              "name": "who",
+                              "type": "text",
+                              "label": "Who"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_lines_what",
+                              "name": "what",
+                              "type": "text",
+                              "label": "What"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_lines_hours",
+                              "name": "hours",
+                              "type": "text",
+                              "label": "Hours"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_lines_rate",
+                              "name": "rate",
+                              "type": "text",
+                              "label": "Rate"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_lines_amount",
+                              "name": "amount",
+                              "type": "text",
+                              "label": "Amount"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_clients_hours_total",
+                          "name": "hours_total",
+                          "type": "text",
+                          "label": "Hours total"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_clients_invoice",
+                          "name": "invoice",
+                          "type": "group",
+                          "label": "Invoice",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_invoice_number",
+                              "name": "number",
+                              "type": "text",
+                              "label": "Number"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_invoice_sent",
+                              "name": "sent",
+                              "type": "text",
+                              "label": "Sent"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_invoice_due",
+                              "name": "due",
+                              "type": "text",
+                              "label": "Due"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_invoice_subtotal",
+                              "name": "subtotal",
+                              "type": "text",
+                              "label": "Subtotal"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_invoice_vat",
+                              "name": "vat",
+                              "type": "text",
+                              "label": "Vat"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_invoice_total",
+                              "name": "total",
+                              "type": "text",
+                              "label": "Total"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_clients_payment",
+                          "name": "payment",
+                          "type": "group",
+                          "label": "Payment",
+                          "layout": "block",
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_payment_state",
+                              "name": "state",
+                              "type": "select",
+                              "label": "State",
+                              "choices": {
+                                "paid": "paid",
+                                "open": "open"
+                              }
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_payment_date",
+                              "name": "date",
+                              "type": "text",
+                              "label": "Date",
+                              "instructions": "When paid."
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_payment_method",
+                              "name": "method",
+                              "type": "text",
+                              "label": "Method",
+                              "instructions": "When paid."
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_payment_from",
+                              "name": "from",
+                              "type": "text",
+                              "label": "From",
+                              "instructions": "When paid."
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_payment_late",
+                              "name": "late",
+                              "type": "text",
+                              "label": "Late",
+                              "instructions": "When open, e.g. 9 dagen."
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_clients_ledger",
+                          "name": "ledger",
+                          "type": "repeater",
+                          "label": "Ledger",
+                          "layout": "block",
+                          "min": 2,
+                          "max": 4,
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_ledger_account",
+                              "name": "account",
+                              "type": "text",
+                              "label": "Account"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_ledger_amount",
+                              "name": "amount",
+                              "type": "text",
+                              "label": "Amount"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_ledger_revenue",
+                              "name": "revenue",
+                              "type": "true_false",
+                              "label": "Revenue",
+                              "instructions": "Exactly one row per client is the revenue row."
+                            }
+                          ]
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_clients_reminders",
+                          "name": "reminders",
+                          "type": "repeater",
+                          "label": "Reminders",
+                          "layout": "block",
+                          "min": 2,
+                          "max": 4,
+                          "sub_fields": [
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_reminders_label",
+                              "name": "label",
+                              "type": "text",
+                              "label": "Label"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_reminders_when",
+                              "name": "when",
+                              "type": "text",
+                              "label": "When"
+                            },
+                            {
+                              "key": "field_ss_service_signature_invoicing_clients_reminders_state",
+                              "name": "state",
+                              "type": "select",
+                              "label": "State",
+                              "choices": {
+                                "sent": "sent",
+                                "planned": "planned",
+                                "skipped": "skipped"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "key": "field_ss_service_signature_invoicing_initial",
+                      "name": "initial",
+                      "type": "group",
+                      "label": "Initial",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_ss_service_signature_invoicing_initial_client",
+                          "name": "client",
+                          "type": "text",
+                          "label": "Client"
+                        },
+                        {
+                          "key": "field_ss_service_signature_invoicing_initial_line",
+                          "name": "line",
+                          "type": "number",
+                          "label": "Line",
+                          "instructions": "Index of the line, from 0."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "instructions": "One layout per signature kind: reporting, operations (brand, acquisition, invoicing follow). Example data, fictional, labelled."
+            }
+          ]
+        },
+        "layout_ss_service_steps": {
+          "key": "layout_ss_service_steps",
+          "name": "service_steps",
+          "label": "Service steps",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_ss_service_steps_anchor",
+              "name": "anchor",
+              "type": "text",
+              "label": "Anchor"
+            },
+            {
+              "key": "field_ss_service_steps_label",
+              "name": "label",
+              "type": "text",
+              "label": "Label"
+            },
+            {
+              "key": "field_ss_service_steps_heading_parts",
+              "name": "heading_parts",
+              "type": "repeater",
+              "label": "Heading parts",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_service_steps_heading_parts_text",
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text",
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_service_steps_heading_parts_accent",
+                  "name": "accent",
+                  "type": "true_false",
+                  "label": "Accent",
+                  "ui": 1
+                }
+              ],
+              "min": 1,
+              "instructions": "The heading in parts; `accent` sets the second tone."
+            },
+            {
+              "key": "field_ss_service_steps_steps",
+              "name": "steps",
+              "type": "repeater",
+              "label": "Steps",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_service_steps_steps_title",
+                  "name": "title",
+                  "type": "text",
+                  "label": "Title",
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_service_steps_steps_text",
+                  "name": "text",
+                  "type": "textarea",
+                  "label": "Text",
+                  "rows": 3,
+                  "required": 1
+                }
+              ],
+              "min": 2,
+              "max": 4
+            }
+          ]
+        },
+        "layout_ss_service_scope": {
+          "key": "layout_ss_service_scope",
+          "name": "service_scope",
+          "label": "Service scope",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_ss_service_scope_anchor",
+              "name": "anchor",
+              "type": "text",
+              "label": "Anchor"
+            },
+            {
+              "key": "field_ss_service_scope_heading_parts",
+              "name": "heading_parts",
+              "type": "repeater",
+              "label": "Heading parts",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_service_scope_heading_parts_text",
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text",
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_service_scope_heading_parts_accent",
+                  "name": "accent",
+                  "type": "true_false",
+                  "label": "Accent",
+                  "ui": 1
+                }
+              ],
+              "min": 1,
+              "instructions": "The heading in parts; `accent` sets the second tone."
+            },
+            {
+              "key": "field_ss_service_scope_included",
+              "name": "included",
+              "type": "group",
+              "label": "Included",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_service_scope_included_label",
+                  "name": "label",
+                  "type": "text",
+                  "label": "Label"
+                },
+                {
+                  "key": "field_ss_service_scope_included_items",
+                  "name": "items",
+                  "type": "repeater",
+                  "label": "Items",
+                  "layout": "block",
+                  "sub_fields": [
+                    {
+                      "key": "field_ss_service_scope_included_items_text",
+                      "name": "text",
+                      "type": "text",
+                      "label": "Text",
+                      "required": 1
+                    }
+                  ],
+                  "min": 2,
+                  "max": 8,
+                  "instructions": "The connector flattens rows to strings."
+                }
+              ]
+            },
+            {
+              "key": "field_ss_service_scope_excluded",
+              "name": "excluded",
+              "type": "group",
+              "label": "Excluded",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_service_scope_excluded_label",
+                  "name": "label",
+                  "type": "text",
+                  "label": "Label"
+                },
+                {
+                  "key": "field_ss_service_scope_excluded_items",
+                  "name": "items",
+                  "type": "repeater",
+                  "label": "Items",
+                  "layout": "block",
+                  "sub_fields": [
+                    {
+                      "key": "field_ss_service_scope_excluded_items_text",
+                      "name": "text",
+                      "type": "text",
+                      "label": "Text",
+                      "required": 1
+                    }
+                  ],
+                  "min": 0,
+                  "max": 6
+                }
+              ]
+            },
+            {
+              "key": "field_ss_service_scope_tools",
+              "name": "tools",
+              "type": "group",
+              "label": "Tools",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_service_scope_tools_label",
+                  "name": "label",
+                  "type": "text",
+                  "label": "Label"
+                },
+                {
+                  "key": "field_ss_service_scope_tools_items",
+                  "name": "items",
+                  "type": "repeater",
+                  "label": "Items",
+                  "layout": "block",
+                  "sub_fields": [
+                    {
+                      "key": "field_ss_service_scope_tools_items_name",
+                      "name": "name",
+                      "type": "text",
+                      "label": "Name",
+                      "required": 1,
+                      "instructions": "Always required: shown when there is no logo, and used as the logo's alt text and tooltip."
+                    },
+                    {
+                      "key": "field_ss_service_scope_tools_items_logo",
+                      "name": "logo",
+                      "type": "image",
+                      "label": "Logo",
+                      "required": 0,
+                      "return_format": "array",
+                      "mime_types": "svg,png",
+                      "preview_size": "medium",
+                      "instructions": "The vendor's own mark in one colour (black), cropped to the mark. Leave empty to show the name (no clean official mark, or the vendor's guidelines rule out a one-colour logo). See docs/logo-usage.md."
+                    },
+                    {
+                      "key": "field_ss_service_scope_tools_items_order",
+                      "name": "order",
+                      "type": "number",
+                      "label": "Order",
+                      "required": 0,
+                      "min": 1,
+                      "max": 20,
+                      "step": 1,
+                      "instructions": "Optional. Lower comes first; empty keeps the repeater order."
+                    }
+                  ],
+                  "min": 4,
+                  "max": 8,
+                  "instructions": "4–8 tools this service is usually built with. Works with, not partners: no 'partner' or 'certified' wording."
+                },
+                {
+                  "key": "field_ss_service_scope_tools_tail",
+                  "name": "tail",
+                  "type": "text",
+                  "label": "Tail"
+                }
+              ]
+            }
+          ]
+        },
+        "layout_ss_service_principles": {
+          "key": "layout_ss_service_principles",
+          "name": "service_principles",
+          "label": "Service principles",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_ss_service_principles_anchor",
+              "name": "anchor",
+              "type": "text",
+              "label": "Anchor"
+            },
+            {
+              "key": "field_ss_service_principles_heading_parts",
+              "name": "heading_parts",
+              "type": "repeater",
+              "label": "Heading parts",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_service_principles_heading_parts_text",
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text",
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_service_principles_heading_parts_accent",
+                  "name": "accent",
+                  "type": "true_false",
+                  "label": "Accent",
+                  "ui": 1
+                }
+              ],
+              "min": 1,
+              "instructions": "The heading in parts; `accent` sets the second tone."
+            },
+            {
+              "key": "field_ss_service_principles_items",
+              "name": "items",
+              "type": "repeater",
+              "label": "Items",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_service_principles_items_title",
+                  "name": "title",
+                  "type": "text",
+                  "label": "Title",
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_service_principles_items_text",
+                  "name": "text",
+                  "type": "textarea",
+                  "label": "Text",
+                  "rows": 3,
+                  "required": 1
+                }
+              ],
+              "min": 2,
+              "max": 10
+            }
+          ]
+        },
+        "layout_ss_service_faq": {
+          "key": "layout_ss_service_faq",
+          "name": "service_faq",
+          "label": "Service faq",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_ss_service_faq_anchor",
+              "name": "anchor",
+              "type": "text",
+              "label": "Anchor"
+            },
+            {
+              "key": "field_ss_service_faq_heading_parts",
+              "name": "heading_parts",
+              "type": "repeater",
+              "label": "Heading parts",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_service_faq_heading_parts_text",
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text",
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_service_faq_heading_parts_accent",
+                  "name": "accent",
+                  "type": "true_false",
+                  "label": "Accent",
+                  "ui": 1
+                }
+              ],
+              "min": 1,
+              "instructions": "The heading in parts; `accent` sets the second tone."
+            },
+            {
+              "key": "field_ss_service_faq_items",
+              "name": "items",
+              "type": "repeater",
+              "label": "Items",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_service_faq_items_q",
+                  "name": "q",
+                  "type": "text",
+                  "label": "Q",
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_service_faq_items_a",
+                  "name": "a",
+                  "type": "textarea",
+                  "label": "A",
+                  "rows": 3,
+                  "required": 1
+                }
+              ],
+              "min": 1,
+              "max": 10
+            }
+          ]
+        },
+        "layout_ss_service_others": {
+          "key": "layout_ss_service_others",
+          "name": "service_others",
+          "label": "Service others",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_ss_service_others_anchor",
+              "name": "anchor",
+              "type": "text",
+              "label": "Anchor"
+            },
+            {
+              "key": "field_ss_service_others_label",
+              "name": "label",
+              "type": "text",
+              "label": "Label"
+            },
+            {
+              "key": "field_ss_service_others_items",
+              "name": "items",
+              "type": "repeater",
+              "label": "Items",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_service_others_items_service",
+                  "name": "service",
+                  "type": "select",
+                  "label": "Service",
+                  "choices": {
+                    "brand": "brand",
+                    "acquisition": "acquisition",
+                    "operations": "operations",
+                    "invoicing": "invoicing",
+                    "reporting": "reporting"
+                  }
+                },
+                {
+                  "key": "field_ss_service_others_items_name",
+                  "name": "name",
+                  "type": "text",
+                  "label": "Name"
+                },
+                {
+                  "key": "field_ss_service_others_items_lead",
+                  "name": "lead",
+                  "type": "text",
+                  "label": "Lead"
+                },
+                {
+                  "key": "field_ss_service_others_items_link",
+                  "name": "link",
+                  "type": "link",
+                  "label": "Link",
+                  "return_format": "array"
+                }
+              ],
+              "min": 1,
+              "max": 5,
+              "instructions": "Later: a relationship field to `service` posts; the connector fills name, lead and link."
+            }
+          ]
+        },
+        "layout_ss_process": {
+          "key": "layout_ss_process",
+          "name": "process",
+          "label": "Process",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_ss_process_anchor",
+              "name": "anchor",
+              "type": "text",
+              "label": "Anchor"
+            },
+            {
+              "key": "field_ss_process_heading_parts",
+              "name": "heading_parts",
+              "type": "repeater",
+              "label": "Heading parts",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_process_heading_parts_text",
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text",
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_process_heading_parts_accent",
+                  "name": "accent",
+                  "type": "true_false",
+                  "label": "Accent",
+                  "ui": 1
+                }
+              ],
+              "min": 1,
+              "instructions": "The heading in parts; `accent` sets the second tone."
+            },
+            {
+              "key": "field_ss_process_body",
+              "name": "body",
+              "type": "textarea",
+              "label": "Body",
+              "rows": 3,
+              "required": 1
+            },
+            {
+              "key": "field_ss_process_track",
+              "name": "track",
+              "type": "group",
+              "label": "Track",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_process_track_span",
+                  "name": "span",
+                  "type": "text",
+                  "label": "Span",
+                  "instructions": "Bracket from the first step to go-live, e.g. ‘Live binnen 4 weken’."
+                },
+                {
+                  "key": "field_ss_process_track_after",
+                  "name": "after",
+                  "type": "text",
+                  "label": "After"
+                },
+                {
+                  "key": "field_ss_process_track_step",
+                  "name": "step",
+                  "type": "text",
+                  "label": "Step"
+                }
+              ]
+            },
+            {
+              "key": "field_ss_process_live_step",
+              "name": "live_step",
+              "type": "number",
+              "label": "Live step",
+              "min": 0,
+              "max": 5,
+              "instructions": "Index (0-based) of the go-live step."
+            },
+            {
+              "key": "field_ss_process_steps",
+              "name": "steps",
+              "type": "repeater",
+              "label": "Steps",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_process_steps_title",
+                  "name": "title",
+                  "type": "text",
+                  "label": "Title",
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_process_steps_text",
+                  "name": "text",
+                  "type": "textarea",
+                  "label": "Text",
+                  "rows": 3,
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_process_steps_detail",
+                  "name": "detail",
+                  "type": "textarea",
+                  "label": "Detail",
+                  "rows": 3
+                }
+              ],
+              "min": 3,
+              "max": 6
+            }
+          ]
+        },
+        "layout_ss_proof": {
+          "key": "layout_ss_proof",
+          "name": "proof",
+          "label": "Proof",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_ss_proof_anchor",
+              "name": "anchor",
+              "type": "text",
+              "label": "Anchor"
+            },
+            {
+              "key": "field_ss_proof_label",
+              "name": "label",
+              "type": "text",
+              "label": "Label"
+            },
+            {
+              "key": "field_ss_proof_heading_parts",
+              "name": "heading_parts",
+              "type": "repeater",
+              "label": "Heading parts",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_proof_heading_parts_text",
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text",
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_proof_heading_parts_accent",
+                  "name": "accent",
+                  "type": "true_false",
+                  "label": "Accent",
+                  "ui": 1
+                }
+              ],
+              "min": 1,
+              "instructions": "The heading in parts; `accent` sets the second tone."
+            },
+            {
+              "key": "field_ss_proof_body",
+              "name": "body",
+              "type": "textarea",
+              "label": "Body",
+              "rows": 3,
+              "required": 1
+            },
+            {
+              "key": "field_ss_proof_metrics",
+              "name": "metrics",
+              "type": "repeater",
+              "label": "Metrics",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_proof_metrics_value",
+                  "name": "value",
+                  "type": "text",
+                  "label": "Value",
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_proof_metrics_label",
+                  "name": "label",
+                  "type": "text",
+                  "label": "Label",
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_proof_metrics_source",
+                  "name": "source",
+                  "type": "text",
+                  "label": "Source",
+                  "required": 1,
+                  "instructions": "Where and when it was measured. Required."
+                }
+              ],
+              "min": 1,
+              "max": 6,
+              "instructions": "Real, measured figures only. The first leads; figures with the same source are grouped."
+            },
+            {
+              "key": "field_ss_proof_images",
+              "name": "images",
+              "type": "group",
+              "label": "Images",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_proof_images_desktop",
+                  "name": "desktop",
+                  "type": "image",
+                  "label": "Desktop",
+                  "return_format": "array"
+                },
+                {
+                  "key": "field_ss_proof_images_phone",
+                  "name": "phone",
+                  "type": "image",
+                  "label": "Phone",
+                  "return_format": "array"
+                }
+              ]
+            },
+            {
+              "key": "field_ss_proof_link",
+              "name": "link",
+              "type": "link",
+              "label": "Link",
+              "return_format": "array",
+              "required": 1
+            },
+            {
+              "key": "field_ss_proof_secondary_link",
+              "name": "secondary_link",
+              "type": "link",
+              "label": "Secondary link",
+              "return_format": "array"
+            }
+          ]
+        },
+        "layout_ss_closing_cta": {
+          "key": "layout_ss_closing_cta",
+          "name": "closing_cta",
+          "label": "Closing cta",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_ss_closing_cta_anchor",
+              "name": "anchor",
+              "type": "text",
+              "label": "Anchor"
+            },
+            {
+              "key": "field_ss_closing_cta_heading_parts",
+              "name": "heading_parts",
+              "type": "repeater",
+              "label": "Heading parts",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_closing_cta_heading_parts_text",
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text",
+                  "required": 1
+                },
+                {
+                  "key": "field_ss_closing_cta_heading_parts_accent",
+                  "name": "accent",
+                  "type": "true_false",
+                  "label": "Accent",
+                  "ui": 1
+                }
+              ],
+              "min": 1,
+              "instructions": "The heading in parts; `accent` sets the second tone."
+            },
+            {
+              "key": "field_ss_closing_cta_body",
+              "name": "body",
+              "type": "textarea",
+              "label": "Body",
+              "rows": 3,
+              "required": 1
+            },
+            {
+              "key": "field_ss_closing_cta_primary_cta",
+              "name": "primary_cta",
+              "type": "link",
+              "label": "Primary cta",
+              "return_format": "array",
+              "required": 1
+            },
+            {
+              "key": "field_ss_closing_cta_secondary_cta",
+              "name": "secondary_cta",
+              "type": "link",
+              "label": "Secondary cta",
+              "return_format": "array"
+            },
+            {
+              "key": "field_ss_closing_cta_clock",
+              "name": "clock",
+              "type": "group",
+              "label": "Clock",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_ss_closing_cta_clock_from",
+                  "name": "from",
+                  "type": "text",
+                  "label": "From",
+                  "instructions": "hh:mm"
+                },
+                {
+                  "key": "field_ss_closing_cta_clock_to",
+                  "name": "to",
+                  "type": "text",
+                  "label": "To",
+                  "instructions": "hh:mm"
+                },
+                {
+                  "key": "field_ss_closing_cta_clock_label",
+                  "name": "label",
+                  "type": "text",
+                  "label": "Label"
+                },
+                {
+                  "key": "field_ss_closing_cta_clock_done",
+                  "name": "done",
+                  "type": "repeater",
+                  "label": "Done",
+                  "layout": "block",
+                  "sub_fields": [
+                    {
+                      "key": "field_ss_closing_cta_clock_done_kind",
+                      "name": "kind",
+                      "type": "select",
+                      "label": "Kind",
+                      "choices": {
+                        "report": "report",
+                        "invoice": "invoice",
+                        "followup": "followup"
+                      }
+                    },
+                    {
+                      "key": "field_ss_closing_cta_clock_done_label",
+                      "name": "label",
+                      "type": "text",
+                      "label": "Label"
+                    },
+                    {
+                      "key": "field_ss_closing_cta_clock_done_title",
+                      "name": "title",
+                      "type": "text",
+                      "label": "Title"
+                    },
+                    {
+                      "key": "field_ss_closing_cta_clock_done_meta",
+                      "name": "meta",
+                      "type": "text",
+                      "label": "Meta"
+                    },
+                    {
+                      "key": "field_ss_closing_cta_clock_done_status",
+                      "name": "status",
+                      "type": "text",
+                      "label": "Status"
+                    }
+                  ],
+                  "min": 1,
+                  "max": 3,
+                  "instructions": "Fictional, labelled example artefacts."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "service"
+      }
+    ]
+  ],
+  "active": true,
+  "show_in_rest": 1,
+  "modified": 1792338702
+}

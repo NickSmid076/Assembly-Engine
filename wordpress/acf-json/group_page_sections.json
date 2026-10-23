@@ -1,0 +1,856 @@
+{
+  "key": "group_page_sections",
+  "title": "Page sections (about, contact, blog)",
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "default"
+      }
+    ]
+  ],
+  "active": true,
+  "show_in_rest": 1,
+  "modified": 1792357095,
+  "fields": [
+    {
+      "key": "field_pg_sections",
+      "label": "Sections",
+      "name": "sections",
+      "type": "flexible_content",
+      "instructions": "DRAFT (phase 5). Flexible content for the about, contact and blog pages. Formal Dutch (u).",
+      "layouts": {
+        "layout_pg_page_intro": {
+          "key": "layout_pg_page_intro",
+          "name": "page_intro",
+          "label": "Page intro",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_pg_page_intro_eyebrow",
+              "name": "eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_pg_page_intro_heading_parts",
+              "name": "heading_parts",
+              "label": "Heading parts",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_pg_page_intro_heading_parts_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_pg_page_intro_heading_parts_accent",
+                  "name": "accent",
+                  "label": "Accent",
+                  "type": "true_false",
+                  "ui": 1
+                }
+              ],
+              "layout": "block",
+              "min": 1
+            },
+            {
+              "key": "field_pg_page_intro_lead",
+              "name": "lead",
+              "label": "Lead",
+              "type": "textarea"
+            }
+          ]
+        },
+        "layout_pg_about_hero": {
+          "key": "layout_pg_about_hero",
+          "name": "about_hero",
+          "label": "Person (about hero)",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_pg_about_hero_eyebrow",
+              "name": "eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_pg_about_hero_heading_parts",
+              "name": "heading_parts",
+              "label": "Heading parts",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_pg_about_hero_heading_parts_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_pg_about_hero_heading_parts_accent",
+                  "name": "accent",
+                  "label": "Accent",
+                  "type": "true_false",
+                  "ui": 1
+                }
+              ],
+              "layout": "block",
+              "min": 1
+            },
+            {
+              "key": "field_pg_about_hero_statement",
+              "name": "statement",
+              "label": "Statement",
+              "type": "textarea"
+            },
+            {
+              "key": "field_pg_about_hero_where",
+              "name": "where",
+              "label": "Where",
+              "type": "textarea"
+            },
+            {
+              "key": "field_pg_about_hero_person",
+              "name": "person",
+              "label": "Person",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_pg_about_hero_person_image",
+                  "name": "image",
+                  "label": "Image",
+                  "type": "image",
+                  "return_format": "array"
+                },
+                {
+                  "key": "field_pg_about_hero_person_name",
+                  "name": "name",
+                  "label": "Name",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_about_hero_person_role",
+                  "name": "role",
+                  "label": "Role",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_pg_about_hero_cta",
+              "name": "cta",
+              "label": "Cta",
+              "type": "link",
+              "return_format": "array"
+            }
+          ]
+        },
+        "layout_pg_about_story": {
+          "key": "layout_pg_about_story",
+          "name": "about_story",
+          "label": "Story + order of work",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_pg_about_story_anchor",
+              "name": "anchor",
+              "label": "Anchor",
+              "type": "text"
+            },
+            {
+              "key": "field_pg_about_story_heading_parts",
+              "name": "heading_parts",
+              "label": "Heading parts",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_pg_about_story_heading_parts_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_pg_about_story_heading_parts_accent",
+                  "name": "accent",
+                  "label": "Accent",
+                  "type": "true_false",
+                  "ui": 1
+                }
+              ],
+              "layout": "block",
+              "min": 1
+            },
+            {
+              "key": "field_pg_about_story_paragraphs",
+              "name": "paragraphs",
+              "label": "Paragraphs",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_pg_about_story_paragraphs_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "textarea"
+                }
+              ],
+              "max": 6
+            },
+            {
+              "key": "field_pg_about_story_order",
+              "name": "order",
+              "label": "Order",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_pg_about_story_order_label",
+                  "name": "label",
+                  "label": "Label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_about_story_order_problem",
+                  "name": "problem",
+                  "label": "Problem",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_about_story_order_questions",
+                  "name": "questions",
+                  "label": "Questions",
+                  "type": "repeater",
+                  "sub_fields": [
+                    {
+                      "key": "field_pg_about_story_order_questions_text",
+                      "name": "text",
+                      "label": "Text",
+                      "type": "text"
+                    }
+                  ],
+                  "max": 4
+                },
+                {
+                  "key": "field_pg_about_story_order_tool",
+                  "name": "tool",
+                  "label": "Tool",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_about_story_order_tools",
+                  "name": "tools",
+                  "label": "Tools",
+                  "type": "repeater",
+                  "sub_fields": [
+                    {
+                      "key": "field_pg_about_story_order_tools_text",
+                      "name": "text",
+                      "label": "Text",
+                      "type": "text"
+                    }
+                  ],
+                  "max": 6
+                },
+                {
+                  "key": "field_pg_about_story_order_none",
+                  "name": "none",
+                  "label": "None",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
+        "layout_pg_ledger": {
+          "key": "layout_pg_ledger",
+          "name": "ledger",
+          "label": "Ledger (numbered rows)",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_pg_ledger_anchor",
+              "name": "anchor",
+              "label": "Anchor",
+              "type": "text"
+            },
+            {
+              "key": "field_pg_ledger_heading_parts",
+              "name": "heading_parts",
+              "label": "Heading parts",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_pg_ledger_heading_parts_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_pg_ledger_heading_parts_accent",
+                  "name": "accent",
+                  "label": "Accent",
+                  "type": "true_false",
+                  "ui": 1
+                }
+              ],
+              "layout": "block",
+              "min": 1
+            },
+            {
+              "key": "field_pg_ledger_body",
+              "name": "body",
+              "label": "Body",
+              "type": "textarea"
+            },
+            {
+              "key": "field_pg_ledger_items",
+              "name": "items",
+              "label": "Items",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_pg_ledger_items_title",
+                  "name": "title",
+                  "label": "Title",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_pg_ledger_items_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "textarea",
+                  "required": 1
+                }
+              ],
+              "max": 10
+            },
+            {
+              "key": "field_pg_ledger_tone",
+              "name": "tone",
+              "label": "Tone",
+              "type": "select",
+              "choices": {
+                "white": "white",
+                "paper": "paper"
+              }
+            }
+          ]
+        },
+        "layout_pg_contact_form": {
+          "key": "layout_pg_contact_form",
+          "name": "contact_form",
+          "label": "Contact form (3 steps)",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_pg_contact_form_anchor",
+              "name": "anchor",
+              "label": "Anchor",
+              "type": "text"
+            },
+            {
+              "key": "field_pg_contact_form_steps",
+              "name": "steps",
+              "label": "Steps",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_pg_contact_form_steps_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "text"
+                }
+              ],
+              "min": 3,
+              "max": 3
+            },
+            {
+              "key": "field_pg_contact_form_step_of",
+              "name": "step_of",
+              "label": "Step of",
+              "type": "text"
+            },
+            {
+              "key": "field_pg_contact_form_fields",
+              "name": "fields",
+              "label": "Fields",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_pg_contact_form_fields_name",
+                  "name": "name",
+                  "label": "Name",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_fields_firm",
+                  "name": "firm",
+                  "label": "Firm",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_fields_email",
+                  "name": "email",
+                  "label": "Email",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_fields_phone",
+                  "name": "phone",
+                  "label": "Phone",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_fields_services",
+                  "name": "services",
+                  "label": "Services",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_fields_message",
+                  "name": "message",
+                  "label": "Message",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_fields_message_placeholder",
+                  "name": "message_placeholder",
+                  "label": "Message placeholder",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_pg_contact_form_feel",
+              "name": "feel",
+              "label": "Feel",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_pg_contact_form_feel_title",
+                  "name": "title",
+                  "label": "Title",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_feel_sub",
+                  "name": "sub",
+                  "label": "Sub",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_feel_items",
+                  "name": "items",
+                  "label": "Items",
+                  "type": "repeater",
+                  "sub_fields": [
+                    {
+                      "key": "field_pg_contact_form_feel_items_key",
+                      "name": "key",
+                      "label": "Key",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_pg_contact_form_feel_items_label",
+                      "name": "label",
+                      "label": "Label",
+                      "type": "text"
+                    }
+                  ],
+                  "max": 8
+                },
+                {
+                  "key": "field_pg_contact_form_feel_scale",
+                  "name": "scale",
+                  "label": "Scale",
+                  "type": "repeater",
+                  "sub_fields": [
+                    {
+                      "key": "field_pg_contact_form_feel_scale_text",
+                      "name": "text",
+                      "label": "Text",
+                      "type": "text"
+                    }
+                  ],
+                  "min": 5,
+                  "max": 5
+                },
+                {
+                  "key": "field_pg_contact_form_feel_untouched",
+                  "name": "untouched",
+                  "label": "Untouched",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_feel_reset",
+                  "name": "reset",
+                  "label": "Reset",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_pg_contact_form_buttons",
+              "name": "buttons",
+              "label": "Buttons",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_pg_contact_form_buttons_next",
+                  "name": "next",
+                  "label": "Next",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_buttons_back",
+                  "name": "back",
+                  "label": "Back",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_buttons_submit",
+                  "name": "submit",
+                  "label": "Submit",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_buttons_sending",
+                  "name": "sending",
+                  "label": "Sending",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_pg_contact_form_errors",
+              "name": "errors",
+              "label": "Errors",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_pg_contact_form_errors_name",
+                  "name": "name",
+                  "label": "Name",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_errors_email",
+                  "name": "email",
+                  "label": "Email",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_errors_services",
+                  "name": "services",
+                  "label": "Services",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_errors_summary",
+                  "name": "summary",
+                  "label": "Summary",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_pg_contact_form_sent",
+              "name": "sent",
+              "label": "Sent",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_pg_contact_form_sent_title",
+                  "name": "title",
+                  "label": "Title",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_sent_sub",
+                  "name": "sub",
+                  "label": "Sub",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_sent_failed",
+                  "name": "failed",
+                  "label": "Failed",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_sent_dev",
+                  "name": "dev",
+                  "label": "Dev",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_sent_receipt",
+                  "name": "receipt",
+                  "label": "Receipt",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_sent_email_label",
+                  "name": "email_label",
+                  "label": "Email label",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_pg_contact_form_cal",
+              "name": "cal",
+              "label": "Cal",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_pg_contact_form_cal_title",
+                  "name": "title",
+                  "label": "Title",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_cal_open",
+                  "name": "open",
+                  "label": "Open",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_cal_loading",
+                  "name": "loading",
+                  "label": "Loading",
+                  "type": "text"
+                }
+              ],
+              "instructions": "url comes from site settings `cal_link`."
+            },
+            {
+              "key": "field_pg_contact_form_privacy",
+              "name": "privacy",
+              "label": "Privacy",
+              "type": "text"
+            },
+            {
+              "key": "field_pg_contact_form_aside",
+              "name": "aside",
+              "label": "Aside",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_pg_contact_form_aside_title",
+                  "name": "title",
+                  "label": "Title",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_contact_form_aside_items",
+                  "name": "items",
+                  "label": "Items",
+                  "type": "repeater",
+                  "sub_fields": [
+                    {
+                      "key": "field_pg_contact_form_aside_items_text",
+                      "name": "text",
+                      "label": "Text",
+                      "type": "text"
+                    }
+                  ],
+                  "max": 5
+                },
+                {
+                  "key": "field_pg_contact_form_aside_direct",
+                  "name": "direct",
+                  "label": "Direct",
+                  "type": "text"
+                }
+              ]
+            }
+          ],
+          "instructions": "Services, locale, contact_email and the person come from site settings and the service CPT."
+        },
+        "layout_pg_blog_list": {
+          "key": "layout_pg_blog_list",
+          "name": "blog_list",
+          "label": "Blog list",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_pg_blog_list_anchor",
+              "name": "anchor",
+              "label": "Anchor",
+              "type": "text"
+            },
+            {
+              "key": "field_pg_blog_list_labels",
+              "name": "labels",
+              "label": "Labels",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_pg_blog_list_labels_min_read",
+                  "name": "min_read",
+                  "label": "Min read",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_blog_list_labels_planned_title",
+                  "name": "planned_title",
+                  "label": "Planned title",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_blog_list_labels_planned_note",
+                  "name": "planned_note",
+                  "label": "Planned note",
+                  "type": "textarea"
+                }
+              ]
+            },
+            {
+              "key": "field_pg_blog_list_ask",
+              "name": "ask",
+              "label": "Ask",
+              "type": "link",
+              "return_format": "array"
+            }
+          ],
+          "instructions": "Posts are queried, not entered: published posts link; posts without a body are listed as planned."
+        },
+        "layout_pg_closing_cta": {
+          "key": "layout_pg_closing_cta",
+          "name": "closing_cta",
+          "label": "Closing CTA",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_pg_closing_cta_anchor",
+              "name": "anchor",
+              "label": "Anchor",
+              "type": "text"
+            },
+            {
+              "key": "field_pg_closing_cta_heading_parts",
+              "name": "heading_parts",
+              "label": "Heading parts",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_pg_closing_cta_heading_parts_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_pg_closing_cta_heading_parts_accent",
+                  "name": "accent",
+                  "label": "Accent",
+                  "type": "true_false",
+                  "ui": 1
+                }
+              ],
+              "layout": "block",
+              "min": 1
+            },
+            {
+              "key": "field_pg_closing_cta_body",
+              "name": "body",
+              "label": "Body",
+              "type": "textarea"
+            },
+            {
+              "key": "field_pg_closing_cta_primary_cta",
+              "name": "primary_cta",
+              "label": "Primary cta",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_pg_closing_cta_secondary_cta",
+              "name": "secondary_cta",
+              "label": "Secondary cta",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_pg_closing_cta_clock",
+              "name": "clock",
+              "label": "Clock",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_pg_closing_cta_clock_from",
+                  "name": "from",
+                  "label": "From",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_closing_cta_clock_to",
+                  "name": "to",
+                  "label": "To",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_closing_cta_clock_label",
+                  "name": "label",
+                  "label": "Label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_pg_closing_cta_clock_done",
+                  "name": "done",
+                  "label": "Done",
+                  "type": "repeater",
+                  "sub_fields": [
+                    {
+                      "key": "field_pg_closing_cta_clock_done_kind",
+                      "name": "kind",
+                      "label": "Kind",
+                      "type": "select",
+                      "choices": {
+                        "report": "report",
+                        "invoice": "invoice",
+                        "followup": "followup"
+                      }
+                    },
+                    {
+                      "key": "field_pg_closing_cta_clock_done_label",
+                      "name": "label",
+                      "label": "Label",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_pg_closing_cta_clock_done_title",
+                      "name": "title",
+                      "label": "Title",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_pg_closing_cta_clock_done_meta",
+                      "name": "meta",
+                      "label": "Meta",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_pg_closing_cta_clock_done_status",
+                      "name": "status",
+                      "label": "Status",
+                      "type": "text"
+                    }
+                  ],
+                  "max": 3
+                }
+              ],
+              "instructions": "Leave empty on inner pages (null = no 07:00 clock)."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

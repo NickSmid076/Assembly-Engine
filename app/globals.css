@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { scroll-padding-top: 88px; }
+body { overflow-x: clip; }
+body { @apply bg-white text-ink font-sans antialiased; }
+h1, h2, h3, h4 { @apply font-display; text-wrap: balance; }
+
+@layer components {
+  .container-site { @apply mx-auto w-full max-w-site px-5 sm:px-6; }
+  /* Attio-style framed column: hairlines down both sides of the content. */
+  .frame { @apply relative mx-auto w-full max-w-[1240px] border-x px-5 sm:px-10 lg:px-[70px]; }
+  .frame-light { @apply border-ink/[0.08]; }
+  .frame-dark { @apply border-white/[0.08]; }
+  .eyebrow { @apply font-mono text-[13px] font-medium uppercase tracking-[0.08em] text-cobalt; }
+  .btn { @apply inline-flex whitespace-nowrap h-12 items-center justify-center gap-2 rounded-md px-6 font-display text-[15px] font-bold; transition: background-color .15s cubic-bezier(.2,.8,.2,1), border-color .15s cubic-bezier(.2,.8,.2,1), color .15s cubic-bezier(.2,.8,.2,1), transform .14s cubic-bezier(.2,.8,.2,1); }
+  .btn:active { transform: scale(.97); }
+  .btn-primary { @apply btn bg-cobalt text-white hover:bg-cobalt-2; }
+  .btn-outline { @apply btn border-2 border-cobalt text-white hover:bg-cobalt/10; }
+  .focus-ring { @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-peri; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* Entrances (lib/motion Reveal/Stagger/SplitHeading). Hidden only when JS runs and motion is allowed;
+   components/RevealObserver adds data-shown when the element enters the viewport. */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] { transition: opacity .6s cubic-bezier(.2,.8,.2,1) var(--rd, 0s), transform .6s cubic-bezier(.2,.8,.2,1) var(--rd, 0s); }
+  .js [data-reveal]:not([data-shown]) { opacity: 0; transform: translateY(16px); }
+  [data-stagger] > [data-reveal]:nth-child(2) { --rd: .06s; }
+  [data-stagger] > [data-reveal]:nth-child(3) { --rd: .12s; }
+  [data-stagger] > [data-reveal]:nth-child(4) { --rd: .18s; }
+  [data-stagger] > [data-reveal]:nth-child(5) { --rd: .24s; }
+  [data-stagger] > [data-reveal]:nth-child(n+6) { --rd: .3s; }
+  /* Proof: the phone settles onto the desktop shot after it. */
+  .js .proof-phone[data-reveal] { --rd: .25s; }
+  .js [data-reveal] .proof-arrow { transition: transform .45s cubic-bezier(.65,0,.35,1) .35s; }
+  .js [data-reveal] .proof-after { transition: opacity .4s cubic-bezier(.2,.8,.2,1) .75s, transform .5s cubic-bezier(.2,.8,.2,1) .75s; }
+  .js [data-reveal]:not([data-shown]) .proof-arrow { transform: scaleX(0); }
+  .js [data-reveal]:not([data-shown]) .proof-after { opacity: 0; transform: translateY(10px); }
+  .js .proof-phone[data-reveal]:not([data-shown]) { transform: translate(12px, 28px); }
+  /* Case timeline: the line draws once as it enters (vertical on phone, horizontal from lg). */
+  .js [data-reveal] .tl-line, .js [data-reveal] .tl-line-x { transition: transform 1s cubic-bezier(.65,0,.35,1) .1s; }
+  .js [data-reveal]:not([data-shown]) .tl-line { transform: scaleY(0); }
+  .js [data-reveal]:not([data-shown]) .tl-line-x { transform: scaleX(0); }
+}
+@keyframes grow { from { width: 0; } to { width: 100%; } }
+@keyframes art-spin { from { transform: translate(200px,125px) rotate(-16deg); } to { transform: translate(200px,125px) rotate(344deg); } }
+.art-spin { transform-box: view-box; animation: art-spin 60s linear infinite; }
+@keyframes art-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.art-float { animation: art-float 6s ease-in-out infinite; }
+.art-still .art-spin, .art-still .art-float { animation: none; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+@keyframes marquee-rev { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+
+/* Feeling slider on the contact form */
+.feel-range { -webkit-appearance: none; appearance: none; height: 44px; background: transparent; cursor: pointer; }
+.feel-range::-webkit-slider-runnable-track { height: 2px; background: #E4E8F0; border-radius: 2px; }
+.feel-range::-moz-range-track { height: 2px; background: #E4E8F0; border-radius: 2px; }
+.feel-range::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; margin-top: -8px; border-radius: 999px; background: #fff; border: 1.5px solid #C9D2E3; box-shadow: 0 1px 3px rgba(11,27,51,.15); transition: border-color .2s, background .2s; }
+.feel-range::-moz-range-thumb { width: 18px; height: 18px; border-radius: 999px; background: #fff; border: 1.5px solid #C9D2E3; }
+.feel-range.is-set::-webkit-slider-thumb { background: #2E5BFF; border-color: #2E5BFF; }
+.feel-range.is-set::-moz-range-thumb { background: #2E5BFF; border-color: #2E5BFF; }
+.feel-range:focus-visible { outline: none; }
+.feel-range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px rgba(46,91,255,.2); }
+
+/* Scroll-linked progress tracks show complete when motion is reduced. */
+@media (prefers-reduced-motion: reduce) { .track-fill { transform: none !important; } .track-stop { opacity: 1 !important; transform: none !important; } .page-thread { display: none !important; } }
+
+/* Hero engine poster: a hovered or focused module lifts (EngineVisual sets data-hover). SVG user units. */
+.engine-mod { transition: transform .3s cubic-bezier(.2,.8,.2,1); }
+[data-hover="0"] .engine-mod[data-mod="0"], [data-hover="1"] .engine-mod[data-mod="1"], [data-hover="2"] .engine-mod[data-mod="2"],
+[data-hover="3"] .engine-mod[data-mod="3"], [data-hover="4"] .engine-mod[data-mod="4"] { transform: translateY(-0.22px); }
+@media (prefers-reduced-motion: reduce) { .engine-mod { transition: none; } }
+
+/* Service signatures: a wire draws once from source to target (pathLength="1" on the path). */
+.sig-draw { stroke-dasharray: 1; animation: sig-draw .6s cubic-bezier(.2,.8,.2,1) both; }
+.sig-draw-late { animation-delay: .45s; animation-duration: .35s; }
+.sig-draw-route { animation-duration: 1.1s; }
+@keyframes sig-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .sig-draw { animation: none; } }
+
+/* Operations signature: the route's steps light up in order (the delay follows the travelling document). */
+.ops-step { animation: ops-step .3s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes ops-step { from { opacity: .25; transform: scale(.7); } }
+@media (prefers-reduced-motion: reduce) { .ops-step { animation: none; } }
+/* Invoicing signature: a connector fills as the followed amount passes (desktop across, phone down). */
+.inv-fill { animation: inv-fill .3s cubic-bezier(.65,0,.35,1) both; transform-origin: left top; }
+@keyframes inv-fill { from { transform: scale(0, 1); } }
+@media (max-width: 767px) { .inv-fill { animation-name: inv-fill-y; } @keyframes inv-fill-y { from { transform: scale(1, 0); } } }
+.inv-pulse { opacity: 0; animation: inv-pulse .7s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes inv-pulse { 25% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .inv-fill { animation: none; } .inv-pulse { display: none; } }
+
+/* Moment rail: under reduced motion the story is static and has no play/pause control. Hide it from the
+   first paint so the server-rendered rail already has its final width (no layout shift at hydration). */
+@media (prefers-reduced-motion: reduce) { .rail-toggle { display: none; } }
+
+/* Brand signature (service-signature/brand/Stage.tsx). The assembled page is the base state everywhere. The
+   exploded view exists only on desktop with motion allowed, so phones, tablets and reduced motion get the
+   finished page from the first paint (no hydration branch). Delays come from the destination state's rule:
+   --din/--dsin/--dtin when putting it together, --dout/--dsout/--dtout when taking it apart (geometry.ts TIMING). */
+.bs-stage { --s: .76; --sa: 1; perspective: calc(2600px * var(--s)); }
+@media (min-width: 1024px) { .bs-stage { --sa: var(--sa-lg); } }
+.bs-fit, .bs-rig, .bs-layer, .bs-drop-wrap { transform-style: preserve-3d; }
+.bs-fit { transform: scale(var(--s)); transform-origin: 50% 50%; }
+.bs-rig { position: absolute; transform-origin: 50% 50%;
+  transform: translate(0px, 0px) rotateX(0deg) rotateZ(0deg) scale(var(--sa));
+  transition: transform .9s cubic-bezier(.65,0,.35,1) 1.18s; }
+.bs-layer { inset: auto; }
+.bs-part { transform: translateZ(0px); transition: transform .56s cubic-bezier(.65,0,.35,1) var(--din); }
+.bs-styled { opacity: 1; transition: opacity .25s linear var(--dsin); }
+.bs-wire { opacity: 0; transition: opacity .25s linear var(--dsin); }
+.bs-token { opacity: 0; transform-origin: 0 0;
+  transform: translateZ(var(--tland)) rotateZ(calc(-1 * var(--tz-deg))) rotateX(calc(-1 * var(--tx-deg)));
+  transition: transform .52s cubic-bezier(.65,0,.35,1) var(--dtin), opacity .18s linear calc(var(--dtin) + .34s); }
+.bs-line { opacity: 0; transform-origin: 0 0; transform: translateZ(var(--z0)) rotateX(90deg); transition: opacity .2s linear var(--dtin); }
+.bs-blueprint { opacity: 0; transition: opacity .4s linear .9s; }
+.bs-ring { opacity: 0; transition: opacity .15s linear; }
+.is-lit > .bs-settle > .bs-ring { opacity: 1; }
+.bs-part > .bs-settle { transition: box-shadow .3s linear; }
+.bs-settle { animation: bs-settle .45s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i) * 50ms); }
+@keyframes bs-settle { from { opacity: 0; transform: translateY(-8px) scale(1.03); } }
+.bs-fade { animation: bs-fade .3s linear both; }
+@keyframes bs-fade { from { opacity: 0; } }
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .bs-stage[data-state="exploded"] .bs-rig {
+    transform: translate(var(--tx), var(--ty)) rotateX(var(--tx-deg)) rotateZ(var(--tz-deg)) scale(var(--se));
+    transition-duration: .76s; transition-delay: 0s; }
+  .bs-stage[data-state="exploded"] .bs-part { transform: translateZ(var(--z)); transition-delay: var(--dout); }
+  .bs-stage[data-state="exploded"] .bs-part.is-lit { transform: translateZ(calc(var(--z) + 18px)); transition-delay: 0s; transition-duration: .3s; }
+  .bs-stage[data-state="exploded"] .bs-styled { opacity: 0; transition-delay: var(--dsout); }
+  .bs-stage[data-state="exploded"] .bs-wire { opacity: 1; transition-delay: var(--dsout); }
+  .bs-stage[data-state="exploded"] .bs-token { opacity: 1;
+    transform: translateZ(var(--tz)) rotateZ(calc(-1 * var(--tz-deg))) rotateX(calc(-1 * var(--tx-deg)));
+    transition: transform .52s cubic-bezier(.65,0,.35,1) var(--dtout), opacity .18s linear var(--dtout); }
+  .bs-stage[data-state="exploded"] .bs-line { opacity: 1; transition-delay: calc(var(--dtout) + .3s); }
+  .bs-stage[data-state="exploded"] .bs-blueprint { opacity: 1; transition-delay: .3s; }
+  .bs-stage[data-state="exploded"] .bs-part > .bs-settle { box-shadow: 0 22px 34px -22px rgba(0,0,0,.55); }
+}
+@media (prefers-reduced-motion: reduce) { .bs-stage * { transition-delay: 0s !important; } .bs-settle, .bs-fade { animation: none; } .bs-explode-ctl { display: none !important; } }
+
+/* Article body (components/blocks/rich-text). WordPress HTML on a 680px measure, house type scale. */
+.rich { color: #0B1B33; font-size: 18px; line-height: 1.7; }
+.rich > * + * { margin-top: 1.25em; }
+.rich h2 { font-family: var(--font-manrope), ui-sans-serif, system-ui; font-size: 30px; line-height: 1.2; font-weight: 700; letter-spacing: -0.025em; margin-top: 2.2em; }
+.rich h3 { font-family: var(--font-manrope), ui-sans-serif, system-ui; font-size: 22px; line-height: 1.3; font-weight: 700; letter-spacing: -0.015em; margin-top: 1.8em; }
+.rich h4 { font-size: 18px; font-weight: 600; margin-top: 1.6em; }
+.rich h2 + *, .rich h3 + *, .rich h4 + * { margin-top: 0.6em; }
+.rich a { text-decoration: underline; text-decoration-color: #D5DBE6; text-underline-offset: 4px; transition: text-decoration-color .15s cubic-bezier(.2,.8,.2,1); }
+.rich a:hover { text-decoration-color: #0B1B33; }
+.rich a:focus-visible { outline: 2px solid #C3D0FF; outline-offset: 2px; border-radius: 2px; }
+.rich strong, .rich b { font-weight: 600; }
+.rich ul, .rich ol { padding-left: 1.3em; }
+.rich ul { list-style: disc; } .rich ol { list-style: decimal; }
+.rich li + li { margin-top: 0.4em; }
+.rich li::marker { color: #5C6B85; }
+.rich blockquote { border-left: 2px solid #0B1B33; padding-left: 1.2em; font-family: var(--font-manrope), ui-sans-serif, system-ui; font-size: 22px; line-height: 1.45; font-weight: 600; letter-spacing: -0.01em; }
+.rich blockquote cite { display: block; margin-top: .6em; font-family: inherit; font-size: 15px; font-weight: 400; font-style: normal; color: #5C6B85; }
+.rich figure img, .rich > img { width: 100%; height: auto; border-radius: 12px; border: 1px solid #E4E8F0; }
+.rich figcaption { margin-top: .7em; font-size: 14px; line-height: 1.45; color: #5C6B85; }
+.rich hr { border: 0; border-top: 1px solid #E4E8F0; margin: 2.5em 0; }
+.rich code { font-family: var(--font-plex-mono), ui-monospace, monospace; font-size: .88em; background: #F5F7FB; border: 1px solid #E4E8F0; border-radius: 4px; padding: .1em .35em; }
+.rich pre { overflow-x: auto; background: #0B1B33; color: #EDF1FF; border-radius: 12px; padding: 18px 20px; font-size: 14.5px; line-height: 1.6; }
+.rich pre code { background: none; border: 0; padding: 0; color: inherit; font-size: inherit; }
+.rich table { width: 100%; border-collapse: collapse; font-size: 15.5px; font-variant-numeric: tabular-nums; }
+.rich th, .rich td { text-align: left; padding: 10px 12px 10px 0; border-bottom: 1px solid #E4E8F0; vertical-align: top; }
+.rich th { font-weight: 600; border-bottom-color: #0B1B33; }
+.rich .wp-block-table { overflow-x: auto; }
+.rich iframe { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 0; border-radius: 12px; background: #F5F7FB; }
+@media (max-width: 639px) { .rich { font-size: 17px; } .rich h2 { font-size: 26px; } .rich blockquote { font-size: 20px; } }

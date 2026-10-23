@@ -1,0 +1,1325 @@
+{
+  "key": "group_home_service_moment",
+  "title": "Homepage service moment",
+  "fields": [
+    {
+      "key": "field_hm_moment",
+      "label": "Homepage moment",
+      "name": "moment",
+      "type": "flexible_content",
+      "min": 1,
+      "max": 1,
+      "instructions": "DRAFT. The animation in the homepage services explorer. Example data only: fictional firms, labelled as an example, no prices. Mirrors components/blocks/services/moments/schema.ts (zod validates on render).",
+      "layouts": {
+        "layout_hm_home_brand": {
+          "key": "layout_hm_home_brand",
+          "name": "home_brand",
+          "label": "Brand",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_hm_moment_home_brand_duration",
+              "label": "Duration",
+              "name": "duration",
+              "type": "number",
+              "min": 6,
+              "max": 12,
+              "step": 0.5,
+              "instructions": "Seconds, 6–12."
+            },
+            {
+              "key": "field_hm_moment_home_brand_steps",
+              "label": "Steps",
+              "name": "steps",
+              "type": "repeater",
+              "layout": "table",
+              "min": 5,
+              "max": 5,
+              "instructions": "One row per step, in this order: mark, type, colour, page, booked. Editors change `at` (seconds) and `label`; `state` is fixed (the choreography is in code).",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_brand_steps_at",
+                  "label": "At",
+                  "name": "at",
+                  "type": "number",
+                  "min": 0,
+                  "max": 12,
+                  "step": 0.1
+                },
+                {
+                  "key": "field_hm_moment_home_brand_steps_label",
+                  "label": "Label",
+                  "name": "label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_brand_steps_state",
+                  "label": "State",
+                  "name": "state",
+                  "type": "text",
+                  "readonly": 1
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_brand_firm",
+              "label": "Firm",
+              "name": "firm",
+              "type": "text"
+            },
+            {
+              "key": "field_hm_moment_home_brand_mark",
+              "label": "Mark",
+              "name": "mark",
+              "type": "text",
+              "maxlength": 3
+            },
+            {
+              "key": "field_hm_moment_home_brand_tagline",
+              "label": "Tagline",
+              "name": "tagline",
+              "type": "text"
+            },
+            {
+              "key": "field_hm_moment_home_brand_guide",
+              "label": "Guide",
+              "name": "guide",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_brand_guide_title",
+                  "label": "Title",
+                  "name": "title",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_brand_guide_version",
+                  "label": "Version",
+                  "name": "version",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_brand_guide_mark",
+                  "label": "Mark",
+                  "name": "mark",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_brand_guide_type",
+                  "label": "Type",
+                  "name": "type",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_brand_guide_colour",
+                  "label": "Colour",
+                  "name": "colour",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_brand_type",
+              "label": "Type",
+              "name": "type",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_brand_type_display",
+                  "label": "Display",
+                  "name": "display",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_brand_type_body",
+                  "label": "Body",
+                  "name": "body",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_brand_type_specimen",
+                  "label": "Specimen",
+                  "name": "specimen",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_brand_colours",
+              "label": "Colours",
+              "name": "colours",
+              "type": "repeater",
+              "layout": "table",
+              "min": 3,
+              "max": 3,
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_brand_colours_name",
+                  "label": "Name",
+                  "name": "name",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_brand_colours_hex",
+                  "label": "Hex",
+                  "name": "hex",
+                  "type": "select",
+                  "choices": {
+                    "#0B1B33": "#0B1B33",
+                    "#2E5BFF": "#2E5BFF",
+                    "#EDF1FF": "#EDF1FF",
+                    "#C3D0FF": "#C3D0FF",
+                    "#FFFFFF": "#FFFFFF"
+                  }
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_brand_page",
+              "label": "Page",
+              "name": "page",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_brand_page_url",
+                  "label": "Url",
+                  "name": "url",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_brand_page_nav",
+                  "label": "Nav",
+                  "name": "nav",
+                  "type": "repeater",
+                  "layout": "table",
+                  "min": 2,
+                  "max": 3,
+                  "sub_fields": [
+                    {
+                      "key": "field_hm_moment_home_brand_page_nav_item",
+                      "label": "Item",
+                      "name": "item",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "key": "field_hm_moment_home_brand_page_headline",
+                  "label": "Headline",
+                  "name": "headline",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_brand_page_body",
+                  "label": "Body",
+                  "name": "body",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_brand_page_button",
+                  "label": "Button",
+                  "name": "button",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_brand_booking",
+              "label": "Booking",
+              "name": "booking",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_brand_booking_label",
+                  "label": "Label",
+                  "name": "label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_brand_booking_when",
+                  "label": "When",
+                  "name": "when",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_brand_booking_via",
+                  "label": "Via",
+                  "name": "via",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_brand_booking_who",
+                  "label": "Who",
+                  "name": "who",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
+        "layout_hm_home_acquisition": {
+          "key": "layout_hm_home_acquisition",
+          "name": "home_acquisition",
+          "label": "Acquisition",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_hm_moment_home_acquisition_duration",
+              "label": "Duration",
+              "name": "duration",
+              "type": "number",
+              "min": 6,
+              "max": 12,
+              "step": 0.5,
+              "instructions": "Seconds, 6–12."
+            },
+            {
+              "key": "field_hm_moment_home_acquisition_steps",
+              "label": "Steps",
+              "name": "steps",
+              "type": "repeater",
+              "layout": "table",
+              "min": 5,
+              "max": 5,
+              "instructions": "One row per step, in this order: signal, score, draft, approve, booked. Editors change `at` (seconds) and `label`; `state` is fixed (the choreography is in code).",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_acquisition_steps_at",
+                  "label": "At",
+                  "name": "at",
+                  "type": "number",
+                  "min": 0,
+                  "max": 12,
+                  "step": 0.1
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_steps_label",
+                  "label": "Label",
+                  "name": "label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_steps_state",
+                  "label": "State",
+                  "name": "state",
+                  "type": "text",
+                  "readonly": 1
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_acquisition_signal",
+              "label": "Signal",
+              "name": "signal",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_acquisition_signal_label",
+                  "label": "Label",
+                  "name": "label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_signal_title",
+                  "label": "Title",
+                  "name": "title",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_signal_company",
+                  "label": "Company",
+                  "name": "company",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_signal_source",
+                  "label": "Source",
+                  "name": "source",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_signal_when",
+                  "label": "When",
+                  "name": "when",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_acquisition_fit",
+              "label": "Fit",
+              "name": "fit",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_acquisition_fit_label",
+                  "label": "Label",
+                  "name": "label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_fit_criteria",
+                  "label": "Criteria",
+                  "name": "criteria",
+                  "type": "repeater",
+                  "layout": "table",
+                  "min": 3,
+                  "max": 3,
+                  "sub_fields": [
+                    {
+                      "key": "field_hm_moment_home_acquisition_fit_criteria_label",
+                      "label": "Label",
+                      "name": "label",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_hm_moment_home_acquisition_fit_criteria_value",
+                      "label": "Value",
+                      "name": "value",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_fit_result",
+                  "label": "Result",
+                  "name": "result",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_acquisition_draft",
+              "label": "Draft",
+              "name": "draft",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_acquisition_draft_tool",
+                  "label": "Tool",
+                  "name": "tool",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_draft_label",
+                  "label": "Label",
+                  "name": "label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_draft_to_label",
+                  "label": "To label",
+                  "name": "to_label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_draft_to",
+                  "label": "To",
+                  "name": "to",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_draft_subject_label",
+                  "label": "Subject label",
+                  "name": "subject_label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_draft_subject",
+                  "label": "Subject",
+                  "name": "subject",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_draft_lines",
+                  "label": "Lines",
+                  "name": "lines",
+                  "type": "repeater",
+                  "layout": "table",
+                  "min": 2,
+                  "max": 3,
+                  "sub_fields": [
+                    {
+                      "key": "field_hm_moment_home_acquisition_draft_lines_line",
+                      "label": "Line",
+                      "name": "line",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_draft_waiting",
+                  "label": "Waiting",
+                  "name": "waiting",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_draft_approve",
+                  "label": "Approve",
+                  "name": "approve",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_draft_approved",
+                  "label": "Approved",
+                  "name": "approved",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_draft_approver",
+                  "label": "Approver",
+                  "name": "approver",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_acquisition_pipeline",
+              "label": "Pipeline",
+              "name": "pipeline",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_acquisition_pipeline_columns",
+                  "label": "Columns",
+                  "name": "columns",
+                  "type": "repeater",
+                  "layout": "table",
+                  "min": 4,
+                  "max": 4,
+                  "sub_fields": [
+                    {
+                      "key": "field_hm_moment_home_acquisition_pipeline_columns_column",
+                      "label": "Column",
+                      "name": "column",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_pipeline_deal",
+                  "label": "Deal",
+                  "name": "deal",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_pipeline_contact",
+                  "label": "Contact",
+                  "name": "contact",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_pipeline_booked",
+                  "label": "Booked",
+                  "name": "booked",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_acquisition_pipeline_others",
+                  "label": "Others",
+                  "name": "others",
+                  "type": "repeater",
+                  "layout": "table",
+                  "min": 0,
+                  "max": 3,
+                  "sub_fields": [
+                    {
+                      "key": "field_hm_moment_home_acquisition_pipeline_others_firm",
+                      "label": "Firm",
+                      "name": "firm",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_hm_moment_home_acquisition_pipeline_others_column",
+                      "label": "Column",
+                      "name": "column",
+                      "type": "number",
+                      "min": 0,
+                      "max": 2
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "layout_hm_home_operations": {
+          "key": "layout_hm_home_operations",
+          "name": "home_operations",
+          "label": "Operations",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_hm_moment_home_operations_duration",
+              "label": "Duration",
+              "name": "duration",
+              "type": "number",
+              "min": 6,
+              "max": 12,
+              "step": 0.5,
+              "instructions": "Seconds, 6–12."
+            },
+            {
+              "key": "field_hm_moment_home_operations_steps",
+              "label": "Steps",
+              "name": "steps",
+              "type": "repeater",
+              "layout": "table",
+              "min": 5,
+              "max": 5,
+              "instructions": "One row per step, in this order: request, arrive, sort, complete, deadline. Editors change `at` (seconds) and `label`; `state` is fixed (the choreography is in code).",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_operations_steps_at",
+                  "label": "At",
+                  "name": "at",
+                  "type": "number",
+                  "min": 0,
+                  "max": 12,
+                  "step": 0.1
+                },
+                {
+                  "key": "field_hm_moment_home_operations_steps_label",
+                  "label": "Label",
+                  "name": "label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_operations_steps_state",
+                  "label": "State",
+                  "name": "state",
+                  "type": "text",
+                  "readonly": 1
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_operations_dossier",
+              "label": "Dossier",
+              "name": "dossier",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_operations_dossier_title",
+                  "label": "Title",
+                  "name": "title",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_operations_dossier_client",
+                  "label": "Client",
+                  "name": "client",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_operations_dossier_complete",
+                  "label": "Complete",
+                  "name": "complete",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_operations_via",
+              "label": "Via",
+              "name": "via",
+              "type": "text"
+            },
+            {
+              "key": "field_hm_moment_home_operations_recognised",
+              "label": "Recognised",
+              "name": "recognised",
+              "type": "text"
+            },
+            {
+              "key": "field_hm_moment_home_operations_dividers",
+              "label": "Dividers",
+              "name": "dividers",
+              "type": "repeater",
+              "layout": "table",
+              "min": 3,
+              "max": 3,
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_operations_dividers_name",
+                  "label": "Name",
+                  "name": "name",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_operations_docs",
+              "label": "Docs",
+              "name": "docs",
+              "type": "repeater",
+              "layout": "table",
+              "min": 3,
+              "max": 6,
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_operations_docs_name",
+                  "label": "Name",
+                  "name": "name",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_operations_docs_divider",
+                  "label": "Divider",
+                  "name": "divider",
+                  "type": "number",
+                  "min": 0,
+                  "max": 2
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_operations_checklist",
+              "label": "Checklist",
+              "name": "checklist",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_operations_checklist_label",
+                  "label": "Label",
+                  "name": "label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_operations_checklist_progress",
+                  "label": "Progress",
+                  "name": "progress",
+                  "type": "text",
+                  "instructions": "May use {n} and {total}."
+                },
+                {
+                  "key": "field_hm_moment_home_operations_checklist_done",
+                  "label": "Done",
+                  "name": "done",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_operations_deadline",
+              "label": "Deadline",
+              "name": "deadline",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_operations_deadline_requested",
+                  "label": "Requested",
+                  "name": "requested",
+                  "type": "text",
+                  "instructions": "YYYY-MM-DD"
+                },
+                {
+                  "key": "field_hm_moment_home_operations_deadline_done",
+                  "label": "Done",
+                  "name": "done",
+                  "type": "text",
+                  "instructions": "YYYY-MM-DD"
+                },
+                {
+                  "key": "field_hm_moment_home_operations_deadline_due",
+                  "label": "Due",
+                  "name": "due",
+                  "type": "text",
+                  "instructions": "YYYY-MM-DD"
+                },
+                {
+                  "key": "field_hm_moment_home_operations_deadline_start_label",
+                  "label": "Start label",
+                  "name": "start_label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_operations_deadline_due_label",
+                  "label": "Due label",
+                  "name": "due_label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_operations_deadline_done_label",
+                  "label": "Done label",
+                  "name": "done_label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_operations_deadline_spare",
+                  "label": "Spare",
+                  "name": "spare",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
+        "layout_hm_home_invoicing": {
+          "key": "layout_hm_home_invoicing",
+          "name": "home_invoicing",
+          "label": "Invoicing",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_hm_moment_home_invoicing_duration",
+              "label": "Duration",
+              "name": "duration",
+              "type": "number",
+              "min": 6,
+              "max": 12,
+              "step": 0.5,
+              "instructions": "Seconds, 6–12."
+            },
+            {
+              "key": "field_hm_moment_home_invoicing_steps",
+              "label": "Steps",
+              "name": "steps",
+              "type": "repeater",
+              "layout": "table",
+              "min": 6,
+              "max": 6,
+              "instructions": "One row per step, in this order: hours, invoice, sent, reminder, paid, booked. Editors change `at` (seconds) and `label`; `state` is fixed (the choreography is in code).",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_invoicing_steps_at",
+                  "label": "At",
+                  "name": "at",
+                  "type": "number",
+                  "min": 0,
+                  "max": 12,
+                  "step": 0.1
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_steps_label",
+                  "label": "Label",
+                  "name": "label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_steps_state",
+                  "label": "State",
+                  "name": "state",
+                  "type": "text",
+                  "readonly": 1
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_invoicing_tool",
+              "label": "Tool",
+              "name": "tool",
+              "type": "text"
+            },
+            {
+              "key": "field_hm_moment_home_invoicing_hours",
+              "label": "Hours",
+              "name": "hours",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_invoicing_hours_label",
+                  "label": "Label",
+                  "name": "label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_hours_rows",
+                  "label": "Rows",
+                  "name": "rows",
+                  "type": "repeater",
+                  "layout": "table",
+                  "min": 2,
+                  "max": 4,
+                  "sub_fields": [
+                    {
+                      "key": "field_hm_moment_home_invoicing_hours_rows_who",
+                      "label": "Who",
+                      "name": "who",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_hm_moment_home_invoicing_hours_rows_what",
+                      "label": "What",
+                      "name": "what",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_hm_moment_home_invoicing_hours_rows_hours",
+                      "label": "Hours",
+                      "name": "hours",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_hm_moment_home_invoicing_hours_rows_amount",
+                      "label": "Amount",
+                      "name": "amount",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_hours_total_label",
+                  "label": "Total label",
+                  "name": "total_label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_hours_total",
+                  "label": "Total",
+                  "name": "total",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_invoicing_invoice",
+              "label": "Invoice",
+              "name": "invoice",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_invoicing_invoice_label",
+                  "label": "Label",
+                  "name": "label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_invoice_number",
+                  "label": "Number",
+                  "name": "number",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_invoice_client",
+                  "label": "Client",
+                  "name": "client",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_invoice_subtotal",
+                  "label": "Subtotal",
+                  "name": "subtotal",
+                  "type": "repeater",
+                  "layout": "table",
+                  "min": 1,
+                  "max": 1,
+                  "sub_fields": [
+                    {
+                      "key": "field_hm_moment_home_invoicing_invoice_subtotal_label",
+                      "label": "Label",
+                      "name": "label",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_hm_moment_home_invoicing_invoice_subtotal_value",
+                      "label": "Value",
+                      "name": "value",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_invoice_vat",
+                  "label": "Vat",
+                  "name": "vat",
+                  "type": "repeater",
+                  "layout": "table",
+                  "min": 1,
+                  "max": 1,
+                  "sub_fields": [
+                    {
+                      "key": "field_hm_moment_home_invoicing_invoice_vat_label",
+                      "label": "Label",
+                      "name": "label",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_hm_moment_home_invoicing_invoice_vat_value",
+                      "label": "Value",
+                      "name": "value",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_invoice_total",
+                  "label": "Total",
+                  "name": "total",
+                  "type": "repeater",
+                  "layout": "table",
+                  "min": 1,
+                  "max": 1,
+                  "sub_fields": [
+                    {
+                      "key": "field_hm_moment_home_invoicing_invoice_total_label",
+                      "label": "Label",
+                      "name": "label",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_hm_moment_home_invoicing_invoice_total_value",
+                      "label": "Value",
+                      "name": "value",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_invoicing_dates",
+              "label": "Dates",
+              "name": "dates",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_invoicing_dates_hours",
+                  "label": "Hours",
+                  "name": "hours",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_dates_sent",
+                  "label": "Sent",
+                  "name": "sent",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_dates_reminder",
+                  "label": "Reminder",
+                  "name": "reminder",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_dates_paid",
+                  "label": "Paid",
+                  "name": "paid",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_dates_gap",
+                  "label": "Gap",
+                  "name": "gap",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_invoicing_notes",
+              "label": "Notes",
+              "name": "notes",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_invoicing_notes_sent",
+                  "label": "Sent",
+                  "name": "sent",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_notes_reminder",
+                  "label": "Reminder",
+                  "name": "reminder",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_notes_booked",
+                  "label": "Booked",
+                  "name": "booked",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_invoicing_payment",
+              "label": "Payment",
+              "name": "payment",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_invoicing_payment_label",
+                  "label": "Label",
+                  "name": "label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_payment_from",
+                  "label": "From",
+                  "name": "from",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_payment_amount",
+                  "label": "Amount",
+                  "name": "amount",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_invoicing_payment_match",
+                  "label": "Match",
+                  "name": "match",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
+        "layout_hm_home_reporting": {
+          "key": "layout_hm_home_reporting",
+          "name": "home_reporting",
+          "label": "Reporting",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_hm_moment_home_reporting_duration",
+              "label": "Duration",
+              "name": "duration",
+              "type": "number",
+              "min": 6,
+              "max": 12,
+              "step": 0.5,
+              "instructions": "Seconds, 6–12."
+            },
+            {
+              "key": "field_hm_moment_home_reporting_steps",
+              "label": "Steps",
+              "name": "steps",
+              "type": "repeater",
+              "layout": "table",
+              "min": 5,
+              "max": 5,
+              "instructions": "One row per step, in this order: sources, flow, merge, settle, summary. Editors change `at` (seconds) and `label`; `state` is fixed (the choreography is in code).",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_reporting_steps_at",
+                  "label": "At",
+                  "name": "at",
+                  "type": "number",
+                  "min": 0,
+                  "max": 12,
+                  "step": 0.1
+                },
+                {
+                  "key": "field_hm_moment_home_reporting_steps_label",
+                  "label": "Label",
+                  "name": "label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_reporting_steps_state",
+                  "label": "State",
+                  "name": "state",
+                  "type": "text",
+                  "readonly": 1
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_reporting_sources",
+              "label": "Sources",
+              "name": "sources",
+              "type": "repeater",
+              "layout": "table",
+              "min": 3,
+              "max": 3,
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_reporting_sources_tool",
+                  "label": "Tool",
+                  "name": "tool",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_reporting_sources_what",
+                  "label": "What",
+                  "name": "what",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_reporting_sources_row_1_label",
+                  "label": "Row 1 label",
+                  "name": "row_1_label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_reporting_sources_row_1_value",
+                  "label": "Row 1 value",
+                  "name": "row_1_value",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_reporting_sources_row_2_label",
+                  "label": "Row 2 label",
+                  "name": "row_2_label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_reporting_sources_row_2_value",
+                  "label": "Row 2 value",
+                  "name": "row_2_value",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_reporting_dashboard",
+              "label": "Dashboard",
+              "name": "dashboard",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_reporting_dashboard_tool",
+                  "label": "Tool",
+                  "name": "tool",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_reporting_dashboard_title",
+                  "label": "Title",
+                  "name": "title",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_reporting_dashboard_kpis",
+                  "label": "Kpis",
+                  "name": "kpis",
+                  "type": "repeater",
+                  "layout": "table",
+                  "min": 3,
+                  "max": 3,
+                  "sub_fields": [
+                    {
+                      "key": "field_hm_moment_home_reporting_dashboard_kpis_label",
+                      "label": "Label",
+                      "name": "label",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_hm_moment_home_reporting_dashboard_kpis_value",
+                      "label": "Value",
+                      "name": "value",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_hm_moment_home_reporting_dashboard_kpis_note",
+                      "label": "Note",
+                      "name": "note",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "key": "field_hm_moment_home_reporting_dashboard_bars",
+                  "label": "Bars",
+                  "name": "bars",
+                  "type": "repeater",
+                  "layout": "table",
+                  "min": 6,
+                  "max": 6,
+                  "sub_fields": [
+                    {
+                      "key": "field_hm_moment_home_reporting_dashboard_bars_value",
+                      "label": "Value",
+                      "name": "value",
+                      "type": "number",
+                      "min": 0,
+                      "max": 100
+                    }
+                  ]
+                },
+                {
+                  "key": "field_hm_moment_home_reporting_dashboard_bars_label",
+                  "label": "Bars label",
+                  "name": "bars_label",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_hm_moment_home_reporting_email",
+              "label": "Email",
+              "name": "email",
+              "type": "group",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hm_moment_home_reporting_email_tool",
+                  "label": "Tool",
+                  "name": "tool",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_reporting_email_from",
+                  "label": "From",
+                  "name": "from",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_reporting_email_time",
+                  "label": "Time",
+                  "name": "time",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_reporting_email_subject",
+                  "label": "Subject",
+                  "name": "subject",
+                  "type": "text"
+                },
+                {
+                  "key": "field_hm_moment_home_reporting_email_lines",
+                  "label": "Lines",
+                  "name": "lines",
+                  "type": "repeater",
+                  "layout": "table",
+                  "min": 3,
+                  "max": 3,
+                  "sub_fields": [
+                    {
+                      "key": "field_hm_moment_home_reporting_email_lines_line",
+                      "label": "Line",
+                      "name": "line",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "service"
+      }
+    ]
+  ],
+  "menu_order": 20,
+  "position": "normal",
+  "style": "default",
+  "active": true,
+  "description": "Draft: mirrors scenes.home in lib/i18n (see docs/service-animations-plan.md). Reporting sources use row_1/row_2 fields; the connector maps them to rows[][2]."
+}

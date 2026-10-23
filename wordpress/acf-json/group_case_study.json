@@ -1,0 +1,849 @@
+{
+  "key": "group_case_study",
+  "title": "Case study sections",
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "case_study"
+      }
+    ]
+  ],
+  "active": true,
+  "show_in_rest": 1,
+  "modified": 1792357095,
+  "fields": [
+    {
+      "key": "field_cs_sections",
+      "label": "Sections",
+      "name": "sections",
+      "type": "flexible_content",
+      "instructions": "DRAFT (phase 5). One layout per block in components/blocks/*/schema.ts; zod validates on render. Only measured numbers with a source and date. Quote stays empty until the client gives one.",
+      "layouts": {
+        "layout_cs_case_hero": {
+          "key": "layout_cs_case_hero",
+          "name": "case_hero",
+          "label": "Case hero",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_cs_case_hero_eyebrow",
+              "name": "eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_cs_case_hero_heading_parts",
+              "name": "heading_parts",
+              "label": "Heading parts",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_cs_case_hero_heading_parts_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_cs_case_hero_heading_parts_accent",
+                  "name": "accent",
+                  "label": "Accent",
+                  "type": "true_false",
+                  "ui": 1
+                }
+              ],
+              "layout": "block",
+              "min": 1
+            },
+            {
+              "key": "field_cs_case_hero_intro",
+              "name": "intro",
+              "label": "Intro",
+              "type": "textarea"
+            },
+            {
+              "key": "field_cs_case_hero_facts",
+              "name": "facts",
+              "label": "Facts",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_cs_case_hero_facts_label",
+                  "name": "label",
+                  "label": "Label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_cs_case_hero_facts_value",
+                  "name": "value",
+                  "label": "Value",
+                  "type": "text"
+                }
+              ],
+              "max": 6
+            },
+            {
+              "key": "field_cs_case_hero_images",
+              "name": "images",
+              "label": "Images",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_cs_case_hero_images_desktop",
+                  "name": "desktop",
+                  "label": "Desktop",
+                  "type": "image",
+                  "return_format": "array"
+                },
+                {
+                  "key": "field_cs_case_hero_images_phone",
+                  "name": "phone",
+                  "label": "Phone",
+                  "type": "image",
+                  "return_format": "array"
+                }
+              ]
+            },
+            {
+              "key": "field_cs_case_hero_site",
+              "name": "site",
+              "label": "Site",
+              "type": "link",
+              "return_format": "array"
+            }
+          ]
+        },
+        "layout_cs_case_findings": {
+          "key": "layout_cs_case_findings",
+          "name": "case_findings",
+          "label": "Findings (old situation)",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_cs_case_findings_anchor",
+              "name": "anchor",
+              "label": "Anchor",
+              "type": "text"
+            },
+            {
+              "key": "field_cs_case_findings_heading_parts",
+              "name": "heading_parts",
+              "label": "Heading parts",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_cs_case_findings_heading_parts_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_cs_case_findings_heading_parts_accent",
+                  "name": "accent",
+                  "label": "Accent",
+                  "type": "true_false",
+                  "ui": 1
+                }
+              ],
+              "layout": "block",
+              "min": 1
+            },
+            {
+              "key": "field_cs_case_findings_report",
+              "name": "report",
+              "label": "Report",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_cs_case_findings_report_label",
+                  "name": "label",
+                  "label": "Label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_cs_case_findings_report_meta",
+                  "name": "meta",
+                  "label": "Meta",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_cs_case_findings_items",
+              "name": "items",
+              "label": "Items",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_cs_case_findings_items_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "textarea"
+                }
+              ],
+              "max": 10
+            }
+          ]
+        },
+        "layout_cs_ledger": {
+          "key": "layout_cs_ledger",
+          "name": "ledger",
+          "label": "Ledger (numbered rows)",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_cs_ledger_anchor",
+              "name": "anchor",
+              "label": "Anchor",
+              "type": "text"
+            },
+            {
+              "key": "field_cs_ledger_heading_parts",
+              "name": "heading_parts",
+              "label": "Heading parts",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_cs_ledger_heading_parts_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_cs_ledger_heading_parts_accent",
+                  "name": "accent",
+                  "label": "Accent",
+                  "type": "true_false",
+                  "ui": 1
+                }
+              ],
+              "layout": "block",
+              "min": 1
+            },
+            {
+              "key": "field_cs_ledger_body",
+              "name": "body",
+              "label": "Body",
+              "type": "textarea"
+            },
+            {
+              "key": "field_cs_ledger_items",
+              "name": "items",
+              "label": "Items",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_cs_ledger_items_title",
+                  "name": "title",
+                  "label": "Title",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_cs_ledger_items_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "textarea",
+                  "required": 1
+                }
+              ],
+              "max": 10
+            },
+            {
+              "key": "field_cs_ledger_tone",
+              "name": "tone",
+              "label": "Tone",
+              "type": "select",
+              "choices": {
+                "white": "white",
+                "paper": "paper"
+              }
+            }
+          ]
+        },
+        "layout_cs_case_pages": {
+          "key": "layout_cs_case_pages",
+          "name": "case_pages",
+          "label": "Live pages viewer",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_cs_case_pages_anchor",
+              "name": "anchor",
+              "label": "Anchor",
+              "type": "text"
+            },
+            {
+              "key": "field_cs_case_pages_heading_parts",
+              "name": "heading_parts",
+              "label": "Heading parts",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_cs_case_pages_heading_parts_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_cs_case_pages_heading_parts_accent",
+                  "name": "accent",
+                  "label": "Accent",
+                  "type": "true_false",
+                  "ui": 1
+                }
+              ],
+              "layout": "block",
+              "min": 1
+            },
+            {
+              "key": "field_cs_case_pages_body",
+              "name": "body",
+              "label": "Body",
+              "type": "textarea"
+            },
+            {
+              "key": "field_cs_case_pages_labels",
+              "name": "labels",
+              "label": "Labels",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_cs_case_pages_labels_page",
+                  "name": "page",
+                  "label": "Page",
+                  "type": "text"
+                },
+                {
+                  "key": "field_cs_case_pages_labels_device",
+                  "name": "device",
+                  "label": "Device",
+                  "type": "text"
+                },
+                {
+                  "key": "field_cs_case_pages_labels_desktop",
+                  "name": "desktop",
+                  "label": "Desktop",
+                  "type": "text"
+                },
+                {
+                  "key": "field_cs_case_pages_labels_phone",
+                  "name": "phone",
+                  "label": "Phone",
+                  "type": "text"
+                },
+                {
+                  "key": "field_cs_case_pages_labels_source",
+                  "name": "source",
+                  "label": "Source",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "key": "field_cs_case_pages_pages",
+              "name": "pages",
+              "label": "Pages",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_cs_case_pages_pages_id",
+                  "name": "id",
+                  "label": "Id",
+                  "type": "text"
+                },
+                {
+                  "key": "field_cs_case_pages_pages_label",
+                  "name": "label",
+                  "label": "Label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_cs_case_pages_pages_url",
+                  "name": "url",
+                  "label": "Url",
+                  "type": "text"
+                },
+                {
+                  "key": "field_cs_case_pages_pages_images",
+                  "name": "images",
+                  "label": "Images",
+                  "type": "group",
+                  "sub_fields": [
+                    {
+                      "key": "field_cs_case_pages_pages_images_desktop",
+                      "name": "desktop",
+                      "label": "Desktop",
+                      "type": "image",
+                      "return_format": "array"
+                    },
+                    {
+                      "key": "field_cs_case_pages_pages_images_phone",
+                      "name": "phone",
+                      "label": "Phone",
+                      "type": "image",
+                      "return_format": "array"
+                    }
+                  ]
+                },
+                {
+                  "key": "field_cs_case_pages_pages_facts",
+                  "name": "facts",
+                  "label": "Facts",
+                  "type": "repeater",
+                  "sub_fields": [
+                    {
+                      "key": "field_cs_case_pages_pages_facts_value",
+                      "name": "value",
+                      "label": "Value",
+                      "type": "text",
+                      "required": 1
+                    },
+                    {
+                      "key": "field_cs_case_pages_pages_facts_label",
+                      "name": "label",
+                      "label": "Label",
+                      "type": "text",
+                      "required": 1
+                    },
+                    {
+                      "key": "field_cs_case_pages_pages_facts_source",
+                      "name": "source",
+                      "label": "Source",
+                      "type": "text",
+                      "required": 1,
+                      "instructions": "Where and when it was measured. Required."
+                    },
+                    {
+                      "key": "field_cs_case_pages_pages_facts_device",
+                      "name": "device",
+                      "label": "Device",
+                      "type": "select",
+                      "choices": {
+                        "all": "all",
+                        "desktop": "desktop",
+                        "phone": "phone"
+                      }
+                    }
+                  ],
+                  "max": 6
+                },
+                {
+                  "key": "field_cs_case_pages_pages_note",
+                  "name": "note",
+                  "label": "Note",
+                  "type": "text"
+                }
+              ],
+              "max": 6
+            },
+            {
+              "key": "field_cs_case_pages_initial",
+              "name": "initial",
+              "label": "Initial",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_cs_case_pages_initial_page",
+                  "name": "page",
+                  "label": "Page",
+                  "type": "text"
+                },
+                {
+                  "key": "field_cs_case_pages_initial_device",
+                  "name": "device",
+                  "label": "Device",
+                  "type": "select",
+                  "choices": {
+                    "desktop": "desktop",
+                    "phone": "phone"
+                  }
+                }
+              ]
+            },
+            {
+              "key": "field_cs_case_pages_site",
+              "name": "site",
+              "label": "Site",
+              "type": "link",
+              "return_format": "array"
+            }
+          ]
+        },
+        "layout_cs_case_results": {
+          "key": "layout_cs_case_results",
+          "name": "case_results",
+          "label": "Results (measured)",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_cs_case_results_anchor",
+              "name": "anchor",
+              "label": "Anchor",
+              "type": "text"
+            },
+            {
+              "key": "field_cs_case_results_heading_parts",
+              "name": "heading_parts",
+              "label": "Heading parts",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_cs_case_results_heading_parts_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_cs_case_results_heading_parts_accent",
+                  "name": "accent",
+                  "label": "Accent",
+                  "type": "true_false",
+                  "ui": 1
+                }
+              ],
+              "layout": "block",
+              "min": 1
+            },
+            {
+              "key": "field_cs_case_results_lead",
+              "name": "lead",
+              "label": "Lead",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_cs_case_results_lead_value",
+                  "name": "value",
+                  "label": "Value",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_cs_case_results_lead_label",
+                  "name": "label",
+                  "label": "Label",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_cs_case_results_lead_source",
+                  "name": "source",
+                  "label": "Source",
+                  "type": "text",
+                  "required": 1,
+                  "instructions": "Where and when it was measured. Required."
+                }
+              ]
+            },
+            {
+              "key": "field_cs_case_results_groups",
+              "name": "groups",
+              "label": "Groups",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_cs_case_results_groups_source",
+                  "name": "source",
+                  "label": "Source",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_cs_case_results_groups_items",
+                  "name": "items",
+                  "label": "Items",
+                  "type": "repeater",
+                  "sub_fields": [
+                    {
+                      "key": "field_cs_case_results_groups_items_value",
+                      "name": "value",
+                      "label": "Value",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_cs_case_results_groups_items_label",
+                      "name": "label",
+                      "label": "Label",
+                      "type": "text"
+                    }
+                  ],
+                  "max": 6
+                }
+              ],
+              "max": 3
+            },
+            {
+              "key": "field_cs_case_results_note",
+              "name": "note",
+              "label": "Note",
+              "type": "textarea"
+            }
+          ]
+        },
+        "layout_cs_case_timeline": {
+          "key": "layout_cs_case_timeline",
+          "name": "case_timeline",
+          "label": "After launch (timeline)",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_cs_case_timeline_anchor",
+              "name": "anchor",
+              "label": "Anchor",
+              "type": "text"
+            },
+            {
+              "key": "field_cs_case_timeline_heading_parts",
+              "name": "heading_parts",
+              "label": "Heading parts",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_cs_case_timeline_heading_parts_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_cs_case_timeline_heading_parts_accent",
+                  "name": "accent",
+                  "label": "Accent",
+                  "type": "true_false",
+                  "ui": 1
+                }
+              ],
+              "layout": "block",
+              "min": 1
+            },
+            {
+              "key": "field_cs_case_timeline_items",
+              "name": "items",
+              "label": "Items",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_cs_case_timeline_items_date",
+                  "name": "date",
+                  "label": "Date",
+                  "type": "text"
+                },
+                {
+                  "key": "field_cs_case_timeline_items_title",
+                  "name": "title",
+                  "label": "Title",
+                  "type": "text"
+                },
+                {
+                  "key": "field_cs_case_timeline_items_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "textarea"
+                },
+                {
+                  "key": "field_cs_case_timeline_items_figure",
+                  "name": "figure",
+                  "label": "Figure",
+                  "type": "group",
+                  "sub_fields": [
+                    {
+                      "key": "field_cs_case_timeline_items_figure_value",
+                      "name": "value",
+                      "label": "Value",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_cs_case_timeline_items_figure_label",
+                      "name": "label",
+                      "label": "Label",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "key": "field_cs_case_timeline_items_future",
+                  "name": "future",
+                  "label": "Future",
+                  "type": "true_false",
+                  "ui": 1,
+                  "instructions": "Not happened yet: shown dashed, never as a result."
+                }
+              ],
+              "min": 2,
+              "max": 6
+            }
+          ]
+        },
+        "layout_cs_quote": {
+          "key": "layout_cs_quote",
+          "name": "quote",
+          "label": "Client quote (hidden until filled)",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_cs_quote_quote",
+              "name": "quote",
+              "label": "Quote",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_cs_quote_quote_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "textarea"
+                },
+                {
+                  "key": "field_cs_quote_quote_name",
+                  "name": "name",
+                  "label": "Name",
+                  "type": "text"
+                },
+                {
+                  "key": "field_cs_quote_quote_role",
+                  "name": "role",
+                  "label": "Role",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
+        "layout_cs_closing_cta": {
+          "key": "layout_cs_closing_cta",
+          "name": "closing_cta",
+          "label": "Closing CTA",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_cs_closing_cta_anchor",
+              "name": "anchor",
+              "label": "Anchor",
+              "type": "text"
+            },
+            {
+              "key": "field_cs_closing_cta_heading_parts",
+              "name": "heading_parts",
+              "label": "Heading parts",
+              "type": "repeater",
+              "sub_fields": [
+                {
+                  "key": "field_cs_closing_cta_heading_parts_text",
+                  "name": "text",
+                  "label": "Text",
+                  "type": "text",
+                  "required": 1
+                },
+                {
+                  "key": "field_cs_closing_cta_heading_parts_accent",
+                  "name": "accent",
+                  "label": "Accent",
+                  "type": "true_false",
+                  "ui": 1
+                }
+              ],
+              "layout": "block",
+              "min": 1
+            },
+            {
+              "key": "field_cs_closing_cta_body",
+              "name": "body",
+              "label": "Body",
+              "type": "textarea"
+            },
+            {
+              "key": "field_cs_closing_cta_primary_cta",
+              "name": "primary_cta",
+              "label": "Primary cta",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_cs_closing_cta_secondary_cta",
+              "name": "secondary_cta",
+              "label": "Secondary cta",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_cs_closing_cta_clock",
+              "name": "clock",
+              "label": "Clock",
+              "type": "group",
+              "sub_fields": [
+                {
+                  "key": "field_cs_closing_cta_clock_from",
+                  "name": "from",
+                  "label": "From",
+                  "type": "text"
+                },
+                {
+                  "key": "field_cs_closing_cta_clock_to",
+                  "name": "to",
+                  "label": "To",
+                  "type": "text"
+                },
+                {
+                  "key": "field_cs_closing_cta_clock_label",
+                  "name": "label",
+                  "label": "Label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_cs_closing_cta_clock_done",
+                  "name": "done",
+                  "label": "Done",
+                  "type": "repeater",
+                  "sub_fields": [
+                    {
+                      "key": "field_cs_closing_cta_clock_done_kind",
+                      "name": "kind",
+                      "label": "Kind",
+                      "type": "select",
+                      "choices": {
+                        "report": "report",
+                        "invoice": "invoice",
+                        "followup": "followup"
+                      }
+                    },
+                    {
+                      "key": "field_cs_closing_cta_clock_done_label",
+                      "name": "label",
+                      "label": "Label",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_cs_closing_cta_clock_done_title",
+                      "name": "title",
+                      "label": "Title",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_cs_closing_cta_clock_done_meta",
+                      "name": "meta",
+                      "label": "Meta",
+                      "type": "text"
+                    },
+                    {
+                      "key": "field_cs_closing_cta_clock_done_status",
+                      "name": "status",
+                      "label": "Status",
+                      "type": "text"
+                    }
+                  ],
+                  "max": 3
+                }
+              ],
+              "instructions": "Leave empty on inner pages (null = no 07:00 clock)."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

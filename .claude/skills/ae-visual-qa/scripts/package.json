@@ -1,0 +1,1 @@
+{"name":"ae-visual-qa","private":true,"type":"module","dependencies":{"axe-core":"4.10.2","puppeteer-core":"23.11.1"}}

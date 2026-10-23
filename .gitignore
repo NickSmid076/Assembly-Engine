@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+.next-qa/
+.claude/skills/ae-visual-qa/scripts/node_modules/
+/--base/

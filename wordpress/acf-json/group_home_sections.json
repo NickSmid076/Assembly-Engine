@@ -1,0 +1,1101 @@
+{
+  "key": "group_home_sections",
+  "title": "Homepage sections",
+  "fields": [
+    {
+      "key": "field_hs_sections",
+      "label": "Sections",
+      "name": "sections",
+      "type": "flexible_content",
+      "instructions": "DRAFT (homepage v4). One layout per block in components/blocks/*/schema.ts; zod validates on render. Copy in formal Dutch (u), no prices, example data labelled.",
+      "layouts": {
+        "layout_hs_hero_home": {
+          "key": "layout_hs_hero_home",
+          "name": "hero_home",
+          "label": "Hero home",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_hs_hero_home_eyebrow",
+              "name": "eyebrow",
+              "type": "text",
+              "label": "Eyebrow"
+            },
+            {
+              "key": "field_hs_hero_home_heading_parts",
+              "name": "heading_parts",
+              "type": "repeater",
+              "label": "Heading parts",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_hero_home_heading_parts_text",
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text",
+                  "required": 1
+                },
+                {
+                  "key": "field_hs_hero_home_heading_parts_accent",
+                  "name": "accent",
+                  "type": "true_false",
+                  "label": "Accent",
+                  "ui": 1
+                }
+              ],
+              "min": 1,
+              "instructions": "The heading in parts; `accent` sets the second tone."
+            },
+            {
+              "key": "field_hs_hero_home_body",
+              "name": "body",
+              "type": "textarea",
+              "label": "Body",
+              "rows": 3,
+              "required": 1
+            },
+            {
+              "key": "field_hs_hero_home_primary_cta",
+              "name": "primary_cta",
+              "type": "link",
+              "label": "Primary cta",
+              "return_format": "array",
+              "required": 1
+            },
+            {
+              "key": "field_hs_hero_home_secondary_cta",
+              "name": "secondary_cta",
+              "type": "link",
+              "label": "Secondary cta",
+              "return_format": "array"
+            },
+            {
+              "key": "field_hs_hero_home_modules",
+              "name": "modules",
+              "type": "repeater",
+              "label": "Modules",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_hero_home_modules_label",
+                  "name": "label",
+                  "type": "text",
+                  "label": "Label",
+                  "required": 1
+                },
+                {
+                  "key": "field_hs_hero_home_modules_url",
+                  "name": "url",
+                  "type": "text",
+                  "label": "Url",
+                  "required": 1
+                }
+              ],
+              "min": 5,
+              "max": 5,
+              "instructions": "The five engine modules, in service order."
+            },
+            {
+              "key": "field_hs_hero_home_module_hint",
+              "name": "module_hint",
+              "type": "text",
+              "label": "Module hint",
+              "instructions": "Screen-reader hint after a module's name."
+            }
+          ]
+        },
+        "layout_hs_how_it_runs": {
+          "key": "layout_hs_how_it_runs",
+          "name": "how_it_runs",
+          "label": "How it runs",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_hs_how_it_runs_anchor",
+              "name": "anchor",
+              "type": "text",
+              "label": "Anchor"
+            },
+            {
+              "key": "field_hs_how_it_runs_heading_parts",
+              "name": "heading_parts",
+              "type": "repeater",
+              "label": "Heading parts",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_how_it_runs_heading_parts_text",
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text",
+                  "required": 1
+                },
+                {
+                  "key": "field_hs_how_it_runs_heading_parts_accent",
+                  "name": "accent",
+                  "type": "true_false",
+                  "label": "Accent",
+                  "ui": 1
+                }
+              ],
+              "min": 1,
+              "instructions": "The heading in parts; `accent` sets the second tone."
+            },
+            {
+              "key": "field_hs_how_it_runs_body",
+              "name": "body",
+              "type": "textarea",
+              "label": "Body",
+              "rows": 3,
+              "required": 1
+            },
+            {
+              "key": "field_hs_how_it_runs_points",
+              "name": "points",
+              "type": "repeater",
+              "label": "Points",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_how_it_runs_points_title",
+                  "name": "title",
+                  "type": "text",
+                  "label": "Title",
+                  "required": 1
+                },
+                {
+                  "key": "field_hs_how_it_runs_points_text",
+                  "name": "text",
+                  "type": "textarea",
+                  "label": "Text",
+                  "rows": 3,
+                  "required": 1
+                },
+                {
+                  "key": "field_hs_how_it_runs_points_focus",
+                  "name": "focus",
+                  "type": "select",
+                  "label": "Focus",
+                  "choices": {
+                    "tools": "tools",
+                    "person": "person",
+                    "log": "log"
+                  }
+                }
+              ],
+              "max": 3
+            },
+            {
+              "key": "field_hs_how_it_runs_labels",
+              "name": "labels",
+              "type": "group",
+              "label": "Labels",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_how_it_runs_labels_example",
+                  "name": "example",
+                  "type": "text",
+                  "label": "Example"
+                },
+                {
+                  "key": "field_hs_how_it_runs_labels_pause",
+                  "name": "pause",
+                  "type": "text",
+                  "label": "Pause"
+                },
+                {
+                  "key": "field_hs_how_it_runs_labels_play",
+                  "name": "play",
+                  "type": "text",
+                  "label": "Play"
+                },
+                {
+                  "key": "field_hs_how_it_runs_labels_replay",
+                  "name": "replay",
+                  "type": "text",
+                  "label": "Replay"
+                },
+                {
+                  "key": "field_hs_how_it_runs_labels_steps",
+                  "name": "steps",
+                  "type": "text",
+                  "label": "Steps"
+                },
+                {
+                  "key": "field_hs_how_it_runs_labels_tabs",
+                  "name": "tabs",
+                  "type": "text",
+                  "label": "Tabs"
+                },
+                {
+                  "key": "field_hs_how_it_runs_labels_log",
+                  "name": "log",
+                  "type": "text",
+                  "label": "Log"
+                }
+              ]
+            },
+            {
+              "key": "field_hs_how_it_runs_runs",
+              "name": "runs",
+              "type": "repeater",
+              "label": "Runs",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_how_it_runs_runs_tab",
+                  "name": "tab",
+                  "type": "text",
+                  "label": "Tab",
+                  "required": 1
+                },
+                {
+                  "key": "field_hs_how_it_runs_runs_duration",
+                  "name": "duration",
+                  "type": "number",
+                  "label": "Duration",
+                  "min": 6,
+                  "max": 12,
+                  "step": 0.5
+                },
+                {
+                  "key": "field_hs_how_it_runs_runs_start",
+                  "name": "start",
+                  "type": "group",
+                  "label": "Start",
+                  "layout": "block",
+                  "sub_fields": [
+                    {
+                      "key": "field_hs_how_it_runs_runs_start_label",
+                      "name": "label",
+                      "type": "text",
+                      "label": "Label"
+                    },
+                    {
+                      "key": "field_hs_how_it_runs_runs_start_title",
+                      "name": "title",
+                      "type": "text",
+                      "label": "Title"
+                    },
+                    {
+                      "key": "field_hs_how_it_runs_runs_start_detail",
+                      "name": "detail",
+                      "type": "text",
+                      "label": "Detail"
+                    },
+                    {
+                      "key": "field_hs_how_it_runs_runs_start_via",
+                      "name": "via",
+                      "type": "text",
+                      "label": "Via"
+                    },
+                    {
+                      "key": "field_hs_how_it_runs_runs_start_time",
+                      "name": "time",
+                      "type": "text",
+                      "label": "Time",
+                      "instructions": "hh:mm:ss"
+                    }
+                  ]
+                },
+                {
+                  "key": "field_hs_how_it_runs_runs_rows",
+                  "name": "rows",
+                  "type": "repeater",
+                  "label": "Rows",
+                  "layout": "block",
+                  "sub_fields": [
+                    {
+                      "key": "field_hs_how_it_runs_runs_rows_at",
+                      "name": "at",
+                      "type": "number",
+                      "label": "At",
+                      "step": 0.1,
+                      "instructions": "Seconds into the story; increasing."
+                    },
+                    {
+                      "key": "field_hs_how_it_runs_runs_rows_label",
+                      "name": "label",
+                      "type": "text",
+                      "label": "Label"
+                    },
+                    {
+                      "key": "field_hs_how_it_runs_runs_rows_time",
+                      "name": "time",
+                      "type": "text",
+                      "label": "Time",
+                      "instructions": "hh:mm:ss"
+                    },
+                    {
+                      "key": "field_hs_how_it_runs_runs_rows_tool",
+                      "name": "tool",
+                      "type": "text",
+                      "label": "Tool"
+                    },
+                    {
+                      "key": "field_hs_how_it_runs_runs_rows_text",
+                      "name": "text",
+                      "type": "text",
+                      "label": "Text"
+                    },
+                    {
+                      "key": "field_hs_how_it_runs_runs_rows_person",
+                      "name": "person",
+                      "type": "group",
+                      "label": "Person",
+                      "layout": "block",
+                      "sub_fields": [
+                        {
+                          "key": "field_hs_how_it_runs_runs_rows_person_name",
+                          "name": "name",
+                          "type": "text",
+                          "label": "Name"
+                        },
+                        {
+                          "key": "field_hs_how_it_runs_runs_rows_person_waiting",
+                          "name": "waiting",
+                          "type": "text",
+                          "label": "Waiting"
+                        },
+                        {
+                          "key": "field_hs_how_it_runs_runs_rows_person_approve",
+                          "name": "approve",
+                          "type": "text",
+                          "label": "Approve"
+                        },
+                        {
+                          "key": "field_hs_how_it_runs_runs_rows_person_approved",
+                          "name": "approved",
+                          "type": "text",
+                          "label": "Approved"
+                        }
+                      ],
+                      "instructions": "Leave empty for a machine step."
+                    }
+                  ],
+                  "min": 3,
+                  "max": 6
+                },
+                {
+                  "key": "field_hs_how_it_runs_runs_done",
+                  "name": "done",
+                  "type": "text",
+                  "label": "Done"
+                }
+              ],
+              "min": 1,
+              "max": 3,
+              "instructions": "Fictional firm, always labelled as an example."
+            }
+          ]
+        },
+        "layout_hs_process": {
+          "key": "layout_hs_process",
+          "name": "process",
+          "label": "Process",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_hs_process_anchor",
+              "name": "anchor",
+              "type": "text",
+              "label": "Anchor"
+            },
+            {
+              "key": "field_hs_process_heading_parts",
+              "name": "heading_parts",
+              "type": "repeater",
+              "label": "Heading parts",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_process_heading_parts_text",
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text",
+                  "required": 1
+                },
+                {
+                  "key": "field_hs_process_heading_parts_accent",
+                  "name": "accent",
+                  "type": "true_false",
+                  "label": "Accent",
+                  "ui": 1
+                }
+              ],
+              "min": 1,
+              "instructions": "The heading in parts; `accent` sets the second tone."
+            },
+            {
+              "key": "field_hs_process_body",
+              "name": "body",
+              "type": "textarea",
+              "label": "Body",
+              "rows": 3,
+              "required": 1
+            },
+            {
+              "key": "field_hs_process_track",
+              "name": "track",
+              "type": "group",
+              "label": "Track",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_process_track_span",
+                  "name": "span",
+                  "type": "text",
+                  "label": "Span",
+                  "instructions": "Bracket from the first step to go-live, e.g. ‘Live binnen 4 weken’."
+                },
+                {
+                  "key": "field_hs_process_track_after",
+                  "name": "after",
+                  "type": "text",
+                  "label": "After"
+                },
+                {
+                  "key": "field_hs_process_track_step",
+                  "name": "step",
+                  "type": "text",
+                  "label": "Step"
+                }
+              ]
+            },
+            {
+              "key": "field_hs_process_live_step",
+              "name": "live_step",
+              "type": "number",
+              "label": "Live step",
+              "min": 0,
+              "max": 5,
+              "instructions": "Index (0-based) of the go-live step."
+            },
+            {
+              "key": "field_hs_process_steps",
+              "name": "steps",
+              "type": "repeater",
+              "label": "Steps",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_process_steps_title",
+                  "name": "title",
+                  "type": "text",
+                  "label": "Title",
+                  "required": 1
+                },
+                {
+                  "key": "field_hs_process_steps_text",
+                  "name": "text",
+                  "type": "textarea",
+                  "label": "Text",
+                  "rows": 3,
+                  "required": 1
+                },
+                {
+                  "key": "field_hs_process_steps_detail",
+                  "name": "detail",
+                  "type": "textarea",
+                  "label": "Detail",
+                  "rows": 3
+                }
+              ],
+              "min": 3,
+              "max": 6
+            }
+          ]
+        },
+        "layout_hs_services": {
+          "key": "layout_hs_services",
+          "name": "services",
+          "label": "Services",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_hs_services_anchor",
+              "name": "anchor",
+              "type": "text",
+              "label": "Anchor"
+            },
+            {
+              "key": "field_hs_services_heading_parts",
+              "name": "heading_parts",
+              "type": "repeater",
+              "label": "Heading parts",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_services_heading_parts_text",
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text",
+                  "required": 1
+                },
+                {
+                  "key": "field_hs_services_heading_parts_accent",
+                  "name": "accent",
+                  "type": "true_false",
+                  "label": "Accent",
+                  "ui": 1
+                }
+              ],
+              "min": 1,
+              "instructions": "The heading in parts; `accent` sets the second tone."
+            },
+            {
+              "key": "field_hs_services_body",
+              "name": "body",
+              "type": "textarea",
+              "label": "Body",
+              "rows": 3,
+              "required": 1
+            },
+            {
+              "key": "field_hs_services_list_label",
+              "name": "list_label",
+              "type": "text",
+              "label": "List label"
+            },
+            {
+              "key": "field_hs_services_story_labels",
+              "name": "story_labels",
+              "type": "group",
+              "label": "Story labels",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_services_story_labels_example",
+                  "name": "example",
+                  "type": "text",
+                  "label": "Example"
+                },
+                {
+                  "key": "field_hs_services_story_labels_pause",
+                  "name": "pause",
+                  "type": "text",
+                  "label": "Pause"
+                },
+                {
+                  "key": "field_hs_services_story_labels_play",
+                  "name": "play",
+                  "type": "text",
+                  "label": "Play"
+                },
+                {
+                  "key": "field_hs_services_story_labels_replay",
+                  "name": "replay",
+                  "type": "text",
+                  "label": "Replay"
+                },
+                {
+                  "key": "field_hs_services_story_labels_steps",
+                  "name": "steps",
+                  "type": "text",
+                  "label": "Steps"
+                }
+              ]
+            },
+            {
+              "key": "field_hs_services_items",
+              "name": "items",
+              "type": "repeater",
+              "label": "Items",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_services_items_name",
+                  "name": "name",
+                  "type": "text",
+                  "label": "Name"
+                },
+                {
+                  "key": "field_hs_services_items_lead",
+                  "name": "lead",
+                  "type": "text",
+                  "label": "Lead"
+                },
+                {
+                  "key": "field_hs_services_items_rest",
+                  "name": "rest",
+                  "type": "textarea",
+                  "label": "Rest",
+                  "rows": 3
+                },
+                {
+                  "key": "field_hs_services_items_link",
+                  "name": "link",
+                  "type": "link",
+                  "label": "Link",
+                  "return_format": "array"
+                },
+                {
+                  "key": "field_hs_services_items_moment",
+                  "name": "moment",
+                  "type": "clone",
+                  "label": "Moment",
+                  "clone": [
+                    "field_hm_moment"
+                  ],
+                  "display": "seamless",
+                  "instructions": "See group_home_service_moment.json."
+                }
+              ],
+              "min": 1,
+              "max": 6
+            },
+            {
+              "key": "field_hs_services_video",
+              "name": "video",
+              "type": "group",
+              "label": "Video",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_services_video_src",
+                  "name": "src",
+                  "type": "file",
+                  "label": "Src",
+                  "return_format": "url"
+                },
+                {
+                  "key": "field_hs_services_video_poster",
+                  "name": "poster",
+                  "type": "image",
+                  "label": "Poster",
+                  "return_format": "array"
+                },
+                {
+                  "key": "field_hs_services_video_width",
+                  "name": "width",
+                  "type": "number",
+                  "label": "Width"
+                },
+                {
+                  "key": "field_hs_services_video_height",
+                  "name": "height",
+                  "type": "number",
+                  "label": "Height"
+                },
+                {
+                  "key": "field_hs_services_video_label",
+                  "name": "label",
+                  "type": "text",
+                  "label": "Label"
+                },
+                {
+                  "key": "field_hs_services_video_caption",
+                  "name": "caption",
+                  "type": "text",
+                  "label": "Caption"
+                },
+                {
+                  "key": "field_hs_services_video_note",
+                  "name": "note",
+                  "type": "text",
+                  "label": "Note"
+                },
+                {
+                  "key": "field_hs_services_video_play",
+                  "name": "play",
+                  "type": "text",
+                  "label": "Play"
+                },
+                {
+                  "key": "field_hs_services_video_pause",
+                  "name": "pause",
+                  "type": "text",
+                  "label": "Pause"
+                }
+              ],
+              "instructions": "Optional. Per language: upload the NL video on the NL page."
+            }
+          ]
+        },
+        "layout_hs_proof": {
+          "key": "layout_hs_proof",
+          "name": "proof",
+          "label": "Proof",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_hs_proof_anchor",
+              "name": "anchor",
+              "type": "text",
+              "label": "Anchor"
+            },
+            {
+              "key": "field_hs_proof_label",
+              "name": "label",
+              "type": "text",
+              "label": "Label"
+            },
+            {
+              "key": "field_hs_proof_heading_parts",
+              "name": "heading_parts",
+              "type": "repeater",
+              "label": "Heading parts",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_proof_heading_parts_text",
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text",
+                  "required": 1
+                },
+                {
+                  "key": "field_hs_proof_heading_parts_accent",
+                  "name": "accent",
+                  "type": "true_false",
+                  "label": "Accent",
+                  "ui": 1
+                }
+              ],
+              "min": 1,
+              "instructions": "The heading in parts; `accent` sets the second tone."
+            },
+            {
+              "key": "field_hs_proof_body",
+              "name": "body",
+              "type": "textarea",
+              "label": "Body",
+              "rows": 3,
+              "required": 1
+            },
+            {
+              "key": "field_hs_proof_metrics",
+              "name": "metrics",
+              "type": "repeater",
+              "label": "Metrics",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_proof_metrics_value",
+                  "name": "value",
+                  "type": "text",
+                  "label": "Value",
+                  "required": 1
+                },
+                {
+                  "key": "field_hs_proof_metrics_label",
+                  "name": "label",
+                  "type": "text",
+                  "label": "Label",
+                  "required": 1
+                },
+                {
+                  "key": "field_hs_proof_metrics_source",
+                  "name": "source",
+                  "type": "text",
+                  "label": "Source",
+                  "required": 1,
+                  "instructions": "Where and when it was measured. Required."
+                }
+              ],
+              "min": 1,
+              "max": 6,
+              "instructions": "Real, measured figures only. The first leads; figures with the same source are grouped."
+            },
+            {
+              "key": "field_hs_proof_images",
+              "name": "images",
+              "type": "group",
+              "label": "Images",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_proof_images_desktop",
+                  "name": "desktop",
+                  "type": "image",
+                  "label": "Desktop",
+                  "return_format": "array"
+                },
+                {
+                  "key": "field_hs_proof_images_phone",
+                  "name": "phone",
+                  "type": "image",
+                  "label": "Phone",
+                  "return_format": "array"
+                }
+              ]
+            },
+            {
+              "key": "field_hs_proof_link",
+              "name": "link",
+              "type": "link",
+              "label": "Link",
+              "return_format": "array",
+              "required": 1
+            },
+            {
+              "key": "field_hs_proof_secondary_link",
+              "name": "secondary_link",
+              "type": "link",
+              "label": "Secondary link",
+              "return_format": "array"
+            }
+          ]
+        },
+        "layout_hs_why_us": {
+          "key": "layout_hs_why_us",
+          "name": "why_us",
+          "label": "Why us",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_hs_why_us_anchor",
+              "name": "anchor",
+              "type": "text",
+              "label": "Anchor"
+            },
+            {
+              "key": "field_hs_why_us_heading_parts",
+              "name": "heading_parts",
+              "type": "repeater",
+              "label": "Heading parts",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_why_us_heading_parts_text",
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text",
+                  "required": 1
+                },
+                {
+                  "key": "field_hs_why_us_heading_parts_accent",
+                  "name": "accent",
+                  "type": "true_false",
+                  "label": "Accent",
+                  "ui": 1
+                }
+              ],
+              "min": 1,
+              "instructions": "The heading in parts; `accent` sets the second tone."
+            },
+            {
+              "key": "field_hs_why_us_body",
+              "name": "body",
+              "type": "textarea",
+              "label": "Body",
+              "rows": 3,
+              "required": 1
+            },
+            {
+              "key": "field_hs_why_us_person",
+              "name": "person",
+              "type": "group",
+              "label": "Person",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_why_us_person_image",
+                  "name": "image",
+                  "type": "image",
+                  "label": "Image",
+                  "return_format": "array"
+                },
+                {
+                  "key": "field_hs_why_us_person_name",
+                  "name": "name",
+                  "type": "text",
+                  "label": "Name"
+                },
+                {
+                  "key": "field_hs_why_us_person_role",
+                  "name": "role",
+                  "type": "text",
+                  "label": "Role"
+                }
+              ]
+            },
+            {
+              "key": "field_hs_why_us_items",
+              "name": "items",
+              "type": "repeater",
+              "label": "Items",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_why_us_items_title",
+                  "name": "title",
+                  "type": "text",
+                  "label": "Title",
+                  "required": 1
+                },
+                {
+                  "key": "field_hs_why_us_items_text",
+                  "name": "text",
+                  "type": "textarea",
+                  "label": "Text",
+                  "rows": 3,
+                  "required": 1
+                }
+              ],
+              "min": 1,
+              "max": 6
+            },
+            {
+              "key": "field_hs_why_us_link",
+              "name": "link",
+              "type": "link",
+              "label": "Link",
+              "return_format": "array"
+            }
+          ]
+        },
+        "layout_hs_closing_cta": {
+          "key": "layout_hs_closing_cta",
+          "name": "closing_cta",
+          "label": "Closing cta",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_hs_closing_cta_anchor",
+              "name": "anchor",
+              "type": "text",
+              "label": "Anchor"
+            },
+            {
+              "key": "field_hs_closing_cta_heading_parts",
+              "name": "heading_parts",
+              "type": "repeater",
+              "label": "Heading parts",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_closing_cta_heading_parts_text",
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text",
+                  "required": 1
+                },
+                {
+                  "key": "field_hs_closing_cta_heading_parts_accent",
+                  "name": "accent",
+                  "type": "true_false",
+                  "label": "Accent",
+                  "ui": 1
+                }
+              ],
+              "min": 1,
+              "instructions": "The heading in parts; `accent` sets the second tone."
+            },
+            {
+              "key": "field_hs_closing_cta_body",
+              "name": "body",
+              "type": "textarea",
+              "label": "Body",
+              "rows": 3,
+              "required": 1
+            },
+            {
+              "key": "field_hs_closing_cta_primary_cta",
+              "name": "primary_cta",
+              "type": "link",
+              "label": "Primary cta",
+              "return_format": "array",
+              "required": 1
+            },
+            {
+              "key": "field_hs_closing_cta_secondary_cta",
+              "name": "secondary_cta",
+              "type": "link",
+              "label": "Secondary cta",
+              "return_format": "array"
+            },
+            {
+              "key": "field_hs_closing_cta_clock",
+              "name": "clock",
+              "type": "group",
+              "label": "Clock",
+              "layout": "block",
+              "sub_fields": [
+                {
+                  "key": "field_hs_closing_cta_clock_from",
+                  "name": "from",
+                  "type": "text",
+                  "label": "From",
+                  "instructions": "hh:mm"
+                },
+                {
+                  "key": "field_hs_closing_cta_clock_to",
+                  "name": "to",
+                  "type": "text",
+                  "label": "To",
+                  "instructions": "hh:mm"
+                },
+                {
+                  "key": "field_hs_closing_cta_clock_label",
+                  "name": "label",
+                  "type": "text",
+                  "label": "Label"
+                },
+                {
+                  "key": "field_hs_closing_cta_clock_done",
+                  "name": "done",
+                  "type": "repeater",
+                  "label": "Done",
+                  "layout": "block",
+                  "sub_fields": [
+                    {
+                      "key": "field_hs_closing_cta_clock_done_kind",
+                      "name": "kind",
+                      "type": "select",
+                      "label": "Kind",
+                      "choices": {
+                        "report": "report",
+                        "invoice": "invoice",
+                        "followup": "followup"
+                      }
+                    },
+                    {
+                      "key": "field_hs_closing_cta_clock_done_label",
+                      "name": "label",
+                      "type": "text",
+                      "label": "Label"
+                    },
+                    {
+                      "key": "field_hs_closing_cta_clock_done_title",
+                      "name": "title",
+                      "type": "text",
+                      "label": "Title"
+                    },
+                    {
+                      "key": "field_hs_closing_cta_clock_done_meta",
+                      "name": "meta",
+                      "type": "text",
+                      "label": "Meta"
+                    },
+                    {
+                      "key": "field_hs_closing_cta_clock_done_status",
+                      "name": "status",
+                      "type": "text",
+                      "label": "Status"
+                    }
+                  ],
+                  "min": 1,
+                  "max": 3,
+                  "instructions": "Fictional, labelled example artefacts."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_type",
+        "operator": "==",
+        "value": "front_page"
+      }
+    ]
+  ],
+  "active": true,
+  "show_in_rest": 1
+}

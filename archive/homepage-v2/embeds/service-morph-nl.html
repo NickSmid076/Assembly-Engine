@@ -1,0 +1,179 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Service Morph</title><style>
+html[class*="part-"] body{padding:0!important;margin:0!important;background:transparent!important}
+html[class*="part-"] #root>header.top,html[class*="part-"] nav.tabs,html[class*="part-"] .deliver,html[class*="part-"] .ctaband{display:none!important}
+html.part-wide .bh,html.part-wide .usps,html[class*="part-"] .tools{display:none!important}
+html.part-wide .block{margin:0!important;padding:0!important}
+html.part-sq1 .block,html.part-sq2 .block{display:none!important}
+html.part-sq1 .usps>article.usp:nth-of-type(2),html.part-sq2 .usps>article.usp:nth-of-type(1){display:none!important}
+html.part-sq1 .usp>:not(.sq),html.part-sq2 .usp>:not(.sq){display:none!important}
+html.part-sq1 .usps,html.part-sq2 .usps{margin:0!important;display:block!important}
+html.part-bare .wrap{min-height:0!important;padding:0!important;display:block!important}
+html.part-bare .card{width:100%!important}
+html.part-band .meta{display:none!important}
+html.part-band .frame:before,html.part-band .frame:after{display:none!important}
+html.part-band .hero{min-height:820px!important}
+</style></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B1B33;--ice:#EDF1FF;--muted:#8FA0BF;--faint:#5B6E92;--line:rgba(255,255,255,.1);--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--sans:'Manrope',system-ui,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--ink);color:var(--ice);font-family:var(--sans)}
+.wrap{min-height:100svh;display:flex;align-items:center;justify-content:center;padding-block:40px;padding-inline:16px}
+.card{position:relative;width:min(700px,100%);aspect-ratio:700/810;background:var(--ink);border:1px solid var(--line);overflow:hidden}
+.card:before,.card:after{content:"";position:absolute;top:-1px;width:1px;height:10px;background:rgba(255,255,255,.28)}
+.card:before{left:20%}.card:after{left:60%}
+canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.lab{position:absolute;left:24px;top:22px;z-index:2;font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;align-items:center}
+.lab b{font-weight:500;color:var(--ice);transition:opacity .5s}
+.lab i{font-style:normal;color:var(--faint)}
+.pager{position:absolute;left:24px;right:24px;bottom:22px;z-index:2;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.pager button{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:9px;font:500 10px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--faint);transition:color .3s;min-width:0}
+.pager button span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pager button u{display:block;height:1px;background:rgba(255,255,255,.14);position:relative;overflow:hidden;text-decoration:none}
+.pager button u:after{content:"";position:absolute;inset:0;background:#fff;transform-origin:0 50%;transform:scaleX(var(--p,0))}
+.pager button.on{color:var(--ice)}
+.pager button:hover{color:var(--ice)}
+.pager button:focus-visible{outline:1px solid #C3D0FF;outline-offset:4px}
+@media(max-width:520px){.pager button span{display:none}}
+</style>
+<div class="wrap">
+  <div class="card" id="card">
+    <canvas id="cv" aria-label="Animated line drawing that changes for each of Assembly Engine's five services" role="img"></canvas>
+    <div class="lab"><i id="num">[ 01 ]</i><b id="name">Brand &amp; digital presence</b></div>
+    <nav class="pager" id="pager" aria-label="Services"></nav>
+  </div>
+</div>
+<script>
+(function(){
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const L=36,M=140,TAU=Math.PI*2,HOLD=4.8,MORPH=2.4,CYCLE=HOLD+MORPH;
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),mix=(a,b,t)=>a+(b-a)*t,smooth=k=>k*k*(3-2*k),deg=Math.PI/180;
+const NAMES=['Merk & online zichtbaarheid','Klantwerving','Operationele automatisering','Factuur & betaling','Rapportage'];
+function mk(){return{P:new Float32Array(L*M*3),op:new Float32Array(L),dots:[],cam:null}}
+function set(S,i,j,x,y,z){const k=(i*M+j)*3;S.P[k]=x;S.P[k+1]=y;S.P[k+2]=z}
+function copyLine(S,from,to){S.P.copyWithin(to*M*3,from*M*3,(from+1)*M*3)}
+const scenes=[];
+// 1 Brand: orbits around a core
+(function(){const S=mk();
+  for(let i=0;i<12;i++){const r=70+i*24,tl=(i*1.4-6)*deg;
+    for(let j=0;j<M;j++){const a=TAU*j/(M-1),x=r*Math.cos(a),q=r*Math.sin(a);set(S,i,j,x,q*Math.sin(tl),q*Math.cos(tl))}
+    S.op[i]=.95-i*.045}
+  for(let j=0;j<M;j++){const a=TAU*j/(M-1);set(S,12,j,52*Math.cos(a),52*Math.sin(a)/Math.cos(36*deg),0)} // core faces camera
+  S.op[12]=1.25;
+  for(let i=13;i<L;i++){copyLine(S,11,i);S.op[i]=0}
+  [[1,.11],[3,-.08],[5,.06],[6,-.07],[8,.05],[10,-.045],[11,.04],[9,.05]].forEach((d,k)=>S.dots.push({l:d[0],v:d[1],ph:k*.137,tail:.035}));
+  S.cam={yaw:0,pitch:36,roll:-18,D:1500};scenes.push(S)})();
+// 2 Acquisition: gravity well
+(function(){const S=mk(),well=r=>-260/(1+r/60);
+  for(let i=0;i<12;i++){const r=40+i*30;for(let j=0;j<M;j++){const a=TAU*j/(M-1);set(S,i,j,r*Math.cos(a),well(r),r*Math.sin(a))}S.op[i]=.5+.5*(1-i/11)}
+  for(let k=0;k<24;k++){const a=TAU*k/24,i=12+k;for(let j=0;j<M;j++){const r=380-340*j/(M-1);set(S,i,j,r*Math.cos(a),well(r),r*Math.sin(a))}S.op[i]=.75}
+  for(let k=0;k<8;k++)S.dots.push({l:12+k*3,v:.16+.03*(k%3),ph:k*.29,tail:.07,once:true});
+  S.cam={yaw:0,pitch:22,roll:0,D:900};scenes.push(S)})();
+// 3 Operations: connected lattice
+(function(){const S=mk(),g=[-150,0,150],E=230;let i=0;
+  for(let ax=0;ax<3;ax++)for(const a of g)for(const b of g){for(let j=0;j<M;j++){const s=-E+2*E*j/(M-1);const p=ax===0?[s,a,b]:ax===1?[a,s,b]:[a,b,s];set(S,i,j,p[0],p[1],p[2])}S.op[i]=(a===0&&b===0)?1:.7;i++}
+  for(;i<L;i++){copyLine(S,13,i);S.op[i]=0}
+  [[0,.14],[4,-.12],[10,.13],[13,-.15],[16,.12],[19,.11],[22,-.13],[26,.12]].forEach((d,k)=>S.dots.push({l:d[0],v:d[1],ph:k*.21,tail:.06}));
+  S.cam={yaw:38,pitch:24,roll:0,D:1500};scenes.push(S)})();
+// 4 Invoice & payment: many flows converge into one
+(function(){const S=mk();
+  for(let i=0;i<L;i++){const z0=-260+520*i/(L-1);
+    for(let j=0;j<M;j++){const s=j/(M-1),x=-360+700*s,c=Math.pow(1-s,1.5),y=72*(1-.85*s)*Math.sin(s*12+i*.33);set(S,i,j,x,y*c+0,z0*c)}
+    S.op[i]=.45+.55*Math.sin(Math.PI*i/(L-1))}
+  for(let k=0;k<8;k++)S.dots.push({l:2+k*4,v:.12+.02*(k%3),ph:k*.31,tail:.07,once:true});
+  S.cam={yaw:24,pitch:20,roll:0,D:1200};scenes.push(S)})();
+// 5 Reporting: data terrain
+(function(){const S=mk(),h=(x,z)=>-(50*Math.sin(x*.011+z*.007)+95*Math.exp(-((x-90)**2+(z+40)**2)/(150*150))+28*Math.sin(x*.023-z*.015));
+  for(let i=0;i<L;i++){const z=-300+600*i/(L-1);for(let j=0;j<M;j++){const x=-360+720*j/(M-1);set(S,i,j,x,-h(x,z)*-1,z)}S.op[i]=.35+.65*(i/(L-1))}
+  for(let k=0;k<8;k++)S.dots.push({l:4+k*4,v:.07+.015*(k%3),ph:k*.27,tail:.05});
+  S.cam={yaw:16,pitch:30,roll:0,D:1200};scenes.push(S)})();
+
+const card=document.getElementById('card'),cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+const pager=document.getElementById('pager'),numEl=document.getElementById('num'),nameEl=document.getElementById('name');
+const SHORT=['Merk','Werving','Operatie','Facturatie','Rapportage'];
+const btns=NAMES.map((n,i)=>{const b=document.createElement('button');b.type='button';b.innerHTML='<u></u><span>'+SHORT[i]+'</span>';b.setAttribute('aria-label',n);b.onclick=()=>go(i);pager.appendChild(b);return b});
+let W,H,dpr,cx,cy,SC;
+function fit(){const r=cv.getBoundingClientRect();dpr=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);cx=W/2;cy=H*.47;SC=Math.min(W/780,H/860)}
+fit();addEventListener('resize',fit);
+// state
+let cur=0,from=0,to=0,mStart=-99,holdStart=0,clock=0,last=performance.now(),vis=true;
+const Pm=new Float32Array(L*M*3),opm=new Float32Array(L),proj=new Float32Array(L*M*2);
+function go(i){if(i===to&&clock-mStart>MORPH){holdStart=clock;return}from=curBlendTarget();to=i;mStart=clock;holdStart=clock+MORPH}
+function curBlendTarget(){return to}
+function camAt(a,b,m){const A=scenes[a].cam,B=scenes[b].cam;return{yaw:mix(A.yaw,B.yaw,m)*deg,pitch:mix(A.pitch,B.pitch,m)*deg,roll:mix(A.roll,B.roll,m)*deg,D:mix(A.D,B.D,m)}}
+function frame(now){
+  const dt=Math.min(.05,(now-last)/1000);last=now;
+  if(vis){ if(!reduce) clock+=dt;
+    if(!reduce&&clock-holdStart>HOLD&&clock-mStart>=MORPH){go((to+1)%5)}
+    draw();
+  }
+  requestAnimationFrame(frame);
+}
+function draw(){
+  const mk=clamp((clock-mStart)/MORPH,0,1),A=scenes[from],B=scenes[to];
+  // per-line staggered morph so shapes "walk" into each other
+  for(let i=0;i<L;i++){
+    const mi=smooth(clamp(mk*1.45-(i/(L-1))*.45,0,1));
+    opm[i]=mix(A.op[i],B.op[i],mi);
+    const o=i*M*3;
+    for(let j=0;j<M*3;j++)Pm[o+j]=mix(A.P[o+j],B.P[o+j],mi);
+  }
+  const cm=camAt(from,to,smooth(mk)),t=clock;
+  const yaw=cm.yaw+.16*Math.sin(t*.18),cy_=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(cm.pitch),sp=Math.sin(cm.pitch),cr=Math.cos(cm.roll),sr=Math.sin(cm.roll),D=cm.D;
+  for(let n=0;n<L*M;n++){
+    const x=Pm[n*3],y=Pm[n*3+1],z=Pm[n*3+2];
+    const x1=x*cy_+z*sy,z1=-x*sy+z*cy_;
+    const y2=y*cp-z1*sp,z2=y*sp+z1*cp;
+    const xr=x1*cr-y2*sr,yr=x1*sr+y2*cr,f=D/(D-z2);
+    proj[n*2]=cx+xr*f*SC*1.0;proj[n*2+1]=cy-yr*f*SC;
+  }
+  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);
+  ctx.lineJoin='round';ctx.lineCap='round';
+  // base lines
+  ctx.lineWidth=1;
+  for(let i=0;i<L;i++){const op=opm[i];if(op<.02)continue;
+    ctx.strokeStyle='rgba(255,255,255,'+Math.min(.62,op*.3).toFixed(3)+')';
+    ctx.beginPath();const o=i*M*2;ctx.moveTo(proj[o],proj[o+1]);for(let j=1;j<M;j++)ctx.lineTo(proj[o+j*2],proj[o+j*2+1]);ctx.stroke();
+  }
+  // travelling highlight (current flowing through the system)
+  if(!reduce){ctx.lineWidth=1.25;
+    for(let i=0;i<L;i++){const op=opm[i];if(op<.05)continue;
+      const c=((t*.16+i*.061)%1.4)-.2,j0=Math.max(1,Math.floor((c-.1)*(M-1))),j1=Math.min(M-1,Math.ceil((c+.1)*(M-1)));if(j1<=j0)continue;
+      const o=i*M*2;
+      for(let j=j0;j<=j1;j++){const u=j/(M-1),w=Math.exp(-Math.pow((u-c)/.05,2));if(w<.04)continue;
+        ctx.strokeStyle='rgba(255,255,255,'+(Math.min(1,op)*.55*w).toFixed(3)+')';ctx.beginPath();ctx.moveTo(proj[o+(j-1)*2],proj[o+(j-1)*2+1]);ctx.lineTo(proj[o+j*2],proj[o+j*2+1]);ctx.stroke()}
+    }}
+  // dots (fade through the morph midpoint, switch set at midpoint)
+  const S=mk<.5?A:B,dotA=reduce?1:Math.abs(1-2*mk);
+  if(dotA>.02)for(const d of S.dots){
+    if(opm[d.l]<.2)continue;
+    let u=d.ph+d.v*t; if(d.once){u=((u%1)+1)%1}else{u=((u%1)+1)%1}
+    const pt=k=>{const kk=clamp(k,0,1)*(M-1),j=Math.floor(kk),fr=kk-j,o=d.l*M*2,j2=Math.min(M-1,j+1);return[mix(proj[o+j*2],proj[o+j2*2],fr),mix(proj[o+j*2+1],proj[o+j2*2+1],fr)]};
+    const dir=d.v>=0?1:-1,N=10;let prev=pt(u);
+    for(let s=1;s<=N;s++){let uu=u-dir*d.tail*s/N;if(!d.once)uu=((uu%1)+1)%1;else if(uu<0)break;const p=pt(uu);
+      ctx.strokeStyle='rgba(225,233,255,'+(dotA*.7*(1-s/N)).toFixed(3)+')';ctx.lineWidth=1.6*(1-s/N)+.3;ctx.beginPath();ctx.moveTo(prev[0],prev[1]);ctx.lineTo(p[0],p[1]);ctx.stroke();prev=p}
+    const p=pt(u);ctx.fillStyle='rgba(255,255,255,'+dotA.toFixed(3)+')';ctx.beginPath();ctx.arc(p[0],p[1],1.9,0,TAU);ctx.fill();
+  }
+  // ui
+  const shown=mk<.5?from:to;
+  if(nameEl.dataset.i!=shown){try{parent.postMessage({ae:'scene',i:shown},'*')}catch(e){}nameEl.dataset.i=shown;numEl.textContent='[ 0'+(shown+1)+' ]';nameEl.textContent=NAMES[shown]}
+  nameEl.style.opacity=reduce?1:Math.min(1,Math.abs(1-2*mk)*1.6);
+  btns.forEach((b,i)=>{b.classList.toggle('on',i===to);const p=i===to?(reduce?1:clamp((clock-holdStart)/HOLD,0,1)*(clock>=holdStart?1:0)+(clock<holdStart?0:0)):0;b.firstChild.style.setProperty('--p',p.toFixed(3));b.setAttribute('aria-current',i===to?'true':'false')});
+}
+if('IntersectionObserver' in window)new IntersectionObserver(es=>es.forEach(e=>{vis=e.isIntersecting;last=performance.now()}),{threshold:.1}).observe(card);
+window.__aeGo=go;addEventListener('message',function(e){if(e.data&&e.data.ae==='go')go(e.data.i)});
+card.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go((to+1)%5);if(e.key==='ArrowLeft')go((to+4)%5)});
+requestAnimationFrame(frame);
+})();
+</script>
+<script>
+(function(){
+  var q=new URLSearchParams(location.search),part=q.get('part'),id=q.get('id')||'';
+  if(part)document.documentElement.classList.add('part-'+part);
+  function post(){try{parent.postMessage({ae:'h',id:id,h:Math.ceil(document.body.getBoundingClientRect().height)},'*')}catch(e){}}
+  addEventListener('load',post);
+  if(window.ResizeObserver)new ResizeObserver(post).observe(document.body);
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(a){e.preventDefault();parent.postMessage({ae:'nav',href:a.getAttribute('href')},'*')}},true);
+})();
+</script></body></html>
