@@ -2,7 +2,6 @@ import { auditCta } from "../cta";
 import type { PostBlocks } from "../types";
 
 export default `
-<p><mark>[CHECK: confirm every step below is one Nick performs in the audit, and cut any he doesn't]</mark></p>
 <p>A free audit can sound like a sales call with a different name. We understand that. So here is what we do in that call, the questions we ask, and what you keep afterwards. That holds even if you decide not to work with us.</p>
 
 

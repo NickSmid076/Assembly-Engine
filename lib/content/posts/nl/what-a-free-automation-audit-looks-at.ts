@@ -2,7 +2,6 @@ import { auditCta } from "../cta";
 import type { PostBlocks } from "../types";
 
 export default `
-<p><mark>[CHECK: confirm every step below is one Nick performs in the audit, and cut any he doesn't]</mark></p>
 <p>Een gratis analyse klinkt al snel als een verkoopgesprek met een andere naam. Dat begrijpen we. Daarom staat hieronder wat we in dat gesprek doen, welke vragen we stellen en wat u er daarna aan overhoudt. Ook als u besluit niet met ons verder te gaan.</p>
 
 
