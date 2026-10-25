@@ -15,10 +15,17 @@ function readSvg(src: string) {
 
 export default function Diagram({ content: c }: { content: DiagramBlock }) {
   const svg = readSvg(c.src);
+  // Optional phone version next to the file (<name>.m.svg), so labels keep their real size on small screens.
+  const phone = svg ? readSvg(c.src.replace(/\.svg$/, ".m.svg")) : null;
   return (
     <figure>
       {svg
-        ? <div role="img" aria-label={c.alt} className="overflow-hidden rounded-xl border border-line bg-paper" dangerouslySetInnerHTML={{ __html: svg }} />
+        ? (
+          <div role="img" aria-label={c.alt} className="diagram-svg overflow-hidden rounded-xl border border-line bg-paper">
+            <div className={phone ? "hidden sm:block" : undefined} dangerouslySetInnerHTML={{ __html: svg }} />
+            {phone && <div className="sm:hidden" dangerouslySetInnerHTML={{ __html: phone }} />}
+          </div>
+        )
         : <img src={c.src} alt={c.alt} className="h-auto w-full rounded-xl border border-line bg-paper" />}
       {(c.caption || c.source) && (
         <figcaption className="mt-3 text-[14px] leading-[1.5] text-slate">
