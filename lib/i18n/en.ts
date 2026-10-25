@@ -433,6 +433,7 @@ export const en = {
   meta: { title: "Assembly Engine · Automation for professional services firms", description: "Brand, client acquisition, operations, invoicing and reporting, built as one system for accounting, legal and consultancy firms." },
   example: "Example",
   nav: { services: "Services", caseStudy: "Case study", resources: "Resources", about: "About", contact: "Contact", cta: "Book a free audit", blog: "Blog", howWeWork: "How we work", newsletter: "Newsletter", menu: "Menu", close: "Close menu", allServices: "All services", language: "Language" },
+  cookies: { label: "Cookies", title: "May we measure how the site is used?", body: "Google Analytics shows us which pages get read. It sets cookies, so we only turn it on if you agree. We don’t use advertising cookies.", accept: "Accept", decline: "Decline", settings: "Cookie settings", region: "Cookie choice" },
   footer: { tagline: "Automation for accounting, legal & consulting firms.", services: "Services", company: "Company", contact: "Contact", privacy: "Privacy", terms: "Terms", location: "The Netherlands · working remotely" },
   services,
   home: {

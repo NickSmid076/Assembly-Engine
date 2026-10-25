@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { notFound } from "next/navigation";
 import { Inter, Manrope, IBM_Plex_Mono } from "next/font/google";
 import "../globals.css";
@@ -9,6 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RevealObserver from "@/components/RevealObserver";
 import MotionRoot from "@/components/MotionRoot";
+import CookieConsent from "@/components/CookieConsent";
 import { LOCALES, isLocale } from "@/lib/i18n/config";
 import { getDict } from "@/lib/i18n";
 
@@ -52,15 +52,8 @@ export default async function LocaleLayout({ children, params }: { children: Rea
             <main id="top">{children}</main>
             <Footer />
           </MotionRoot>
+          <CookieConsent />
         </I18nProvider>
-        {/* Google tag (gtag.js), Google Analytics 4. Loads after the page is interactive. */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-XPNXBFKZ2T" strategy="afterInteractive" />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-XPNXBFKZ2T');`}
-        </Script>
       </body>
     </html>
   );

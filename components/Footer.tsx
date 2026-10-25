@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import { useHref, useI18n } from "./I18nProvider";
+import { openCookieSettings } from "./CookieConsent";
 
 export default function Footer() {
   const { t } = useI18n();
@@ -38,7 +39,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="frame frame-dark flex flex-col gap-3 py-6 text-[13px] text-white/65 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Assembly Engine</p>
-          <ul className="flex gap-5"><li><a href="#" className="focus-ring inline-flex min-h-[24px] items-center rounded-sm transition-colors duration-150 hover:text-white">{t.footer.privacy}</a></li><li><a href="#" className="focus-ring inline-flex min-h-[24px] items-center rounded-sm transition-colors duration-150 hover:text-white">{t.footer.terms}</a></li></ul>
+          <ul className="flex gap-5"><li><a href="#" className="focus-ring inline-flex min-h-[24px] items-center rounded-sm transition-colors duration-150 hover:text-white">{t.footer.privacy}</a></li><li><a href="#" className="focus-ring inline-flex min-h-[24px] items-center rounded-sm transition-colors duration-150 hover:text-white">{t.footer.terms}</a></li><li><button type="button" onClick={openCookieSettings} className="focus-ring inline-flex min-h-[24px] items-center rounded-sm transition-colors duration-150 hover:text-white">{t.cookies.settings}</button></li></ul>
         </div>
       </div>
     </footer>

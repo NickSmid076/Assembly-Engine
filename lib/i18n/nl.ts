@@ -397,6 +397,7 @@ export const nl: Dict = {
   meta: { title: "Assembly Engine · Automatisering voor zakelijke dienstverleners", description: "Merk, klantwerving, operatie, facturatie en rapportage, gebouwd als één systeem voor accountants-, advocaten- en adviesbureaus." },
   example: "Voorbeeld",
   nav: { services: "Diensten", caseStudy: "Case", resources: "Kennis", about: "Over", contact: "Contact", cta: "Gratis analyse aanvragen", blog: "Blog", howWeWork: "Werkwijze", newsletter: "Nieuwsbrief", menu: "Menu", close: "Menu sluiten", allServices: "Alle diensten", language: "Taal" },
+  cookies: { label: "Cookies", title: "Mogen we meten hoe de site wordt gebruikt?", body: "Met Google Analytics zien we welke pagina’s worden gelezen. Dat zet cookies, dus we doen het alleen als u daarmee instemt. Advertentiecookies gebruiken we niet.", accept: "Accepteren", decline: "Weigeren", settings: "Cookie-instellingen", region: "Cookiekeuze" },
   footer: { tagline: "Automatisering voor accountants-, advocaten- en adviesbureaus.", services: "Diensten", company: "Bedrijf", contact: "Contact", privacy: "Privacy", terms: "Voorwaarden", location: "Nederland · grotendeels online" },
   services,
   home: {
