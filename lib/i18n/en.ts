@@ -875,6 +875,17 @@ export const en = {
     plannedTitle: "In preparation", plannedNote: "These articles are coming soon. Don’t want to wait? We’re happy to answer your question in person.",
     soonTitle: "We’re writing this article now.", soonAbout: "What it covers", ask: "Ask your question directly",
     all: "All", back: "All posts", placeholder: "Placeholder article", placeholderNote: "This article is a placeholder. The real text will be published soon.", related: "More to read", minRead: "min read", by: "By",
+    blocks: {
+      example: "Example", source: "Source",
+      callout: { note: "Note", tip: "Tip", warning: "Warning", check: "Still to verify" },
+      checklist: { progress: "{done} of {total} done", reset: "Clear ticks", stored: "Your ticks are saved in this browser only." },
+      beforeAfter: { before: "Today", after: "Automated", automate: "Automate", keep: "Keep with a person", human: "Stays with a person" },
+      flow: { replay: "Play again", human: "Person", steps: "Steps in this workflow" },
+      timeline: { expected: "Expected" },
+      table: { scroll: "Swipe sideways to see every column." },
+      mock: { variants: "Tone of the email", from: "From", to: "To", subject: "Subject", received: "received", missing: "missing" },
+      toc: "In this article", tocToggle: "Contents", progress: "Reading progress", auditLink: "What the audit covers",
+    },
   },
   posts: [
     { slug: "what-a-free-automation-audit-looks-at", tag: "Process", read: 6, art: "well", date: "Coming soon", index: false, title: "What a free automation audit actually looks at", excerpt: "The questions we ask in the call, and what you keep afterwards if you decide not to hire us." },

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { link } from "../shared";
+import { image, link } from "../shared";
 
 import { ART } from "@/components/LineArt";
 
@@ -22,6 +22,7 @@ export const blogListSchema = z.object({
     title: z.string().min(1),
     excerpt: z.string().min(1),
     art: z.enum(ART),
+    cover: image.nullable(),
   })),
 });
 export type BlogListBlock = z.infer<typeof blogListSchema>;

@@ -1,5 +1,5 @@
 // Post header · back link, meta, the title (static, LCP), the excerpt as lead, author and date; a still line
-// drawing as cover. Content: PostHeaderBlock. Server component.
+// drawing as cover, or the post's cover illustration (public/blog/<slug>/cover.svg) on paper. Content: PostHeaderBlock. Server component.
 import Image from "next/image";
 import LineArt from "@/components/LineArt";
 import type { PostHeaderBlock } from "./schema";
@@ -23,9 +23,15 @@ export default function PostHeader({ content: c }: { content: PostHeaderBlock })
             <p className="text-[15px] text-slate">{c.by} <span className="font-semibold text-ink">{c.author.name}</span> · {c.date}</p>
           </div>
         </div>
-        <div aria-hidden className="relative mx-auto mt-12 aspect-[21/9] max-w-[1100px] overflow-hidden rounded-2xl bg-ink">
-          <LineArt kind={c.art} still className="absolute inset-0 h-full w-full text-white/70" />
-        </div>
+        {c.cover ? (
+          <div className="relative mx-auto mt-12 aspect-[2/1] max-w-[1100px] overflow-hidden rounded-2xl border border-line bg-paper sm:aspect-[21/9]">
+            <Image src={c.cover.url} alt={c.cover.alt} width={c.cover.width} height={c.cover.height} unoptimized priority className="h-full w-full object-cover" />
+          </div>
+        ) : (
+          <div aria-hidden className="relative mx-auto mt-12 aspect-[21/9] max-w-[1100px] overflow-hidden rounded-2xl bg-ink">
+            <LineArt kind={c.art} still className="absolute inset-0 h-full w-full text-white/70" />
+          </div>
+        )}
       </div>
     </section>
   );

@@ -458,7 +458,7 @@ export async function getBlogIndex(locale: Locale): Promise<ContentPage> {
         acf_fc_layout: "blog_list", anchor: "posts",
         labels: { min_read: b.minRead, planned_title: b.plannedTitle, planned_note: b.plannedNote },
         ask: link(locale, b.ask, "/contact"),
-        posts: t.posts.map((p) => ({ slug: p.slug, url: postBody(locale, p.slug) ? href(locale, `/blog/${p.slug}`) : null, tag: p.tag, read: p.read, date: p.date, title: p.title, excerpt: p.excerpt, art: p.art })),
+        posts: t.posts.map((p) => ({ slug: p.slug, url: postBody(locale, p.slug) ? href(locale, `/blog/${p.slug}`) : null, tag: p.tag, read: p.read, date: p.date, title: p.title, excerpt: p.excerpt, art: p.art, cover: null })),
       },
       closingInner(locale, t, link(locale, t.nav.caseStudy, "/case-studies/energielabel-breda")),
     ],
@@ -480,7 +480,7 @@ export async function getPost(locale: Locale, slug: string): Promise<ContentPage
   return {
     locale, slug, title: p.title, description: p.excerpt, index: !!html && p.index,
     sections: [
-      { acf_fc_layout: "post_header", back, meta: `${p.tag} · ${p.read} ${b.minRead}`, title: p.title, excerpt: p.excerpt, author: { name: t.home.why.name, image: NICK(t).image }, by: b.by, date: p.date, art: p.art },
+      { acf_fc_layout: "post_header", back, meta: `${p.tag} · ${p.read} ${b.minRead}`, title: p.title, excerpt: p.excerpt, author: { name: t.home.why.name, image: NICK(t).image }, by: b.by, date: p.date, art: p.art, cover: null },
       { acf_fc_layout: "rich_text", html, soon: html ? null : { title: b.soonTitle, about: b.soonAbout, excerpt: p.excerpt, back } },
       closingInner(locale, t, link(locale, t.nav.caseStudy, "/case-studies/energielabel-breda")),
     ],

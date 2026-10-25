@@ -2,6 +2,7 @@
 // "In preparation": honest status, no links to empty pages, no skeletons. Covers are still (no idle loops).
 // Pattern P7 rows. Content: BlogListBlock. Server component.
 import Link from "next/link";
+import Image from "next/image";
 import LineArt from "@/components/LineArt";
 import type { BlogListBlock } from "./schema";
 import { CtaLink } from "../ui";
@@ -13,7 +14,9 @@ function Row({ p, n, minRead }: { p: Post; n: number; minRead: string }) {
     <>
       <span aria-hidden className="pt-[3px] font-mono text-[13px] tabular-nums text-slate">{String(n).padStart(2, "0")}</span>
       <div aria-hidden className="relative hidden aspect-[16/10] overflow-hidden rounded-lg border border-line bg-paper sm:block">
-        <LineArt kind={p.art} still className="absolute inset-0 h-full w-full text-cobalt" />
+        {p.cover
+          ? <Image src={p.cover.url} alt="" width={p.cover.width} height={p.cover.height} unoptimized className="h-full w-full object-cover" />
+          : <LineArt kind={p.art} still className="absolute inset-0 h-full w-full text-cobalt" />}
       </div>
       <div className="min-w-0">
         <p className="font-mono text-[12px] uppercase tracking-[0.1em] text-slate"><span className="text-ink">{p.tag}</span> · {p.read} {minRead}</p>

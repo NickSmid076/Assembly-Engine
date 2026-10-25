@@ -838,6 +838,17 @@ export const nl: Dict = {
     plannedTitle: "In voorbereiding", plannedNote: "Deze artikelen verschijnen binnenkort. Wilt u niet wachten? We beantwoorden uw vraag graag persoonlijk.",
     soonTitle: "Dit artikel schrijven we nu.", soonAbout: "Waar het over gaat", ask: "Stel uw vraag direct",
     all: "Alles", back: "Alle artikelen", placeholder: "Voorbeeldartikel", placeholderNote: "Dit artikel is een placeholder. De echte tekst verschijnt binnenkort.", related: "Meer om te lezen", minRead: "min leestijd", by: "Door",
+    blocks: {
+      example: "Voorbeeld", source: "Bron",
+      callout: { note: "Let op", tip: "Tip", warning: "Waarschuwing", check: "Nog te controleren" },
+      checklist: { progress: "{done} van {total} afgevinkt", reset: "Vinkjes wissen", stored: "Uw vinkjes worden alleen in deze browser bewaard." },
+      beforeAfter: { before: "Nu", after: "Geautomatiseerd", automate: "Automatiseren", keep: "Bij een mens laten", human: "Blijft bij een mens" },
+      flow: { replay: "Opnieuw afspelen", human: "Mens", steps: "Stappen in deze workflow" },
+      timeline: { expected: "Verwacht" },
+      table: { scroll: "Veeg opzij om alle kolommen te zien." },
+      mock: { variants: "Toon van de e-mail", from: "Van", to: "Aan", subject: "Onderwerp", received: "ontvangen", missing: "ontbreekt" },
+      toc: "In dit artikel", tocToggle: "Inhoud", progress: "Leesvoortgang", auditLink: "Wat de analyse inhoudt",
+    },
   },
   posts: [
     { slug: "what-a-free-automation-audit-looks-at", tag: "Werkwijze", read: 6, art: "well", date: "Binnenkort", index: false, title: "Waar een gratis automatiseringsanalyse écht naar kijkt", excerpt: "De vragen die we in het gesprek stellen, en wat u daarna in handen heeft als u besluit ons niet in te huren." },

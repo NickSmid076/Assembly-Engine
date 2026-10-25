@@ -13,5 +13,7 @@ export const postHeaderSchema = z.object({
   by: z.string().min(1),
   date: z.string().min(1),
   art: z.enum(ART),
+  /** The post's cover illustration (public/blog/<slug>/cover.svg); null falls back to the line art. */
+  cover: image.nullable(),
 });
 export type PostHeaderBlock = z.infer<typeof postHeaderSchema>;

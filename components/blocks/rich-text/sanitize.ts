@@ -11,7 +11,7 @@ export function cleanHtml(html: string) {
       a: ["href", "title", "target", "rel"],
       img: ["src", "alt", "width", "height", "loading", "srcset", "sizes"],
       iframe: ["src", "title", "width", "height", "allow", "allowfullscreen", "loading"],
-      th: ["scope", "colspan", "rowspan"], td: ["colspan", "rowspan"], ol: ["start", "reversed"],
+      h2: ["id"], th: ["scope", "colspan", "rowspan"], td: ["colspan", "rowspan"], ol: ["start", "reversed"],
       figure: ["class"], div: ["class"], code: ["class"],
     },
     allowedClasses: { figure: ["wp-block-embed", "wp-block-image", "wp-block-table", "wp-block-pullquote"], div: ["wp-block-embed__wrapper"], code: [/^language-/] },
