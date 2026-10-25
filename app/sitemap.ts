@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 import { getPost, getPostSlugs, getServiceSlugs } from "@/lib/content";
 import { LOCALES } from "@/lib/i18n/config";
 
-const BASE = "https://assembly-engine.com";
+const BASE = "https://www.assembly-engine.com";
 
 const entry = (path: string): MetadataRoute.Sitemap[number] => ({
   url: `${BASE}/nl${path}`,

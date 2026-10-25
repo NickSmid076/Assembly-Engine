@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!isLocale(locale)) return {};
   const t = getDict(locale);
   return {
-    metadataBase: new URL("https://assembly-engine.com"),
+    metadataBase: new URL("https://www.assembly-engine.com"),
     title: { default: t.meta.title, template: "%s · Assembly Engine" },
     description: t.meta.description,
     alternates: { languages: { nl: "/nl", en: "/en" } },
