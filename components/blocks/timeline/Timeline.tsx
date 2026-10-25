@@ -10,7 +10,7 @@ export default function Timeline({ content: c }: { content: TimelineBlock }) {
         <span aria-hidden className="absolute bottom-3 left-[5px] top-3 w-px bg-line-2" />
         {c.items.map((it, i) => (
           <li key={i} className="relative grid grid-cols-[minmax(0,1fr)] gap-x-6 pb-6 pl-8 last:pb-0 sm:grid-cols-[132px_minmax(0,1fr)]">
-            <span aria-hidden className={`absolute left-0 top-[6px] h-[11px] w-[11px] rounded-full border-2 ${it.expected ? "border-dashed border-slate bg-white" : "border-ink bg-ink"}`} />
+            <span aria-hidden className={`absolute left-0 top-[6px] h-[11px] w-[11px] rounded-full border-2 ${it.expected ? "border-slate bg-white" : "border-ink bg-ink"}`} />
             <p className="font-mono text-[13px] leading-[1.5] tabular-nums text-ink">
               {it.date}
               {it.expected && <span className="ml-2 inline-block rounded border border-line-2 px-1.5 text-[11px] uppercase tracking-[0.08em] text-slate sm:ml-0 sm:mt-1 sm:block sm:w-fit">{c.labels.expected}</span>}

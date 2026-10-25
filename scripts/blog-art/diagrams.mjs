@@ -48,7 +48,7 @@ function flow(x, y, w, nodes, { wide, gap = 22 } = {}) {
       const nx = x + i * (nw + gap);
       svg += card(nx, y, nw, { ...o, minH: H }).svg;
       if (i < n - 1) svg += arrowR(nx + nw + 3, nx + nw + gap - 3, y + H / 2);
-      if (o.branch) { const b = card(nx, y + H + 30, nw, o.branch); svg += arrowD(nx + nw / 2, y + H + 3, y + H + 27) + b.svg; bh = Math.max(bh, 30 + b.h); }
+      if (o.branch) { const bw = Math.min(nw * 2 + gap, x + w - nx), b = card(nx, y + H + 30, bw, o.branch); svg += arrowD(nx + nw / 2, y + H + 3, y + H + 27) + b.svg; bh = Math.max(bh, 30 + b.h); }
     });
     return { svg, h: H + bh };
   }
@@ -228,7 +228,7 @@ D["automatic-payment-reminders/two-routes"] = {
 /** 7 · The Wwft intake: four automated steps, one human judgement. */
 D["what-not-to-automate/four-and-one"] = {
   en: { auto: "Automated", person: "Advocaat", steps: ["Send the list of required documents", "Tick off what arrives", "Send reminders", "Set out the answers in the file", "Assign the risk and write the justification"], foot: "Afterwards the system records the date and the advocaat's name.", label: "Example · Wwft intake" },
-  nl: { auto: "Geautomatiseerd", person: "Advocaat", steps: ["De lijst met benodigde stukken sturen", "Afvinken wat binnenkomt", "Herinneringen sturen", "De antwoorden in het dossier zetten", "Het risico bepalen en de motivering schrijven"], foot: "Daarna legt het systeem de datum en de naam van de advocaat vast.", label: "Voorbeeld · Wwft-intake" },
+  nl: { auto: "Automatisch", person: "Advocaat", steps: ["De lijst met benodigde stukken sturen", "Afvinken wat binnenkomt", "Herinneringen sturen", "De antwoorden in het dossier zetten", "Het risico bepalen en de motivering schrijven"], foot: "Daarna legt het systeem de datum en de naam van de advocaat vast.", label: "Voorbeeld · Wwft-intake" },
   draw(L, W, P, wide) {
     let s = "", y = P;
     const l = label(P, y, L.label); s += l.svg; y += l.h + 12;

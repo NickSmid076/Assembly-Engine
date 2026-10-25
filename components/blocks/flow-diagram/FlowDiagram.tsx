@@ -17,6 +17,8 @@ export default function FlowDiagram({ content: c }: { content: FlowDiagramBlock 
   const n = c.nodes.length;
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotionSafe();
+  // Five or six steps in a row: tighter gaps and labels, so words hyphenate instead of breaking anywhere.
+  const dense = c.nodes.length >= 5;
   const [step, setStep] = useState(-1);
   const [run, setRun] = useState(0);
   const busy = run > 0 && step < n - 1 && !reduce;
@@ -44,22 +46,22 @@ export default function FlowDiagram({ content: c }: { content: FlowDiagramBlock 
         {c.title ? <p className="font-display text-[16px] font-bold leading-[1.3] text-ink">{c.title}</p> : <span />}
         <p className="font-mono text-[12px] text-slate">{c.labels.example}</p>
       </div>
-      <ol aria-label={c.labels.steps} className="flex flex-col gap-5 md:flex-row md:gap-6">
+      <ol aria-label={c.labels.steps} className={`flex flex-col gap-5 md:flex-row ${dense ? "md:gap-4" : "md:gap-6"}`}>
         {c.nodes.map((node, i) => {
           const on = step >= i;
           const filled = step > i;
           return (
             <li key={i} className="relative min-w-0 md:flex-1">
-              <div className={`flex h-full flex-col rounded-lg border bg-white px-3 py-3 transition-[border-color,box-shadow] duration-300 ${node.human ? "border-dashed" : ""} ${on ? (node.human ? "border-ink/50" : "border-cobalt shadow-[0_0_0_3px_#EDF1FF]") : "border-line-2"}`}>
+              <div className={`flex h-full flex-col rounded-lg border bg-white py-3 ${dense ? "px-2.5" : "px-3"} transition-[border-color,box-shadow] duration-300 ${node.human ? "border-dashed" : ""} ${on ? (node.human ? "border-ink/50" : "border-cobalt shadow-[0_0_0_3px_#EDF1FF]") : "border-line-2"}`}>
                 <span aria-hidden className={`grid h-6 w-6 place-items-center rounded-full font-mono text-[11px] tabular-nums transition-[background-color,color] duration-300 ${node.human ? "border border-dashed border-ink/40 bg-white text-ink" : on ? "bg-cobalt text-white" : "bg-ice text-cobalt"}`}>
                   {node.human ? <Icon name="person" className="h-3.5 w-3.5" /> : i + 1}
                 </span>
-                <p className="mt-2.5 text-pretty font-display text-[14.5px] font-bold leading-[1.3] text-ink [overflow-wrap:anywhere]">{node.label}</p>
+                <p className={`mt-2.5 text-pretty font-display font-bold leading-[1.3] text-ink hyphens-auto [overflow-wrap:break-word] ${dense ? "text-[14.5px] md:text-[13.5px]" : "text-[14.5px]"}`}>{node.label}</p>
                 {node.detail && <p className="mt-1 text-pretty text-[13px] leading-[1.4] text-slate">{node.detail}</p>}
                 {node.human && <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.08em] text-slate">{c.labels.human}</p>}
               </div>
               {i < n - 1 && (
-                <span aria-hidden className="pointer-events-none absolute left-6 top-full h-5 w-0.5 md:left-full md:top-[26px] md:h-0.5 md:w-6">
+                <span aria-hidden className={`pointer-events-none absolute left-6 top-full h-5 w-0.5 md:left-full md:top-[26px] md:h-0.5 ${dense ? "md:w-4" : "md:w-6"}`}>
                   <span className="absolute inset-0 bg-line-2" />
                   <motion.span className="absolute inset-0 hidden origin-left bg-cobalt md:block" initial={false} animate={{ scaleX: filled ? 1 : 0 }} transition={{ duration: 0.45, ease: EASE_IN_OUT }} />
                   <motion.span className="absolute inset-0 origin-top bg-cobalt md:hidden" initial={false} animate={{ scaleY: filled ? 1 : 0 }} transition={{ duration: 0.45, ease: EASE_IN_OUT }} />
