@@ -6,7 +6,7 @@ const EMBED_HOSTS = ["www.youtube-nocookie.com", "www.youtube.com", "player.vime
 export function cleanHtml(html: string) {
   return sanitizeHtml(html, {
     allowedTags: ["h2", "h3", "h4", "p", "br", "hr", "strong", "b", "em", "i", "u", "s", "a", "ul", "ol", "li", "blockquote", "cite",
-      "figure", "figcaption", "img", "pre", "code", "kbd", "table", "thead", "tbody", "tr", "th", "td", "iframe", "div", "span", "sup", "sub"],
+      "figure", "figcaption", "img", "pre", "code", "kbd", "table", "thead", "tbody", "tr", "th", "td", "iframe", "div", "span", "sup", "sub", "mark"],
     allowedAttributes: {
       a: ["href", "title", "target", "rel"],
       img: ["src", "alt", "width", "height", "loading", "srcset", "sizes"],

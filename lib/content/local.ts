@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { getDict } from "@/lib/i18n";
 import { LOGOS } from "./logos";
+import { POST_BODIES } from "./posts";
 import type { Locale } from "@/lib/i18n/config";
 import type {
   ClosingCtaBlock, ContentPage, HeadingPart, HeroHomeBlock, HomePage, HowItRunsBlock, ProcessBlock, ProofBlock, Section, ServicePage, ServicesBlock, WhyUsBlock, WPLink,
@@ -442,9 +443,9 @@ export async function getAboutPage(locale: Locale): Promise<ContentPage> {
   };
 }
 
-/** Posts have no body in the local source yet: every post is "planned" (not linked, noindex). WordPress
- *  will return `content.rendered` for published posts. */
-const POST_BODY: Record<string, string | null> = {};
+/** A post's body in this locale (lib/content/posts), or null while it is still being written (not linked).
+ *  WordPress will return `content.rendered`. */
+const postBody = (locale: Locale, slug: string): string | null => POST_BODIES[locale][slug] ?? null;
 
 export async function getBlogIndex(locale: Locale): Promise<ContentPage> {
   const t = getDict(locale);
@@ -457,7 +458,7 @@ export async function getBlogIndex(locale: Locale): Promise<ContentPage> {
         acf_fc_layout: "blog_list", anchor: "posts",
         labels: { min_read: b.minRead, planned_title: b.plannedTitle, planned_note: b.plannedNote },
         ask: link(locale, b.ask, "/contact"),
-        posts: t.posts.map((p) => ({ slug: p.slug, url: POST_BODY[p.slug] ? href(locale, `/blog/${p.slug}`) : null, tag: p.tag, read: p.read, date: p.date, title: p.title, excerpt: p.excerpt, art: p.art })),
+        posts: t.posts.map((p) => ({ slug: p.slug, url: postBody(locale, p.slug) ? href(locale, `/blog/${p.slug}`) : null, tag: p.tag, read: p.read, date: p.date, title: p.title, excerpt: p.excerpt, art: p.art })),
       },
       closingInner(locale, t, link(locale, t.nav.caseStudy, "/case-studies/energielabel-breda")),
     ],
@@ -473,10 +474,11 @@ export async function getPost(locale: Locale, slug: string): Promise<ContentPage
   const b = t.blogPage;
   const p = t.posts.find((x) => x.slug === slug);
   if (!p) return null;
-  const html = POST_BODY[slug] ?? null;
+  const html = postBody(locale, slug);
   const back = link(locale, b.back, "/blog");
+  // Indexed only with a body and once the post's own `index` flag is flipped (after its [CHECK] markers are cleared).
   return {
-    locale, slug, title: p.title, description: p.excerpt, index: !!html,
+    locale, slug, title: p.title, description: p.excerpt, index: !!html && p.index,
     sections: [
       { acf_fc_layout: "post_header", back, meta: `${p.tag} · ${p.read} ${b.minRead}`, title: p.title, excerpt: p.excerpt, author: { name: t.home.why.name, image: NICK(t).image }, by: b.by, date: p.date, art: p.art },
       { acf_fc_layout: "rich_text", html, soon: html ? null : { title: b.soonTitle, about: b.soonAbout, excerpt: p.excerpt, back } },

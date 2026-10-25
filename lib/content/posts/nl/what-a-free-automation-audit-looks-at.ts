@@ -1,0 +1,52 @@
+import { auditCta } from "../cta";
+
+export default `
+<p><mark>[CHECK: confirm every step below is one Nick performs in the audit, and cut any he doesn't]</mark></p>
+<p>Een gratis analyse klinkt al snel als een verkoopgesprek met een andere naam. Dat begrijpen we. Daarom staat hieronder wat we in dat gesprek doen, welke vragen we stellen en wat u er daarna aan overhoudt. Ook als u besluit niet met ons verder te gaan.</p>
+
+<h2>Waarom we met een analyse beginnen</h2>
+<p>Bijna elke ondernemer wil meer automatiseren. In de MKB Barometer van Exact zegt 94% dat het eigen bedrijf onvoldoende geautomatiseerd is. De twee belangrijkste redenen om ermee aan de slag te gaan zijn kostenbesparing (52%) en tijdwinst (46%) (<a href="https://files.exact.com/static/web/pdf/mkb-barometer/2025/NL_All-mkb-barometer-2025.pdf">Exact MKB Barometer 2025</a>).</p>
+<p>Wie twijfelt, twijfelt meestal om andere redenen dan de techniek. Van de bedrijven die AI wel overwogen maar niet gebruiken, noemt 73% gebrek aan ervaring, 49% privacy en 42% onduidelijke juridische gevolgen (<a href="https://www.cbs.nl/nl-nl/nieuws/2025/50/bedrijven-gebruiken-ai-vaakst-voor-marketing-of-verkoop">CBS, december 2025</a>). Die zorgen komen in de analyse allemaal aan bod.</p>
+<p>Een voorstel schrijven voordat we uw werk kennen, zou neerkomen op gokken. Dus kijken we eerst, en praten we pas daarna over wat we zouden bouwen.</p>
+
+<h2>Wat u al betaalt: uw software op een rij</h2>
+<p>We beginnen met de software die u nu gebruikt. Uw boekhoudpakket, bijvoorbeeld Exact Online, Moneybird of Twinfield. Uw mail en agenda in Microsoft 365 of Google Workspace. Een CRM zoals HubSpot, als u dat heeft. Uw betaalprovider, en de gedeelde mappen waarin de dossiers staan.</p>
+<p>Per pakket stellen we een paar vragen. Wie gebruikt het, en waarvoor? Welke gegevens staan erin die ook ergens anders nodig zijn? En wat typt iemand nu met de hand over van het ene systeem naar het andere?</p>
+<p>Die laatste vraag levert meestal het meeste op. De pakketten zelf doen vaak prima wat ze moeten doen. Het werk zit in het overtypen, kopiëren en nabellen tussen de pakketten in. U hoeft hiervoor niets voor te bereiden, al scheelt het tijd als u een lijstje van uw abonnementen bij de hand heeft.</p>
+
+<h2>Drie tot vijf terugkerende klussen in kaart</h2>
+<p>Daarna kiezen we samen drie tot vijf werkprocessen die elke week of elke maand terugkomen. Een nieuwe klant aannemen. Stukken opvragen voor de aangifte. Facturen versturen en achter betalingen aan gaan. De maandcijfers klaarzetten voor een klant of voor uzelf.</p>
+<p>Voor elk proces lopen we de stappen door zoals ze nu gaan, met de omwegen erbij. Wie begint? Waar wacht iemand op een ander? Waar gaat het weleens mis, en wie merkt dat dan? We schrijven op wat er op een gewone dinsdag gebeurt. Het nette procesplaatje uit het kwaliteitshandboek laten we liggen.</p>
+<p>Een voorbeeld van hoe dat eruitziet, bij een denkbeeldig kantoor als Van Dijk Accountancy. Een klant mailt zijn bankafschriften. Een medewerker slaat ze op in de klantmap, zet een vinkje in een Excel-lijst en mailt terug dat ze binnen zijn. Vier handelingen in drie programma's. Ontbreekt er iets, dan gaat er een herinnering uit, als iemand eraan denkt. Zo'n beschrijving van een paar regels is genoeg om te zien waar een systeem het kan overnemen.</p>
+
+<h2>De rekensom: tijd, frequentie en uurtarief</h2>
+<p>Per proces maken we een eenvoudige som. Hoe lang duurt de klus? Hoe vaak komt hij voor? Wat kost een uur van degene die hem doet? Hieronder een voorbeeld met verzonnen getallen.</p>
+<figure class="wp-block-table"><table><thead><tr><th>Voorbeeld (fictief kantoor)</th><th>Waarde</th></tr></thead><tbody>
+<tr><td>Herinneringen sturen voor openstaande facturen</td><td>20 minuten per keer</td></tr>
+<tr><td>Hoe vaak</td><td>3 keer per week</td></tr>
+<tr><td>Uurkosten van de medewerker</td><td>€45</td></tr>
+<tr><td>Tijd per jaar (46 werkweken)</td><td>46 uur</td></tr>
+<tr><td>Kosten per jaar</td><td>ongeveer €2.070</td></tr>
+</tbody></table></figure>
+<p>Bij u kan dat hoger of lager uitvallen. Soms is de uitkomst zo klein dat automatiseren de moeite niet waard is, en dat is ook een bruikbare uitkomst. Daarom rekenen we het uit.</p>
+<p>U kunt deze som ook zelf maken voordat u ons belt. Kies een klus waar uw team over klaagt. Schat hoe lang hij duurt, met de onderbrekingen erbij. Tel een week lang hoe vaak hij voorkomt, en vermenigvuldig met de uurkosten. Het getal is ruw. Het geeft wel een ondergrens voor wat een oplossing per jaar mag kosten.</p>
+<p>Tijd is ook niet de enige post. Bij herinneringen gaat het ook om geld dat later binnenkomt: in het mkb wordt gemiddeld 14,2% van de facturen te laat betaald (<a href="https://files.exact.com/static/web/pdf/mkb-barometer/2025/NL_All-mkb-barometer-2025.pdf">Exact MKB Barometer 2025</a>). En wie de hele dag tussen programma's wisselt, verliest daar volgens onderzoek van Harvard Business Review uit 2022 bijna vier uur per week aan (via <a href="https://www.toriihq.com/saas-statistics">Torii</a>). <mark>[CHECK: verify the 4 hours a week in the original HBR 2022 study; we only saw it via Torii]</mark></p>
+
+<h2>Waar uw klantgegevens naartoe gaan</h2>
+<p>Bij elk proces kijken we ook waar de gegevens heen gaan. Welke pakketten verwerken persoonsgegevens van uw klanten? Staan die gegevens in de EU of daarbuiten? Heeft u met elke partij een verwerkersovereenkomst?</p>
+<p>Voor een accountants- of advocatenkantoor is dat een wezenlijk onderdeel van het advies. Als een koppeling klantgegevens doorstuurt naar een extra dienst, wordt die dienst ook een verwerker, met alle afspraken die daarbij horen. Dat zetten we op papier voordat er iets gebouwd wordt, zodat u niet achteraf ontdekt waar uw gegevens terecht zijn gekomen.</p>
+
+<h2>Wat u daarna in handen heeft</h2>
+<p>Na het gesprek krijgt u een kort overzicht op schrift. <mark>[CHECK: confirm the format and timing of what Nick sends after the audit]</mark> Daarin staan drie dingen:</p>
+<ul>
+<li>de snelle winst: klussen die met uw bestaande software te automatiseren zijn, zonder nieuw pakket;</li>
+<li>de grotere projecten, met wat daarvoor nodig is en welke systemen eraan te pas komen;</li>
+<li>per onderdeel een inschatting van wat het kost om te bouwen en wat het oplevert, gebaseerd op de som hierboven.</li>
+</ul>
+<p>Dat overzicht is van u. U kunt het zelf uitvoeren, aan uw eigen IT-partij geven of met ons verder gaan. We noemen pas een terugverdientijd als we uw processen hebben gezien, en we beloven vooraf geen besparing.</p>
+
+<h2>Wanneer we u afraden om te automatiseren</h2>
+<p>Soms is het eerlijke antwoord: laat dit zoals het is. Bijvoorbeeld als een klus zo zelden voorkomt dat bouwen en onderhouden meer kost dan het oplevert. Of als er een oordeel nodig is, zoals een risico-inschatting of een lastig gesprek met een klant. Dat zeggen we dan ook. Een automatisering die niemand vertrouwt, wordt na een paar weken stilletjes weer met de hand gedaan.</p>
+<p>Ook als uw software het werk al kan, zeggen we dat. Soms zit de oplossing in een instelling van uw boekhoudpakket die nooit is aangezet. Dan valt er weinig te bouwen, en helpen we u die instelling te vinden.</p>
+<p>Over die grens schreven we een apart artikel: <a href="/nl/blog/what-not-to-automate">wat u beter níet automatiseert</a>. En als u wilt weten waarom we bijna altijd bouwen op wat u al heeft, leest u <a href="/nl/blog/build-on-the-software-you-already-use">waarom we bouwen op de software die u al gebruikt</a>.</p>
+` + auditCta("nl", true);
