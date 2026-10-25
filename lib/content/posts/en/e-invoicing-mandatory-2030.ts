@@ -1,4 +1,5 @@
 import { auditCta } from "../cta";
+import type { PostBlocks } from "../types";
 
 export default `
 <p><em>Last updated: 25 October 2026. This topic is still moving; we'll update this article after the internet consultation, and again once the bill is published.</em></p>
@@ -8,13 +9,12 @@ export default `
 <p>The cabinet has chosen mandatory e-invoicing for domestic and intra-EU transactions between businesses, combined with digital VAT reporting (<a href="https://www.taxlive.nl/nl/documenten/vn-vandaag/kabinet-kiest-voor-verplichte-e-facturatie-en-digitale-rapportage-bij-binnenlandse-b2b-transacties/">Taxlive</a>). An internet consultation follows in autumn 2026. The bill should reach the Tweede Kamer, the Dutch lower house, before the 2027 summer recess (<a href="https://www.grantthornton.nl/insights/tax/btw/nederland-zet-in-op-brede-uitrol-van-e-facturatie-en-digitale-btw-rapportage/">Grant Thornton, September 2026</a>). <mark>[CHECK: has the internet consultation opened, and have any dates changed?]</mark></p>
 <p>Until the law exists, a lot can still shift: the dates, the exemptions, the technical requirements. So write "expected" next to every date, in your own planning too.</p>
 
+
+<!--block:notlaw-->
 <h2>The expected timeline</h2>
-<ul>
-<li><strong>Autumn 2026:</strong> internet consultation on the bill.</li>
-<li><strong>Before summer 2027:</strong> the bill goes to the Tweede Kamer.</li>
-<li><strong>1 July 2030 (expected):</strong> e-invoicing becomes mandatory for domestic and intra-EU B2B transactions. Per-invoice digital reporting for intra-EU B2B transactions starts the same day, replacing the current Opgaaf ICP (the EC sales list).</li>
-<li><strong>1 July 2031 (expected):</strong> digital reporting for domestic transactions.</li>
-</ul>
+
+<!--block:timeline-->
+
 <p>Source for the 2030 and 2031 dates: <a href="https://www.sra.nl/nieuws/011102/2026/09/verplichte-e-facturering-tussen-bedrijven-vanaf-1-juli-2030">SRA, September 2026</a>.</p>
 
 <h2>What changes</h2>
@@ -24,6 +24,8 @@ export default `
 <h3>An example of the difference</h3>
 <p>Take an imaginary installation company, De Vries Installatie. Today the bookkeeper creates an invoice in the accounting package, saves it as a PDF and emails it to the customer. The customer retypes the details into their own package, or has software read the PDF. Under the new rules the invoice goes as a structured file straight into the customer's package. Amounts, VAT and invoice number arrive correctly, with no retyping. And the data goes to the Belastingdienst as well.</p>
 <p>For the sender, the change is mostly in the software. For the receiver, a step disappears, and that saves time, provided the software cooperates.</p>
+
+<!--block:compare-->
 <h3>What per-invoice reporting means</h3>
 <p>Today you file a VAT return periodically, based on your books for a month or a quarter. Mistakes in invoices often only surface at that return. With per-invoice reporting the Belastingdienst sees each invoice shortly after it's issued. A wrong VAT rate or a missing VAT number gets noticed sooner.</p>
 <p>That calls for books that are up to date. If you currently enter invoices at the end of the quarter, you'll have to work differently. How the reporting will work technically isn't settled yet; that will follow from the bill.</p>
@@ -55,11 +57,85 @@ export default `
 
 <h2>Steps you won't regret</h2>
 <p>These steps pay off even if the rules change:</p>
-<ul>
-<li>Invoice from one system. Loose Word invoices next to your accounting package make any switch harder.</li>
-<li>Make sure your customers' KvK number, VAT number and billing address are correct in your package.</li>
-<li>Ask suppliers for e-invoices. That lets you practise receiving and processing them, and it saves retyping today.</li>
-<li>Check which connections pass invoices along. They'll need to handle a different format.</li>
-</ul>
+
+<!--block:steps-->
+
 <p>That last one is where we come in most often. A connection that forwards a PDF today will need to pass on a structured file. It's usually manageable, if you know about it in time. For more on invoices and payments, read <a href="/en/blog/automatic-payment-reminders">automatic payment reminders</a>.</p>
 ` + auditCta("en");
+
+export const cover = { alt: "Line drawing: a stack of paper invoices on the left, the same invoice as a grid of structured cells on the right." };
+
+export const blocks: PostBlocks = {
+  "notlaw": {
+    "acf_fc_layout": "callout",
+    "tone": "note",
+    "title": "Not law yet",
+    "body": "Every date in this article is an expectation. The dates, the exemptions and the technical requirements can still change until the bill is passed.",
+    "link": null
+  },
+  "timeline": {
+    "acf_fc_layout": "timeline",
+    "title": "The expected timeline",
+    "items": [
+      {
+        "date": "Autumn 2026",
+        "title": "Internet consultation on the bill",
+        "text": null,
+        "expected": true
+      },
+      {
+        "date": "Before summer 2027",
+        "title": "The bill goes to the Tweede Kamer",
+        "text": null,
+        "expected": true
+      },
+      {
+        "date": "1 July 2030",
+        "title": "E-invoicing mandatory for domestic and intra-EU B2B transactions",
+        "text": "Per-invoice digital reporting for intra-EU B2B starts the same day, replacing the Opgaaf ICP.",
+        "expected": true
+      },
+      {
+        "date": "1 July 2031",
+        "title": "Digital reporting for domestic transactions",
+        "text": null,
+        "expected": true
+      }
+    ],
+    "caption": null
+  },
+  "compare": {
+    "acf_fc_layout": "diagram",
+    "src": "/blog/e-invoicing-mandatory-2030/pdf-vs-structured.en.svg",
+    "alt": "Today: your accounting package creates a PDF, it goes by email, the customer retypes it, and it lands in the customer's package. Expected from 1 July 2030: your package sends a structured e-invoice straight into the customer's package, and the invoice is reported to the Belastingdienst one by one, EU transactions first and domestic ones expected from 2031.",
+    "caption": "The expected route. The technical details follow from the bill.",
+    "source": {
+      "title": "SRA, September 2026",
+      "url": "https://www.sra.nl/nieuws/011102/2026/09/verplichte-e-facturering-tussen-bedrijven-vanaf-1-juli-2030",
+      "target": "_blank"
+    }
+  },
+  "steps": {
+    "acf_fc_layout": "checklist",
+    "id": "e-invoicing-steps",
+    "title": "Steps you won't regret",
+    "items": [
+      {
+        "id": "i1",
+        "text": "Invoice from one system, with no loose Word invoices next to your accounting package"
+      },
+      {
+        "id": "i2",
+        "text": "Check your customers' KvK number, VAT number and billing address in your package"
+      },
+      {
+        "id": "i3",
+        "text": "Ask suppliers for e-invoices, so you practise receiving them"
+      },
+      {
+        "id": "i4",
+        "text": "List the connections that pass invoices along; they'll need to handle a different format"
+      }
+    ]
+  }
+};

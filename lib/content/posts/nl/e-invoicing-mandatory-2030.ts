@@ -1,4 +1,5 @@
 import { auditCta } from "../cta";
+import type { PostBlocks } from "../types";
 
 export default `
 <p><em>Laatst bijgewerkt: 25 oktober 2026. Dit onderwerp verandert nog; we werken dit artikel bij na de internetconsultatie en opnieuw als het wetsvoorstel er is.</em></p>
@@ -8,13 +9,12 @@ export default `
 <p>Het kabinet heeft gekozen voor verplichte e-facturatie bij binnenlandse en Europese transacties tussen bedrijven, gecombineerd met digitale btw-rapportage (<a href="https://www.taxlive.nl/nl/documenten/vn-vandaag/kabinet-kiest-voor-verplichte-e-facturatie-en-digitale-rapportage-bij-binnenlandse-b2b-transacties/">Taxlive</a>). In het najaar van 2026 volgt een internetconsultatie. Het wetsvoorstel moet vóór het zomerreces van 2027 bij de Tweede Kamer liggen (<a href="https://www.grantthornton.nl/insights/tax/btw/nederland-zet-in-op-brede-uitrol-van-e-facturatie-en-digitale-btw-rapportage/">Grant Thornton, september 2026</a>). <mark>[CHECK: has the internet consultation opened, and have any dates changed?]</mark></p>
 <p>Tot die wet er is, kan er nog van alles schuiven: de data, de uitzonderingen, de technische eisen. Schrijf dus overal "verwacht" bij, ook in uw eigen planning.</p>
 
+
+<!--block:notlaw-->
 <h2>De verwachte tijdlijn</h2>
-<ul>
-<li><strong>Najaar 2026:</strong> internetconsultatie over het wetsvoorstel.</li>
-<li><strong>Voor de zomer van 2027:</strong> het wetsvoorstel gaat naar de Tweede Kamer.</li>
-<li><strong>1 juli 2030 (verwacht):</strong> e-facturatie verplicht voor binnenlandse en Europese B2B-transacties. Op dezelfde dag begint de digitale rapportage per factuur voor Europese B2B-transacties. Die vervangt de huidige Opgaaf ICP.</li>
-<li><strong>1 juli 2031 (verwacht):</strong> digitale rapportage voor binnenlandse transacties.</li>
-</ul>
+
+<!--block:timeline-->
+
 <p>Bron voor de data in 2030 en 2031: <a href="https://www.sra.nl/nieuws/011102/2026/09/verplichte-e-facturering-tussen-bedrijven-vanaf-1-juli-2030">SRA, september 2026</a>.</p>
 
 <h2>Wat er verandert</h2>
@@ -25,6 +25,8 @@ export default `
 <p>Neem een denkbeeldig installatiebedrijf, De Vries Installatie. Nu maakt de administratie een factuur in het boekhoudpakket, slaat hem op als pdf en mailt hem naar de klant. De klant typt de gegevens over in zijn eigen pakket, of laat software de pdf uitlezen. Onder de nieuwe regels gaat de factuur als gestructureerd bestand rechtstreeks naar het pakket van de klant. Bedragen, btw en factuurnummer komen er goed in, zonder overtypen. En de gegevens gaan ook naar de Belastingdienst.</p>
 <p>Voor de verzender verandert er vooral iets in de software. Voor de ontvanger valt een stap weg, en daar zit tijdwinst in, als de software meewerkt.</p>
 
+
+<!--block:compare-->
 <h3>Wat rapportage per factuur betekent</h3>
 <p>Nu doet u periodiek btw-aangifte, op basis van de administratie over een maand of een kwartaal. Fouten in facturen komen vaak pas bij die aangifte boven. Met rapportage per factuur ziet de Belastingdienst elke factuur kort nadat hij is uitgereikt. Een verkeerd btw-tarief of een ontbrekend btw-nummer valt dan eerder op.</p>
 <p>Dat vraagt om een administratie die bij is. Wie nu facturen pas aan het einde van het kwartaal invoert, moet straks anders gaan werken. Hoe de rapportage technisch gaat werken, staat nog niet vast; dat volgt uit het wetsvoorstel.</p>
@@ -56,11 +58,85 @@ export default `
 
 <h2>Stappen waar u nu al geen spijt van krijgt</h2>
 <p>Deze stappen lonen ook als de regels nog veranderen:</p>
-<ul>
-<li>Factureer vanuit één systeem. Losse Word-facturen naast uw boekhoudpakket maken elke overstap lastiger.</li>
-<li>Zorg dat KvK-nummer, btw-nummer en factuuradres van uw klanten in uw pakket kloppen. Een gestructureerde factuur valt om als die gegevens ontbreken.</li>
-<li>Vraag leveranciers om e-facturen. Dan oefent u met ontvangen en verwerken, en scheelt het nu al overtypen.</li>
-<li>Kijk welke koppelingen facturen doorsturen. Die moeten straks met een ander formaat overweg kunnen.</li>
-</ul>
+
+<!--block:steps-->
+
 <p>Die laatste is het punt waar wij het vaakst mee te maken hebben. Een koppeling die nu een pdf doorstuurt, moet straks een gestructureerd bestand doorgeven. Dat is meestal goed te overzien, als u het op tijd weet. Meer over facturen en betalingen leest u in <a href="/nl/blog/automatic-payment-reminders">automatische betalingsherinneringen</a>.</p>
 ` + auditCta("nl");
+
+export const cover = { alt: "Lijntekening: een stapel papieren facturen links, dezelfde factuur als raster van gestructureerde cellen rechts." };
+
+export const blocks: PostBlocks = {
+  "notlaw": {
+    "acf_fc_layout": "callout",
+    "tone": "note",
+    "title": "Nog geen wet",
+    "body": "Elke datum in dit artikel is een verwachting. De data, de uitzonderingen en de technische eisen kunnen nog veranderen tot de wet is aangenomen.",
+    "link": null
+  },
+  "timeline": {
+    "acf_fc_layout": "timeline",
+    "title": "De verwachte tijdlijn",
+    "items": [
+      {
+        "date": "Najaar 2026",
+        "title": "Internetconsultatie over het wetsvoorstel",
+        "text": null,
+        "expected": true
+      },
+      {
+        "date": "Voor de zomer van 2027",
+        "title": "Het wetsvoorstel gaat naar de Tweede Kamer",
+        "text": null,
+        "expected": true
+      },
+      {
+        "date": "1 juli 2030",
+        "title": "E-facturatie verplicht voor binnenlandse en intracommunautaire B2B-handel",
+        "text": "Dezelfde dag start de digitale rapportage per factuur voor intracommunautaire B2B-handel, als vervanging van de Opgaaf ICP.",
+        "expected": true
+      },
+      {
+        "date": "1 juli 2031",
+        "title": "Digitale rapportage voor binnenlandse handel",
+        "text": null,
+        "expected": true
+      }
+    ],
+    "caption": null
+  },
+  "compare": {
+    "acf_fc_layout": "diagram",
+    "src": "/blog/e-invoicing-mandatory-2030/pdf-vs-structured.nl.svg",
+    "alt": "Nu: uw boekhoudpakket maakt een pdf, die gaat per e-mail, de klant typt hem over en hij komt in het pakket van de klant. Verwacht vanaf 1 juli 2030: uw pakket stuurt een gestructureerde e-factuur rechtstreeks naar het pakket van de klant, en de factuur wordt per stuk gemeld aan de Belastingdienst, eerst voor EU-handel en binnenlands naar verwachting vanaf 2031.",
+    "caption": "De verwachte route. De technische details volgen uit het wetsvoorstel.",
+    "source": {
+      "title": "SRA, september 2026",
+      "url": "https://www.sra.nl/nieuws/011102/2026/09/verplichte-e-facturering-tussen-bedrijven-vanaf-1-juli-2030",
+      "target": "_blank"
+    }
+  },
+  "steps": {
+    "acf_fc_layout": "checklist",
+    "id": "e-invoicing-steps",
+    "title": "Stappen waar u geen spijt van krijgt",
+    "items": [
+      {
+        "id": "i1",
+        "text": "Factureer vanuit één systeem, zonder losse Word-facturen naast uw boekhoudpakket"
+      },
+      {
+        "id": "i2",
+        "text": "Controleer KvK-nummer, btw-nummer en factuuradres van uw klanten in uw pakket"
+      },
+      {
+        "id": "i3",
+        "text": "Vraag leveranciers om e-facturen, zodat u oefent met ontvangen"
+      },
+      {
+        "id": "i4",
+        "text": "Zet de koppelingen op een rij die facturen doorgeven; die moeten straks een ander formaat aankunnen"
+      }
+    ]
+  }
+};

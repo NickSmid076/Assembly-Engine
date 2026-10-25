@@ -4,10 +4,10 @@ import fs from "node:fs";
 import path from "node:path";
 import { getDict } from "@/lib/i18n";
 import { LOGOS } from "./logos";
-import { POST_BODIES } from "./posts";
+import { POSTS, type BlockData } from "./posts";
 import type { Locale } from "@/lib/i18n/config";
 import type {
-  ClosingCtaBlock, ContentPage, HeadingPart, HeroHomeBlock, HomePage, HowItRunsBlock, ProcessBlock, ProofBlock, Section, ServicePage, ServicesBlock, WhyUsBlock, WPLink,
+  ArticleSection, ClosingCtaBlock, ContentPage, HeadingPart, HeroHomeBlock, HomePage, HowItRunsBlock, ProcessBlock, ProofBlock, Section, ServicePage, ServicesBlock, WhyUsBlock, WPLink,
 } from "./types";
 import { SERVICE_KEYS } from "@/components/blocks/service-hero/schema";
 import type { BrandComponent, BrandPage } from "@/components/blocks/service-signature/schema";
@@ -445,7 +445,58 @@ export async function getAboutPage(locale: Locale): Promise<ContentPage> {
 
 /** A post's body in this locale (lib/content/posts), or null while it is still being written (not linked).
  *  WordPress will return `content.rendered`. */
-const postBody = (locale: Locale, slug: string): string | null => POST_BODIES[locale][slug] ?? null;
+const postBody = (locale: Locale, slug: string): string | null => POSTS[locale][slug]?.default ?? null;
+
+const AUDIT_SLUG = "what-a-free-automation-audit-looks-at";
+/** Further reading per post (later an ACF relationship field). */
+const RELATED: Record<string, string[]> = {
+  "what-a-free-automation-audit-looks-at": ["five-admin-tasks-to-automate-first", "what-not-to-automate", "build-on-the-software-you-already-use"],
+  "five-admin-tasks-to-automate-first": ["what-a-free-automation-audit-looks-at", "what-not-to-automate", "automatic-payment-reminders"],
+  "e-invoicing-mandatory-2030": ["automatic-payment-reminders", "build-on-the-software-you-already-use", "five-admin-tasks-to-automate-first"],
+  "build-on-the-software-you-already-use": ["n8n-vs-make-vs-zapier-for-dutch-firms", "what-a-free-automation-audit-looks-at", "five-admin-tasks-to-automate-first"],
+  "client-intake-for-law-firms": ["engagement-letters-and-conflict-checks-for-law-firms", "what-not-to-automate", "build-on-the-software-you-already-use"],
+  "automatic-payment-reminders": ["e-invoicing-mandatory-2030", "what-a-free-automation-audit-looks-at", "build-on-the-software-you-already-use"],
+  "what-not-to-automate": ["five-admin-tasks-to-automate-first", "client-intake-for-law-firms", "what-a-free-automation-audit-looks-at"],
+  "n8n-vs-make-vs-zapier-for-dutch-firms": ["build-on-the-software-you-already-use", "what-not-to-automate", "what-a-free-automation-audit-looks-at"],
+  "engagement-letters-and-conflict-checks-for-law-firms": ["client-intake-for-law-firms", "what-not-to-automate", "build-on-the-software-you-already-use"],
+};
+
+/** The post's cover (public/blog/<slug>/cover.svg, 1600×800) if it exists; alt text from the post module. */
+function postCover(locale: Locale, slug: string, alt = "") {
+  const url = `/blog/${slug}/cover.svg`;
+  if (!fs.existsSync(`${globalThis.process.cwd()}/public${url}`)) return null;
+  return { url, alt: alt || (POSTS[locale][slug]?.cover?.alt ?? ""), width: 1600, height: 800 };
+}
+
+/** Adds the shared UI labels (i18n) to a block from a post module. */
+function withLabels(block: BlockData, t: Dict): ArticleSection {
+  const l = t.blogPage.blocks;
+  switch (block.acf_fc_layout) {
+    case "callout": return { ...block, labels: l.callout };
+    case "stat": return { ...block, labels: { source: l.source } };
+    case "checklist": return { ...block, labels: l.checklist };
+    case "before_after": return { ...block, labels: l.beforeAfter };
+    case "flow_diagram": return { ...block, labels: { ...l.flow, example: l.example } };
+    case "timeline": return { ...block, labels: l.timeline };
+    case "comparison_table": return { ...block, labels: { scroll: l.table.scroll, source: l.source } };
+    case "mock_ui": return { ...block, labels: { example: l.example, ...l.mock } };
+    case "diagram": return { ...block, labels: { source: l.source } };
+  }
+}
+
+/** Splits the body on <!--block:key--> markers: prose chunks in between, the post's blocks in their place. */
+function articleSections(locale: Locale, slug: string, t: Dict): ArticleSection[] {
+  const post = POSTS[locale][slug];
+  const parts = post.default.split(/<!--block:([a-z0-9-]+)-->/);
+  const out: ArticleSection[] = [];
+  parts.forEach((part, i) => {
+    if (i % 2 === 0) { if (part.trim()) out.push({ acf_fc_layout: "prose", html: part }); return; }
+    const block = post.blocks?.[part];
+    if (!block) throw new Error(`Post ${locale}/${slug}: no block "${part}"`);
+    out.push(withLabels(block, t));
+  });
+  return out;
+}
 
 export async function getBlogIndex(locale: Locale): Promise<ContentPage> {
   const t = getDict(locale);
@@ -458,7 +509,7 @@ export async function getBlogIndex(locale: Locale): Promise<ContentPage> {
         acf_fc_layout: "blog_list", anchor: "posts",
         labels: { min_read: b.minRead, planned_title: b.plannedTitle, planned_note: b.plannedNote },
         ask: link(locale, b.ask, "/contact"),
-        posts: t.posts.map((p) => ({ slug: p.slug, url: postBody(locale, p.slug) ? href(locale, `/blog/${p.slug}`) : null, tag: p.tag, read: p.read, date: p.date, title: p.title, excerpt: p.excerpt, art: p.art, cover: null })),
+        posts: t.posts.map((p) => ({ slug: p.slug, url: postBody(locale, p.slug) ? href(locale, `/blog/${p.slug}`) : null, tag: p.tag, read: p.read, date: p.date, title: p.title, excerpt: p.excerpt, art: p.art, cover: postCover(locale, p.slug) })),
       },
       closingInner(locale, t, link(locale, t.nav.caseStudy, "/case-studies/energielabel-breda")),
     ],
@@ -476,13 +527,22 @@ export async function getPost(locale: Locale, slug: string): Promise<ContentPage
   if (!p) return null;
   const html = postBody(locale, slug);
   const back = link(locale, b.back, "/blog");
+  // The closing chapter points to the audit post (the audit post itself keeps the case study).
+  const secondary = slug === AUDIT_SLUG ? link(locale, t.nav.caseStudy, "/case-studies/energielabel-breda") : link(locale, b.blocks.auditLink, `/blog/${AUDIT_SLUG}`);
+  const related = (RELATED[slug] ?? []).map((s) => t.posts.find((x) => x.slug === s)).filter((x) => x && postBody(locale, x.slug));
+  const header = { acf_fc_layout: "post_header" as const, back, meta: `${p.tag} · ${p.read} ${b.minRead}`, title: p.title, excerpt: p.excerpt, author: { name: t.home.why.name, image: NICK(t).image }, by: b.by, date: p.date, art: p.art, cover: postCover(locale, slug) };
   // Indexed only with a body and once the post's own `index` flag is flipped (after its [CHECK] markers are cleared).
+  const body: Section[] = html
+    ? [
+      { acf_fc_layout: "post_article", sections: articleSections(locale, slug, t), labels: { toc: b.blocks.toc, toc_toggle: b.blocks.tocToggle, progress: b.blocks.progress } },
+      ...(related.length ? [{
+        acf_fc_layout: "related_posts" as const, anchor: "related", title: b.related, labels: { min_read: b.minRead },
+        posts: related.map((r) => ({ url: href(locale, `/blog/${r!.slug}`), tag: r!.tag, read: r!.read, title: r!.title, cover: postCover(locale, r!.slug), art: r!.art })),
+      }] : []),
+    ]
+    : [{ acf_fc_layout: "rich_text", html, soon: { title: b.soonTitle, about: b.soonAbout, excerpt: p.excerpt, back } }];
   return {
     locale, slug, title: p.title, description: p.excerpt, index: !!html && p.index,
-    sections: [
-      { acf_fc_layout: "post_header", back, meta: `${p.tag} · ${p.read} ${b.minRead}`, title: p.title, excerpt: p.excerpt, author: { name: t.home.why.name, image: NICK(t).image }, by: b.by, date: p.date, art: p.art, cover: null },
-      { acf_fc_layout: "rich_text", html, soon: html ? null : { title: b.soonTitle, about: b.soonAbout, excerpt: p.excerpt, back } },
-      closingInner(locale, t, link(locale, t.nav.caseStudy, "/case-studies/energielabel-breda")),
-    ],
+    sections: [header, ...body, closingInner(locale, t, secondary)],
   };
 }

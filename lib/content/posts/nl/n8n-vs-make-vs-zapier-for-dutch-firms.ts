@@ -1,4 +1,5 @@
 import { auditCta } from "../cta";
+import type { PostBlocks } from "../types";
 
 export default `
 <p><em>Laatst bijgewerkt: 25 oktober 2026. Prijzen en abonnementen van deze diensten veranderen vaak; controleer ze altijd op de site van de leverancier.</em></p>
@@ -17,11 +18,9 @@ export default `
 <li>Make laat u bij het aanmaken van een account kiezen voor de EU, op elk abonnement.</li>
 <li>n8n Cloud draait op Azure in Frankfurt. U kunt n8n ook zelf hosten, op een server die u kiest.</li>
 </ul>
-<figure class="wp-block-table"><table><thead><tr><th></th><th>Zapier</th><th>Make</th><th>n8n</th></tr></thead><tbody>
-<tr><td>Opslag in de EU</td><td>Met Enterprise</td><td>Te kiezen, elk abonnement</td><td>Cloud in Frankfurt, of eigen server</td></tr>
-<tr><td>Afrekenen per</td><td>Taak (elke stap)</td><td>Credit</td><td>Uitvoering (hele workflow)</td></tr>
-<tr><td>Zelf hosten</td><td>Nee</td><td>Nee</td><td>Ja</td></tr>
-</tbody></table><figcaption>Samenvatting op basis van Virtua.Cloud. Nog te controleren bij de leveranciers zelf.</figcaption></figure>
+
+<!--block:table-->
+
 <p>Virtua.Cloud verkoopt zelf hosting voor n8n. Lees het lijstje dus als startpunt, en controleer elk punt bij de leverancier zelf.</p>
 <p>Gegevens in de VS zijn niet automatisch verboden. Voor doorgifte naar de VS is er het EU-US Data Privacy Framework. <mark>[CHECK: the status of the EU-US Data Privacy Framework in 2026]</mark> Maar voor een kantoor dat aan cliënten moet kunnen uitleggen waar hun gegevens staan, is "in de EU" of "op onze eigen server" een eenvoudiger antwoord.</p>
 
@@ -36,6 +35,8 @@ export default `
 <p>Denk aan een concreet voorbeeld, verzonnen maar herkenbaar. Elke inkomende mail met een bijlage wordt gecontroleerd (1), de bijlage wordt opgeslagen in het klantdossier (2), de klant wordt opgezocht in het CRM (3), het document wordt afgevinkt op de lijst met ontbrekende stukken (4), en de medewerker krijgt een melding (5). Honderd mails per dag is voor een druk kantoor in het aangifteseizoen niet vreemd. Bij Zapier tellen dan alle vijf stappen mee, bij n8n de workflow als geheel.</p>
 <p>Wat dat in euro's betekent, hangt af van de actuele prijzen. Die noemen we hier bewust niet, omdat ze te vaak veranderen.</p>
 
+
+<!--block:count-->
 <h2>Zelf hosten is niet gratis</h2>
 <p>De open versie van n8n kunt u zelf draaien. Gratis is het daarmee nog niet. Volgens Virtua.Cloud kost een virtuele server daarvoor ongeveer 12 tot 29 euro per maand, plus een tot twee uur onderhoud per maand (<a href="https://www.virtua.cloud/learn/nl/concepts/n8n-vs-zapier-vs-make-kosten-privacy">Virtua.Cloud</a>).</p>
 <p>Dat onderhoud is het deel dat vaak wordt vergeten. Iemand moet updates installeren, back-ups controleren, de server beveiligen en opletten als er een workflow vastloopt. Als niemand op uw kantoor dat wil of kan, betaalt u iemand om het te doen, of kiest u voor de cloudversie.</p>
@@ -46,6 +47,8 @@ export default `
 <p>Op een kantoor met klantgegevens weegt dat zwaarder dan bij een webshop. Een mislukte stap kan betekenen dat een document niet in het dossier komt, of dat een herinnering niet uitgaat terwijl iedereen denkt van wel. Daarom bouwen we in elke workflow een melding voor als een stap mislukt, en houden we een overzicht bij van welke workflows er draaien en wat ze doen. Vraag dat ook aan elke andere bouwer: wat gebeurt er als het misgaat, en hoe hoor ik dat?</p>
 <p>Dat geldt voor alle drie de diensten. Zapier en Make nemen u het serverbeheer uit handen, maar een workflow die vastloopt omdat een ander pakket iets heeft veranderd, moet ook daar iemand repareren.</p>
 
+
+<!--block:flow-->
 <h2>De papieren die belangrijker zijn dan het hulpmiddel</h2>
 <p>Geen van deze drie diensten is op zichzelf "AVG-compliant". Of u de AVG naleeft, hangt af van hoe u ze gebruikt: welke gegevens erdoorheen gaan, met wie u afspraken heeft, en wat u vastlegt.</p>
 <p>Twee dingen zijn in elk geval nodig:</p>
@@ -81,3 +84,97 @@ export default `
 <p>Het hulpmiddel is ook maar de helft. Wie "n8n" intypt op een freelanceplatform, vindt talloze aanbieders (<a href="https://nl.fiverr.com/n8n_lurd">Fiverr</a>). Bouwen kan iedereen. Wat telt voor een kantoor met klantgegevens: wie is aanspreekbaar als het misgaat, wie spreekt uw taal, en wie weet wat een verwerkersovereenkomst is. Daar willen wij op beoordeeld worden.</p>
 <p>Meer over waarom we koppelen in plaats van vervangen leest u in <a href="/nl/blog/build-on-the-software-you-already-use">waarom we bouwen op de software die u al gebruikt</a>.</p>
 ` + auditCta("nl");
+
+export const cover = { alt: "Lijntekening: drie keer dezelfde workflow van vijf stappen; in de ene rij telt elke stap, in een andere telt de hele run één keer." };
+
+export const blocks: PostBlocks = {
+  "table": {
+    "acf_fc_layout": "comparison_table",
+    "caption": "Zapier, Make en n8n op opslag, afrekening en zelf hosten",
+    "columns": [
+      "Zapier",
+      "Make",
+      "n8n"
+    ],
+    "rows": [
+      {
+        "label": "Opslag in de EU",
+        "cells": [
+          "Met Enterprise",
+          "Te kiezen, elk abonnement",
+          "Cloud in Frankfurt, of eigen server"
+        ]
+      },
+      {
+        "label": "Afrekenen per",
+        "cells": [
+          "Taak (elke stap)",
+          "Credit",
+          "Uitvoering (hele workflow)"
+        ]
+      },
+      {
+        "label": "Zelf hosten",
+        "cells": [
+          "Nee",
+          "Nee",
+          "Ja"
+        ]
+      }
+    ],
+    "note": "Samenvatting op basis van Virtua.Cloud, dat zelf n8n-hosting verkoopt. Nog te controleren bij de leveranciers.",
+    "source": {
+      "title": "Virtua.Cloud",
+      "url": "https://www.virtua.cloud/learn/nl/concepts/n8n-vs-zapier-vs-make-kosten-privacy",
+      "target": "_blank"
+    }
+  },
+  "count": {
+    "acf_fc_layout": "diagram",
+    "src": "/blog/n8n-vs-make-vs-zapier-for-dutch-firms/tasks-vs-executions.nl.svg",
+    "alt": "Voorbeeld: één workflow van vijf stappen (e-mail controleren, bijlage opslaan, klant zoeken in het CRM, stuk afvinken, medewerker seinen) die 100 keer per dag draait. Zapier telt elke stap: 5 per keer, ongeveer 15.000 taken per maand. n8n telt de hele run één keer: 1 per keer, ongeveer 3.000 uitvoeringen per maand.",
+    "caption": "Make staat er niet bij: hoe credits worden geteld, moet nog worden gecontroleerd.",
+    "source": {
+      "title": "Virtua.Cloud",
+      "url": "https://www.virtua.cloud/learn/nl/concepts/n8n-vs-zapier-vs-make-kosten-privacy",
+      "target": "_blank"
+    }
+  },
+  "flow": {
+    "acf_fc_layout": "flow_diagram",
+    "title": "Voorbeeld: vijf stappen, en wie het hoort als er één misgaat",
+    "nodes": [
+      {
+        "label": "E-mail controleren",
+        "detail": "Met een bijlage",
+        "human": false
+      },
+      {
+        "label": "Bijlage opslaan",
+        "detail": "In het klantdossier",
+        "human": false
+      },
+      {
+        "label": "Klant zoeken",
+        "detail": "In het CRM",
+        "human": false
+      },
+      {
+        "label": "Afvinken",
+        "detail": "Op de lijst met ontbrekende stukken",
+        "human": false
+      },
+      {
+        "label": "Medewerker seinen",
+        "detail": "De juiste collega",
+        "human": false
+      },
+      {
+        "label": "Als een stap misgaat",
+        "detail": "Een mens krijgt een bericht en lost het op",
+        "human": true
+      }
+    ],
+    "caption": "In elke workflow bouwen we een melding in voor als een stap misgaat."
+  }
+};

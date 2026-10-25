@@ -1,4 +1,5 @@
 import { auditCta } from "../cta";
+import type { PostBlocks } from "../types";
 
 export default `
 <p>Once intake is done, two fixed steps follow: the conflict check and the engagement letter. At many firms both are still done by hand. Someone searches the system for the opposing party's name, and someone else copies the previous engagement letter and changes the details. That works, until an old name stays in, or a search just misses the wrong spelling.</p>
@@ -17,6 +18,8 @@ export default `
 <p>An example (fictional): a new client, Bakkerij Smit B.V., wants to litigate against a supplier. The search finds three matches. The supplier was the opposing party in another matter four years ago. A director of the bakery appears as a party involved in an open file. And there's a company with an almost identical name that is a client of the firm. The software puts those three matches in the file. The advocaat reviews them, establishes that the third is a different company, and records for each match why there is or isn't a conflict.</p>
 <p><mark>[CHECK: conflict-check features of Basenet, Kleos and Legalsense before naming them]</mark> Many practice management systems already have a search function. The gain is often in running it automatically, and in recording the result, so it doesn't depend on someone remembering.</p>
 
+
+<!--block:firm-->
 <h2>Generating the engagement letter from the intake form</h2>
 <p>At intake, the client has already filled in who they are, what the matter is about and who the opposing party is. That data can go straight into an engagement letter template. An example of what then goes in automatically:</p>
 <ul>
@@ -26,10 +29,14 @@ export default `
 <li>the firm's general terms and conditions;</li>
 <li>if you use AI: a passage telling the client so.</li>
 </ul>
+<!--block:template-->
+
 <p>That last point comes from the NOvA, which suggests informing clients about AI use, for example in the engagement letter (<a href="https://www.advocatenorde.nl/nieuws/aanbevelingen-ai-de-praktijk">NOvA, AI recommendations</a>).</p>
 <p>The advocaat reads the draft, adjusts the description where needed and approves it. The cutting and pasting goes, and with it the risk of a name or rate from a previous matter still being in there.</p>
 <p>A template does need maintenance. When your general terms or rates change, one person updates the template, and from then on everyone uses the new version. When people copy the previous letter, old rates sometimes keep circulating for months.</p>
 
+
+<!--block:compare-->
 <h2>Getting it signed and filed without manual reminders</h2>
 <p>Once approved, the engagement letter goes to the client with a link to sign digitally. <mark>[CHECK: Signhost, ondertekenen.nl and other e-signing providers, and how they connect to Basenet or Kleos]</mark> If it hasn't been signed after a few days, a reminder goes out. After the second reminder, the secretary or advocaat gets a task to call.</p>
 <p>The signed document lands in the file automatically, with the date of signing. That way you can always show later when the agreements were recorded.</p>
@@ -60,3 +67,77 @@ export default `
 <p>Everything around those can be prepared, sent, reminded and recorded. That way the advocaat's time goes to the decisions, and nobody has to retype data that's already in the system.</p>
 <p>None of the tools in this article is approved or recommended by the NOvA. Which software you choose is your own call. How we think about it is in <a href="/en/blog/build-on-the-software-you-already-use">why we build on the software you already use</a>.</p>
 ` + auditCta("en");
+
+export const cover = { alt: "Line drawing: a letter template with highlighted merge fields on the left, a lens over rows of records on the right." };
+
+export const blocks: PostBlocks = {
+  "firm": {
+    "acf_fc_layout": "diagram",
+    "src": "/blog/engagement-letters-and-conflict-checks-for-law-firms/whole-firm.en.svg",
+    "alt": "Gedragsregel 15 lid 6: \"advocaat\" covers the whole firm, so the conflict search covers your own files, colleagues' open matters and closed matters. Example with new client Bakkerij Smit B.V. (fictional), three matches: the supplier was the opposing party in a closed matter four years ago; a director appears in a colleague's open file; a client has an almost identical name but is a different company.",
+    "caption": "The software finds the matches. The advocaat weighs them.",
+    "source": {
+      "title": "Gedragsregels advocatuur 2018, article 15",
+      "url": "https://www.inview.nl/openCitation/idb0ea7b9fd1644b0d98c8afd51b37f4d1/gedragsregels-advocatuur-2018-artikel-15",
+      "target": "_blank"
+    }
+  },
+  "template": {
+    "acf_fc_layout": "mock_ui",
+    "window": "Engagement letter template",
+    "caption": "Example template. Fields in blue are filled from the intake form.",
+    "mock": {
+      "kind": "document",
+      "title": "Engagement letter",
+      "meta": [
+        "Template",
+        "Last updated by one person, used by everyone"
+      ],
+      "sections": [
+        {
+          "heading": "Client",
+          "lines": [
+            "{{client_name}}, {{address}}",
+            "KvK {{kvk_number}}"
+          ]
+        },
+        {
+          "heading": "The engagement",
+          "lines": [
+            "{{engagement_description}}"
+          ]
+        },
+        {
+          "heading": "Fees",
+          "lines": [
+            "{{fee_arrangement}}: {{rate}}",
+            "Advance: {{advance}}"
+          ]
+        },
+        {
+          "heading": "Terms",
+          "lines": [
+            "The general terms and conditions of {{firm_name}} apply.",
+            "We use AI tools for some preparatory work. An advocaat checks everything before it reaches you."
+          ]
+        }
+      ]
+    }
+  },
+  "compare": {
+    "acf_fc_layout": "before_after",
+    "variant": "process",
+    "title": "Copy-paste or a template",
+    "before": [
+      "Copy the previous engagement letter",
+      "Change the name, address and rates by hand",
+      "An old name or rate sometimes stays in"
+    ],
+    "after": [
+      "The intake data fills the template",
+      "Rates and general terms come from one maintained template",
+      "The advocaat reads, adjusts and approves the draft"
+    ],
+    "human": "The description of the engagement and the fee agreements."
+  }
+};

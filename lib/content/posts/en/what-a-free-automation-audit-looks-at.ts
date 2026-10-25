@@ -1,9 +1,12 @@
 import { auditCta } from "../cta";
+import type { PostBlocks } from "../types";
 
 export default `
 <p><mark>[CHECK: confirm every step below is one Nick performs in the audit, and cut any he doesn't]</mark></p>
 <p>A free audit can sound like a sales call with a different name. We understand that. So here is what we do in that call, the questions we ask, and what you keep afterwards. That holds even if you decide not to work with us.</p>
 
+
+<!--block:call-->
 <h2>Why we start with an audit</h2>
 <p>Almost every owner wants to automate more. In Exact's SMB Barometer, 94% of Dutch SMB owners say their business is not automated enough. The two main reasons to start are cost savings (52%) and time savings (46%) (<a href="https://files.exact.com/static/web/pdf/mkb-barometer/2025/NL_All-mkb-barometer-2025.pdf">Exact MKB Barometer 2025</a>).</p>
 <p>Owners who hesitate usually hesitate for reasons other than the technology. Of the Dutch firms that considered AI but don't use it, 73% cite a lack of experience, 49% privacy and 42% unclear legal consequences (<a href="https://www.cbs.nl/nl-nl/nieuws/2025/50/bedrijven-gebruiken-ai-vaakst-voor-marketing-of-verkoop">CBS, December 2025</a>). Each of those worries comes up in the audit.</p>
@@ -21,17 +24,15 @@ export default `
 
 <h2>The sum: time, frequency and hourly cost</h2>
 <p>For each workflow we do a simple sum. How long does the job take? How often does it happen? What does an hour of the person doing it cost? Below is an example with made-up numbers.</p>
-<figure class="wp-block-table"><table><thead><tr><th>Example (fictional firm)</th><th>Value</th></tr></thead><tbody>
-<tr><td>Sending reminders for unpaid invoices</td><td>20 minutes each time</td></tr>
-<tr><td>How often</td><td>3 times a week</td></tr>
-<tr><td>Hourly cost of the staff member</td><td>€45</td></tr>
-<tr><td>Time per year (46 working weeks)</td><td>46 hours</td></tr>
-<tr><td>Cost per year</td><td>about €2,070</td></tr>
-</tbody></table></figure>
+
+<!--block:sum-->
+
 <p>Your numbers may come out higher or lower. Sometimes the result is so small that automating isn't worth it, and that is a useful result too. That's why we do the sum.</p>
 <p>You can also do this sum yourself before you call us. Pick a job your team complains about. Estimate how long it takes, interruptions included. Count for a week how often it happens, and multiply by the hourly cost. The figure is rough. It does give you a floor for what a solution may cost per year.</p>
 <p>Time isn't the only cost either. With reminders, there's also money that arrives later: on average, Dutch SMBs are paid late on 14.2% of their invoices (<a href="https://files.exact.com/static/web/pdf/mkb-barometer/2025/NL_All-mkb-barometer-2025.pdf">Exact MKB Barometer 2025</a>). And people who switch between programs all day lose close to four hours a week doing it, according to Harvard Business Review research from 2022 (via <a href="https://www.toriihq.com/saas-statistics">Torii</a>). <mark>[CHECK: verify the 4 hours a week in the original HBR 2022 study; we only saw it via Torii]</mark></p>
 
+
+<!--block:prepare-->
 <h2>Where your client data goes</h2>
 <p>For each workflow we also look at where the data goes. Which packages process your clients' personal data? Is that data stored in the EU or outside it? Do you have a data processing agreement (verwerkersovereenkomst) with every party?</p>
 <p>For an accounting or law firm, this is a substantial part of the advice. If a connection sends client data on to an extra service, that service becomes a processor too, with all the agreements that come with it. We put that on paper before anything is built, so you don't find out afterwards where your data ended up.</p>
@@ -43,6 +44,8 @@ export default `
 <li>the larger projects, with what they need and which systems are involved;</li>
 <li>for each part, an estimate of what it costs to build and what it saves, based on the sum above.</li>
 </ul>
+<!--block:overview-->
+
 <p>That overview is yours. You can carry it out yourself, hand it to your own IT partner or continue with us. We only name a payback period once we've seen your processes, and we don't promise savings in advance.</p>
 
 <h2>When we advise you not to automate</h2>
@@ -50,3 +53,118 @@ export default `
 <p>Even when your software can already do the job, we tell you. Sometimes the fix is a setting in your accounting package that was never switched on. Then there's little to build, and we help you find that setting.</p>
 <p>We wrote a separate article about where that line sits: <a href="/en/blog/what-not-to-automate">what not to automate</a>. And if you want to know why we almost always build on what you already have, read <a href="/en/blog/build-on-the-software-you-already-use">why we build on the software you already use</a>.</p>
 ` + auditCta("en", true);
+
+export const cover = { alt: "Line drawing: a week of recurring jobs, three of them highlighted, flowing into one point." };
+
+export const blocks: PostBlocks = {
+  "call": {
+    "acf_fc_layout": "timeline",
+    "title": "What happens in the call",
+    "items": [
+      {
+        "date": "Part 1",
+        "title": "Your software, listed",
+        "text": "What you already pay for, who uses it, and what gets retyped between packages.",
+        "expected": false
+      },
+      {
+        "date": "Part 2",
+        "title": "Three to five recurring jobs",
+        "text": "Walked through step by step, as they happen on an ordinary Tuesday.",
+        "expected": false
+      },
+      {
+        "date": "Part 3",
+        "title": "The sum",
+        "text": "Time per job, how often it happens, and the hourly cost of the person doing it.",
+        "expected": false
+      },
+      {
+        "date": "Part 4",
+        "title": "Where client data goes",
+        "text": "Which packages process personal data, where it's stored, and which agreements are in place.",
+        "expected": false
+      },
+      {
+        "date": "Afterwards",
+        "title": "A short written overview",
+        "text": "Quick wins, larger projects, and an estimate of cost and savings for each.",
+        "expected": false
+      }
+    ],
+    "caption": null
+  },
+  "sum": {
+    "acf_fc_layout": "diagram",
+    "src": "/blog/what-a-free-automation-audit-looks-at/the-sum.en.svg",
+    "alt": "Example sum for a fictional firm: sending reminders for unpaid invoices takes 20 minutes, 3 times a week, at an hourly cost of €45. Over 46 working weeks that is 46 hours, or about €2,070 a year.",
+    "caption": "Made-up numbers. Your own sum may come out higher or lower.",
+    "source": null
+  },
+  "prepare": {
+    "acf_fc_layout": "checklist",
+    "id": "audit-prepare",
+    "title": "Optional: what helps to have ready",
+    "items": [
+      {
+        "id": "i1",
+        "text": "A list of the software subscriptions you pay for"
+      },
+      {
+        "id": "i2",
+        "text": "Three to five jobs your team complains about"
+      },
+      {
+        "id": "i3",
+        "text": "For each job: roughly how long it takes, interruptions included"
+      },
+      {
+        "id": "i4",
+        "text": "How often each job happens (a tally for one week is enough)"
+      },
+      {
+        "id": "i5",
+        "text": "The hourly cost of the person who does it"
+      },
+      {
+        "id": "i6",
+        "text": "Which packages hold your clients' personal data"
+      }
+    ]
+  },
+  "overview": {
+    "acf_fc_layout": "mock_ui",
+    "window": "Written overview",
+    "caption": "Example layout, fictional firm. The format of the real overview is still to be confirmed.",
+    "mock": {
+      "kind": "document",
+      "title": "Automation audit: summary",
+      "meta": [
+        "Van Dijk Accountancy (fictional)",
+        "3 workflows"
+      ],
+      "sections": [
+        {
+          "heading": "Quick wins, with the software you have",
+          "lines": [
+            "Reminders for unpaid invoices: switch on the reminder feature in the accounting package.",
+            "Saves about 46 hours a year in the example sum."
+          ]
+        },
+        {
+          "heading": "Larger projects",
+          "lines": [
+            "Document requests for tax returns: one list per client, reminders, one overview.",
+            "Systems involved: email, client folders, the Excel tracking list."
+          ]
+        },
+        {
+          "heading": "Where client data goes",
+          "lines": [
+            "Two packages process personal data. One data processing agreement is still missing."
+          ]
+        }
+      ]
+    }
+  }
+};

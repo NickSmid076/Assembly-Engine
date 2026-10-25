@@ -1,9 +1,12 @@
 import { auditCta } from "../cta";
+import type { PostBlocks } from "../types";
 
 export default `
 <p><mark>[CHECK: confirm every step below is one Nick performs in the audit, and cut any he doesn't]</mark></p>
 <p>Een gratis analyse klinkt al snel als een verkoopgesprek met een andere naam. Dat begrijpen we. Daarom staat hieronder wat we in dat gesprek doen, welke vragen we stellen en wat u er daarna aan overhoudt. Ook als u besluit niet met ons verder te gaan.</p>
 
+
+<!--block:call-->
 <h2>Waarom we met een analyse beginnen</h2>
 <p>Bijna elke ondernemer wil meer automatiseren. In de MKB Barometer van Exact zegt 94% dat het eigen bedrijf onvoldoende geautomatiseerd is. De twee belangrijkste redenen om ermee aan de slag te gaan zijn kostenbesparing (52%) en tijdwinst (46%) (<a href="https://files.exact.com/static/web/pdf/mkb-barometer/2025/NL_All-mkb-barometer-2025.pdf">Exact MKB Barometer 2025</a>).</p>
 <p>Wie twijfelt, twijfelt meestal om andere redenen dan de techniek. Van de bedrijven die AI wel overwogen maar niet gebruiken, noemt 73% gebrek aan ervaring, 49% privacy en 42% onduidelijke juridische gevolgen (<a href="https://www.cbs.nl/nl-nl/nieuws/2025/50/bedrijven-gebruiken-ai-vaakst-voor-marketing-of-verkoop">CBS, december 2025</a>). Die zorgen komen in de analyse allemaal aan bod.</p>
@@ -21,17 +24,15 @@ export default `
 
 <h2>De rekensom: tijd, frequentie en uurtarief</h2>
 <p>Per proces maken we een eenvoudige som. Hoe lang duurt de klus? Hoe vaak komt hij voor? Wat kost een uur van degene die hem doet? Hieronder een voorbeeld met verzonnen getallen.</p>
-<figure class="wp-block-table"><table><thead><tr><th>Voorbeeld (fictief kantoor)</th><th>Waarde</th></tr></thead><tbody>
-<tr><td>Herinneringen sturen voor openstaande facturen</td><td>20 minuten per keer</td></tr>
-<tr><td>Hoe vaak</td><td>3 keer per week</td></tr>
-<tr><td>Uurkosten van de medewerker</td><td>€45</td></tr>
-<tr><td>Tijd per jaar (46 werkweken)</td><td>46 uur</td></tr>
-<tr><td>Kosten per jaar</td><td>ongeveer €2.070</td></tr>
-</tbody></table></figure>
+
+<!--block:sum-->
+
 <p>Bij u kan dat hoger of lager uitvallen. Soms is de uitkomst zo klein dat automatiseren de moeite niet waard is, en dat is ook een bruikbare uitkomst. Daarom rekenen we het uit.</p>
 <p>U kunt deze som ook zelf maken voordat u ons belt. Kies een klus waar uw team over klaagt. Schat hoe lang hij duurt, met de onderbrekingen erbij. Tel een week lang hoe vaak hij voorkomt, en vermenigvuldig met de uurkosten. Het getal is ruw. Het geeft wel een ondergrens voor wat een oplossing per jaar mag kosten.</p>
 <p>Tijd is ook niet de enige post. Bij herinneringen gaat het ook om geld dat later binnenkomt: in het mkb wordt gemiddeld 14,2% van de facturen te laat betaald (<a href="https://files.exact.com/static/web/pdf/mkb-barometer/2025/NL_All-mkb-barometer-2025.pdf">Exact MKB Barometer 2025</a>). En wie de hele dag tussen programma's wisselt, verliest daar volgens onderzoek van Harvard Business Review uit 2022 bijna vier uur per week aan (via <a href="https://www.toriihq.com/saas-statistics">Torii</a>). <mark>[CHECK: verify the 4 hours a week in the original HBR 2022 study; we only saw it via Torii]</mark></p>
 
+
+<!--block:prepare-->
 <h2>Waar uw klantgegevens naartoe gaan</h2>
 <p>Bij elk proces kijken we ook waar de gegevens heen gaan. Welke pakketten verwerken persoonsgegevens van uw klanten? Staan die gegevens in de EU of daarbuiten? Heeft u met elke partij een verwerkersovereenkomst?</p>
 <p>Voor een accountants- of advocatenkantoor is dat een wezenlijk onderdeel van het advies. Als een koppeling klantgegevens doorstuurt naar een extra dienst, wordt die dienst ook een verwerker, met alle afspraken die daarbij horen. Dat zetten we op papier voordat er iets gebouwd wordt, zodat u niet achteraf ontdekt waar uw gegevens terecht zijn gekomen.</p>
@@ -43,6 +44,8 @@ export default `
 <li>de grotere projecten, met wat daarvoor nodig is en welke systemen eraan te pas komen;</li>
 <li>per onderdeel een inschatting van wat het kost om te bouwen en wat het oplevert, gebaseerd op de som hierboven.</li>
 </ul>
+<!--block:overview-->
+
 <p>Dat overzicht is van u. U kunt het zelf uitvoeren, aan uw eigen IT-partij geven of met ons verder gaan. We noemen pas een terugverdientijd als we uw processen hebben gezien, en we beloven vooraf geen besparing.</p>
 
 <h2>Wanneer we u afraden om te automatiseren</h2>
@@ -50,3 +53,118 @@ export default `
 <p>Ook als uw software het werk al kan, zeggen we dat. Soms zit de oplossing in een instelling van uw boekhoudpakket die nooit is aangezet. Dan valt er weinig te bouwen, en helpen we u die instelling te vinden.</p>
 <p>Over die grens schreven we een apart artikel: <a href="/nl/blog/what-not-to-automate">wat u beter níet automatiseert</a>. En als u wilt weten waarom we bijna altijd bouwen op wat u al heeft, leest u <a href="/nl/blog/build-on-the-software-you-already-use">waarom we bouwen op de software die u al gebruikt</a>.</p>
 ` + auditCta("nl", true);
+
+export const cover = { alt: "Lijntekening: een week vol terugkerende klussen, waarvan er drie oplichten en samenkomen in één punt." };
+
+export const blocks: PostBlocks = {
+  "call": {
+    "acf_fc_layout": "timeline",
+    "title": "Wat er in het gesprek gebeurt",
+    "items": [
+      {
+        "date": "Deel 1",
+        "title": "Uw software op een rij",
+        "text": "Wat u al betaalt, wie het gebruikt en wat er tussen pakketten wordt overgetypt.",
+        "expected": false
+      },
+      {
+        "date": "Deel 2",
+        "title": "Drie tot vijf terugkerende klussen",
+        "text": "Stap voor stap doorgelopen, zoals ze op een gewone dinsdag gaan.",
+        "expected": false
+      },
+      {
+        "date": "Deel 3",
+        "title": "De rekensom",
+        "text": "Tijd per keer, hoe vaak het gebeurt en de uurkosten van wie het doet.",
+        "expected": false
+      },
+      {
+        "date": "Deel 4",
+        "title": "Waar klantgegevens naartoe gaan",
+        "text": "Welke pakketten persoonsgegevens verwerken, waar die staan en welke afspraken er zijn.",
+        "expected": false
+      },
+      {
+        "date": "Daarna",
+        "title": "Een kort schriftelijk overzicht",
+        "text": "Snelle winst, grotere projecten en per onderdeel een schatting van kosten en besparing.",
+        "expected": false
+      }
+    ],
+    "caption": null
+  },
+  "sum": {
+    "acf_fc_layout": "diagram",
+    "src": "/blog/what-a-free-automation-audit-looks-at/the-sum.nl.svg",
+    "alt": "Voorbeeldsom voor een fictief kantoor: herinneringen sturen voor openstaande facturen kost 20 minuten, 3 keer per week, tegen uurkosten van €45. Over 46 werkweken is dat 46 uur, ofwel ongeveer €2.070 per jaar.",
+    "caption": "Verzonnen getallen. Uw eigen som kan hoger of lager uitvallen.",
+    "source": null
+  },
+  "prepare": {
+    "acf_fc_layout": "checklist",
+    "id": "audit-prepare",
+    "title": "Niet verplicht: wat helpt om klaar te hebben",
+    "items": [
+      {
+        "id": "i1",
+        "text": "Een lijst van de softwareabonnementen die u betaalt"
+      },
+      {
+        "id": "i2",
+        "text": "Drie tot vijf klussen waar uw team over klaagt"
+      },
+      {
+        "id": "i3",
+        "text": "Per klus: ongeveer hoe lang die duurt, onderbrekingen meegerekend"
+      },
+      {
+        "id": "i4",
+        "text": "Hoe vaak elke klus voorkomt (een turflijst van één week is genoeg)"
+      },
+      {
+        "id": "i5",
+        "text": "De uurkosten van degene die het doet"
+      },
+      {
+        "id": "i6",
+        "text": "Welke pakketten persoonsgegevens van uw klanten bevatten"
+      }
+    ]
+  },
+  "overview": {
+    "acf_fc_layout": "mock_ui",
+    "window": "Schriftelijk overzicht",
+    "caption": "Voorbeeldopmaak, fictief kantoor. De vorm van het echte overzicht moet nog worden bevestigd.",
+    "mock": {
+      "kind": "document",
+      "title": "Automatiseringsanalyse: samenvatting",
+      "meta": [
+        "Van Dijk Accountancy (fictief)",
+        "3 workflows"
+      ],
+      "sections": [
+        {
+          "heading": "Snelle winst, met de software die u heeft",
+          "lines": [
+            "Herinneringen voor openstaande facturen: de herinneringsfunctie in het boekhoudpakket aanzetten.",
+            "Bespaart ongeveer 46 uur per jaar in de voorbeeldsom."
+          ]
+        },
+        {
+          "heading": "Grotere projecten",
+          "lines": [
+            "Stukken opvragen voor de aangifte: één lijst per klant, herinneringen, één overzicht.",
+            "Betrokken systemen: e-mail, klantmappen, de Excel-lijst."
+          ]
+        },
+        {
+          "heading": "Waar klantgegevens naartoe gaan",
+          "lines": [
+            "Twee pakketten verwerken persoonsgegevens. Eén verwerkersovereenkomst ontbreekt nog."
+          ]
+        }
+      ]
+    }
+  }
+};

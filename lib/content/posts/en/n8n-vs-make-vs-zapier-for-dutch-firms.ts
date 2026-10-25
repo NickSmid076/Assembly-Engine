@@ -1,4 +1,5 @@
 import { auditCta } from "../cta";
+import type { PostBlocks } from "../types";
 
 export default `
 <p><em>Last updated: 25 October 2026. Prices and plans for these services change often; always check them on the vendor's own site.</em></p>
@@ -17,11 +18,9 @@ export default `
 <li>Make lets you choose the EU when you create an account, on any plan.</li>
 <li>n8n Cloud runs on Azure in Frankfurt. You can also host n8n yourself, on a server you choose.</li>
 </ul>
-<figure class="wp-block-table"><table><thead><tr><th></th><th>Zapier</th><th>Make</th><th>n8n</th></tr></thead><tbody>
-<tr><td>EU storage</td><td>With Enterprise</td><td>Your choice, any plan</td><td>Cloud in Frankfurt, or your own server</td></tr>
-<tr><td>Billed per</td><td>Task (every step)</td><td>Credit</td><td>Execution (whole workflow)</td></tr>
-<tr><td>Self-hosting</td><td>No</td><td>No</td><td>Yes</td></tr>
-</tbody></table><figcaption>Summary based on Virtua.Cloud. Still to be checked with the vendors themselves.</figcaption></figure>
+
+<!--block:table-->
+
 <p>Virtua.Cloud sells n8n hosting itself. So read the list as a starting point, and check each point with the vendor.</p>
 <p>Data in the US isn't automatically forbidden. Transfers to the US are covered by the EU-US Data Privacy Framework. <mark>[CHECK: the status of the EU-US Data Privacy Framework in 2026]</mark> But for a firm that has to be able to explain to clients where their data is, "in the EU" or "on our own server" is a simpler answer.</p>
 
@@ -36,6 +35,8 @@ export default `
 <p>Think of a concrete case, made up but recognisable. Every incoming email with an attachment is checked (1), the attachment is saved in the client file (2), the client is looked up in the CRM (3), the document is ticked off the list of missing items (4), and the staff member gets a notification (5). A hundred emails a day isn't unusual for a busy firm in tax season. With Zapier all five steps count; with n8n the workflow counts as a whole.</p>
 <p>What that means in euros depends on current prices. We deliberately don't list them here, because they change too often.</p>
 
+
+<!--block:count-->
 <h2>Self-hosting isn't free</h2>
 <p>You can run the open version of n8n yourself. That still doesn't make it free. According to Virtua.Cloud, a virtual server for it costs roughly 12 to 29 euros a month, plus one to two hours of maintenance a month (<a href="https://www.virtua.cloud/learn/nl/concepts/n8n-vs-zapier-vs-make-kosten-privacy">Virtua.Cloud</a>).</p>
 <p>The maintenance is the part people forget. Someone has to install updates, check backups, secure the server and notice when a workflow gets stuck. If nobody in your firm wants to or can, you pay someone to do it, or you choose the cloud version.</p>
@@ -46,6 +47,8 @@ export default `
 <p>At a firm with client data that weighs more heavily than at a web shop. A failed step can mean a document doesn't reach the file, or a reminder doesn't go out while everyone assumes it did. That's why we build a notification into every workflow for when a step fails, and keep an overview of which workflows are running and what they do. Ask any other builder the same: what happens when it goes wrong, and how will I hear about it?</p>
 <p>That applies to all three services. Zapier and Make take server management off your hands, but a workflow that breaks because another package changed something still needs someone to repair it.</p>
 
+
+<!--block:flow-->
 <h2>The paperwork that matters more than the tool</h2>
 <p>None of these three services is "GDPR compliant" on its own. Whether you comply with the GDPR (the AVG in Dutch) depends on how you use them: which data goes through, who you have agreements with, and what you record.</p>
 <p>Two things are needed in any case:</p>
@@ -81,3 +84,97 @@ export default `
 <p>The tool is also only half of it. Search for "n8n" on a freelance platform and you'll find countless providers (<a href="https://nl.fiverr.com/n8n_lurd">Fiverr</a>). Building is something anyone can do. For a firm with client data, what counts is who you can hold to account when it goes wrong, who speaks your language, and who knows what a data processing agreement is. That's what we want to be judged on.</p>
 <p>For more on why we connect rather than replace, read <a href="/en/blog/build-on-the-software-you-already-use">why we build on the software you already use</a>.</p>
 ` + auditCta("en");
+
+export const cover = { alt: "Line drawing: the same five-step workflow three times; in one row every step is counted, in another the whole run counts once." };
+
+export const blocks: PostBlocks = {
+  "table": {
+    "acf_fc_layout": "comparison_table",
+    "caption": "Zapier, Make and n8n on storage, billing and self-hosting",
+    "columns": [
+      "Zapier",
+      "Make",
+      "n8n"
+    ],
+    "rows": [
+      {
+        "label": "EU storage",
+        "cells": [
+          "With Enterprise",
+          "Your choice, any plan",
+          "Cloud in Frankfurt, or your own server"
+        ]
+      },
+      {
+        "label": "Billed per",
+        "cells": [
+          "Task (every step)",
+          "Credit",
+          "Execution (whole workflow)"
+        ]
+      },
+      {
+        "label": "Self-hosting",
+        "cells": [
+          "No",
+          "No",
+          "Yes"
+        ]
+      }
+    ],
+    "note": "Summary based on Virtua.Cloud, which sells n8n hosting itself. Still to be checked with the vendors.",
+    "source": {
+      "title": "Virtua.Cloud",
+      "url": "https://www.virtua.cloud/learn/nl/concepts/n8n-vs-zapier-vs-make-kosten-privacy",
+      "target": "_blank"
+    }
+  },
+  "count": {
+    "acf_fc_layout": "diagram",
+    "src": "/blog/n8n-vs-make-vs-zapier-for-dutch-firms/tasks-vs-executions.en.svg",
+    "alt": "Example: one workflow of five steps (check email, save attachment, find the client in the CRM, tick off the document, notify staff) that runs 100 times a day. Zapier counts every step: 5 per run, about 15,000 tasks a month. n8n counts the whole run once: 1 per run, about 3,000 executions a month.",
+    "caption": "Make is left out: how its credits are counted is still to be checked.",
+    "source": {
+      "title": "Virtua.Cloud",
+      "url": "https://www.virtua.cloud/learn/nl/concepts/n8n-vs-zapier-vs-make-kosten-privacy",
+      "target": "_blank"
+    }
+  },
+  "flow": {
+    "acf_fc_layout": "flow_diagram",
+    "title": "Example: five steps, and who hears when one fails",
+    "nodes": [
+      {
+        "label": "Check email",
+        "detail": "With an attachment",
+        "human": false
+      },
+      {
+        "label": "Save attachment",
+        "detail": "In the client file",
+        "human": false
+      },
+      {
+        "label": "Find client",
+        "detail": "In the CRM",
+        "human": false
+      },
+      {
+        "label": "Tick off",
+        "detail": "On the list of missing documents",
+        "human": false
+      },
+      {
+        "label": "Notify staff",
+        "detail": "The right colleague",
+        "human": false
+      },
+      {
+        "label": "If a step fails",
+        "detail": "A person gets a message and fixes it",
+        "human": true
+      }
+    ],
+    "caption": "We build a failure notification into every workflow."
+  }
+};

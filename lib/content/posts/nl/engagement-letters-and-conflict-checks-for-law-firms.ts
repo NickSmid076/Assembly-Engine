@@ -1,4 +1,5 @@
 import { auditCta } from "../cta";
+import type { PostBlocks } from "../types";
 
 export default `
 <p>Als de intake rond is, komen er twee vaste stappen: de conflictcheck en de opdrachtbevestiging. Op veel kantoren gaat dat nog met de hand. Iemand zoekt in het systeem op de naam van de wederpartij, en iemand anders kopieert de vorige opdrachtbevestiging en past de gegevens aan. Dat werkt, tot er een oude naam in blijft staan of een zoekopdracht net de verkeerde schrijfwijze mist.</p>
@@ -17,6 +18,8 @@ export default `
 <p>Een voorbeeld (fictief): een nieuwe cliënt, Bakkerij Smit B.V., wil procederen tegen een leverancier. De zoekopdracht vindt drie treffers. De leverancier was vier jaar geleden wederpartij in een andere zaak. Een bestuurder van de bakkerij komt voor als betrokkene in een lopend dossier. En er is een bedrijf met een bijna gelijke naam dat cliënt van het kantoor is. De software zet die drie treffers in het dossier. De advocaat bekijkt ze, stelt vast dat het derde bedrijf een ander bedrijf is, en legt per treffer vast waarom er wel of geen conflict is.</p>
 <p><mark>[CHECK: conflict-check features of Basenet, Kleos and Legalsense before naming them]</mark> Veel praktijkmanagementsystemen hebben al een zoekfunctie. Vaak zit de winst in het automatisch laten draaien ervan, en in het vastleggen van de uitkomst, zodat het niet afhangt van iemand die eraan denkt.</p>
 
+
+<!--block:firm-->
 <h2>De opdrachtbevestiging genereren uit het intakeformulier</h2>
 <p>Bij de intake heeft de cliënt al ingevuld wie hij is, waar de zaak over gaat en wie de wederpartij is. Die gegevens kunnen direct in een sjabloon voor de opdrachtbevestiging. Een voorbeeld van wat er dan automatisch in komt:</p>
 <ul>
@@ -26,10 +29,14 @@ export default `
 <li>de algemene voorwaarden van het kantoor;</li>
 <li>als u AI gebruikt: een passage waarin u dat aan de cliënt meldt.</li>
 </ul>
+<!--block:template-->
+
 <p>Dat laatste punt komt van de NOvA, die voorstelt om cliënten te informeren over het gebruik van AI, bijvoorbeeld in de opdrachtbevestiging (<a href="https://www.advocatenorde.nl/nieuws/aanbevelingen-ai-de-praktijk">NOvA, aanbevelingen AI</a>).</p>
 <p>De advocaat leest het concept, past waar nodig de omschrijving aan en keurt het goed. Het knippen en plakken verdwijnt, en daarmee ook het risico dat er nog een naam of tarief uit een vorige zaak in staat.</p>
 <p>Een sjabloon heeft wel onderhoud nodig. Als uw algemene voorwaarden of tarieven veranderen, past één persoon het sjabloon aan, en vanaf dat moment gebruikt iedereen de nieuwe versie. Bij het kopiëren van de vorige brief blijven oude tarieven soms nog maanden rondgaan.</p>
 
+
+<!--block:compare-->
 <h2>Laten tekenen en opslaan zonder handmatige herinneringen</h2>
 <p>Na goedkeuring gaat de opdrachtbevestiging naar de cliënt, met een link om digitaal te tekenen. <mark>[CHECK: Signhost, ondertekenen.nl and other e-signing providers, and how they connect to Basenet or Kleos]</mark> Als er na een paar dagen niet is getekend, gaat er een herinnering uit. Na de tweede herinnering komt er een taak bij de secretaresse of de advocaat om te bellen.</p>
 <p>Het getekende document komt vanzelf in het dossier, met de datum van ondertekening. Dan kunt u later altijd laten zien wanneer de afspraken zijn vastgelegd.</p>
@@ -60,3 +67,77 @@ export default `
 <p>Alles daaromheen kan worden voorbereid, verstuurd, herinnerd en vastgelegd. Zo gaat de tijd van de advocaat naar de beslissingen, en hoeft niemand meer gegevens over te typen die al in het systeem staan.</p>
 <p>Geen van de hulpmiddelen in dit artikel is door de NOvA goedgekeurd of aanbevolen. Welke software u kiest, blijft uw eigen afweging. Hoe wij daarover denken, leest u in <a href="/nl/blog/build-on-the-software-you-already-use">waarom we bouwen op de software die u al gebruikt</a>.</p>
 ` + auditCta("nl");
+
+export const cover = { alt: "Lijntekening: een briefsjabloon met gemarkeerde invulvelden links, een vergrootglas over rijen dossiers rechts." };
+
+export const blocks: PostBlocks = {
+  "firm": {
+    "acf_fc_layout": "diagram",
+    "src": "/blog/engagement-letters-and-conflict-checks-for-law-firms/whole-firm.nl.svg",
+    "alt": "Gedragsregel 15 lid 6: ‘advocaat’ omvat het hele kantoor, dus de conflictcheck zoekt in uw eigen dossiers, in lopende zaken van collega’s en in gesloten zaken. Voorbeeld met de nieuwe cliënt Bakkerij Smit B.V. (fictief), drie treffers: de leverancier was vier jaar geleden wederpartij in een gesloten zaak; een bestuurder komt voor in een lopend dossier van een collega; een cliënt heeft een bijna gelijke naam maar is een ander bedrijf.",
+    "caption": "De software vindt de treffers. De advocaat weegt ze.",
+    "source": {
+      "title": "Gedragsregels advocatuur 2018, artikel 15",
+      "url": "https://www.inview.nl/openCitation/idb0ea7b9fd1644b0d98c8afd51b37f4d1/gedragsregels-advocatuur-2018-artikel-15",
+      "target": "_blank"
+    }
+  },
+  "template": {
+    "acf_fc_layout": "mock_ui",
+    "window": "Sjabloon opdrachtbevestiging",
+    "caption": "Voorbeeldsjabloon. De blauwe velden komen uit het intakeformulier.",
+    "mock": {
+      "kind": "document",
+      "title": "Opdrachtbevestiging",
+      "meta": [
+        "Sjabloon",
+        "Door één persoon bijgehouden, door iedereen gebruikt"
+      ],
+      "sections": [
+        {
+          "heading": "Cliënt",
+          "lines": [
+            "{{naam_client}}, {{adres}}",
+            "KvK {{kvk_nummer}}"
+          ]
+        },
+        {
+          "heading": "De opdracht",
+          "lines": [
+            "{{omschrijving_opdracht}}"
+          ]
+        },
+        {
+          "heading": "Honorarium",
+          "lines": [
+            "{{honorariumafspraak}}: {{tarief}}",
+            "Voorschot: {{voorschot}}"
+          ]
+        },
+        {
+          "heading": "Voorwaarden",
+          "lines": [
+            "De algemene voorwaarden van {{naam_kantoor}} zijn van toepassing.",
+            "Voor een deel van het voorbereidende werk gebruiken wij AI-hulpmiddelen. Een advocaat controleert alles voordat het u bereikt."
+          ]
+        }
+      ]
+    }
+  },
+  "compare": {
+    "acf_fc_layout": "before_after",
+    "variant": "process",
+    "title": "Knippen en plakken of een sjabloon",
+    "before": [
+      "De vorige opdrachtbevestiging kopiëren",
+      "Naam, adres en tarieven met de hand aanpassen",
+      "Soms blijft een oude naam of een oud tarief staan"
+    ],
+    "after": [
+      "De intakegegevens vullen het sjabloon",
+      "Tarieven en algemene voorwaarden komen uit één onderhouden sjabloon",
+      "De advocaat leest, past aan en keurt het concept goed"
+    ],
+    "human": "De omschrijving van de opdracht en de honorariumafspraken."
+  }
+};

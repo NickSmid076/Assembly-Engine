@@ -1,8 +1,11 @@
-// Article bodies for the local source, as WordPress will return them (`content.rendered`): one HTML string per
-// post and locale, sanitised by the rich_text block. A slug without a body shows the "being written" state.
+// Article bodies for the local source: one module per post and locale with the body HTML (WordPress
+// `content.rendered`), sanitised per prose chunk, and the rich blocks placed in it by <!--block:key--> markers. A slug without a body shows the "being written" state.
 // <mark>[CHECK: …]</mark> flags a fact that must be verified before the post is indexed.
 import type { Locale } from "@/lib/i18n/config";
 import { NL } from "./nl";
 import { EN } from "./en";
 
-export const POST_BODIES: Record<Locale, Record<string, string>> = { nl: NL, en: EN };
+import type { PostModule } from "./types";
+
+export const POSTS: Record<Locale, Record<string, PostModule>> = { nl: NL, en: EN };
+export type { PostModule, PostBlocks, BlockData } from "./types";

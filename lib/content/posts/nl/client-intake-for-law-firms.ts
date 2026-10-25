@@ -1,4 +1,5 @@
 import { auditCta } from "../cta";
+import type { PostBlocks } from "../types";
 
 export default `
 <p>Een nieuwe zaak begint zelden met juridisch werk. Hij begint met wachten: op een kopie van het ID, op het UBO-uittreksel, op de getekende opdrachtbevestiging, op het voorschot. Zolang die er niet zijn, mag of wilt u niet beginnen. En dus belt en mailt er iemand op kantoor achter de cliënt aan.</p>
@@ -14,6 +15,8 @@ export default `
 <p>Of een zaak onder de Wwft valt, beslist de advocaat. Een intakeformulier kan wel de vragen stellen die bij die beslissing horen, en de uitkomst vastleggen. Dan staat in elk dossier op dezelfde plek waarom een zaak wel of niet onder de Wwft valt.</p>
 <p><mark>[CHECK: the Wwft is due to be replaced by EU AML rules on 10 July 2027; confirm the date and add a dated note when this is published]</mark> Volgens de NOvA wordt de Wwft op 10 juli 2027 vervangen door Europese antiwitwasregels (<a href="https://www.advocatenorde.nl/praktijkuitoefening/wwft">NOvA, Wwft</a>). We werken dit artikel bij als dat zover is.</p>
 
+
+<!--block:route-->
 <h2>De vier momenten waarop u op de cliënt wacht</h2>
 <p>In bijna elke intake wacht u op vier dingen.</p>
 <h3>1. Het identiteitsbewijs</h3>
@@ -27,6 +30,8 @@ export default `
 <p>Veel kantoren vragen een voorschot voordat het werk begint. Een factuur met een betaallink, en een herinnering als die na een paar dagen nog openstaat, voorkomt dat iemand dat met de hand moet bijhouden.</p>
 <p>Wij hebben geen cijfers over hoeveel tijd kantoren aan dit nabellen kwijt zijn. Die bestaan, voor zover wij weten, niet voor Nederland. Wie het bij zichzelf wil meten, kan een maand lang turven hoeveel mails en telefoontjes er per nieuwe zaak nodig zijn.</p>
 
+
+<!--block:flow-->
 <h2>Een intake die zelf nabelt en alles in het dossier vastlegt</h2>
 <p>Hieronder een voorbeeld van hoe zo'n intake kan lopen. Het is een illustratie, geen bestaand kantoor.</p>
 <ol>
@@ -39,6 +44,8 @@ export default `
 </ol>
 <p>Het bericht aan de cliënt kan er zo uitzien:</p>
 <blockquote><p>Beste mevrouw Jansen, dank voor het gesprek van vanochtend. Om met uw zaak te beginnen, hebben we nog vier dingen van u nodig. Via de link hieronder ziet u per stuk wat het is en hoe u het aanlevert. Het UBO-uittreksel vraagt u zelf op bij de KvK; in de link staat hoe dat werkt. Vragen? Bel gerust.</p><cite>Voorbeeldtekst, fictieve cliënt</cite></blockquote>
+<!--block:portal-->
+
 <p>Voor de cliënt is dat ook prettiger, denken wij. Wie net een advocaat heeft gesproken over een lastige kwestie, zit niet te wachten op vijf losse mails met verzoeken. Eén overzicht, met per stuk wat het is en waarom het nodig is, maakt het makkelijker om snel te reageren. Onderzoek naar hoe cliënten dit ervaren, hebben we niet.</p>
 <p>Elke stap wordt met datum vastgelegd. Dat helpt bij het toezicht. Volgens de dekens is de meest voorkomende bevinding bij Wwft-onderzoeken een risicobeoordeling zonder schriftelijke onderbouwing, of met een algemene zin als "alle factoren zijn gecontroleerd" (<a href="https://www.toezichtadvocatuur.nl/cms/public/files/communicatie/20250311-advocatenblad-maart.pdf?dc96f3e2af=">Dekenberaad, maart 2025</a>). Een vast formulier zorgt ervoor dat de advocaat elke keer dezelfde vragen beantwoordt, en dat die antwoorden in het dossier staan.</p>
 <p>Ook de bewaartermijn hoort erbij: de stukken uit het cliëntenonderzoek moet u een vaste periode bewaren, en daarna weer verwijderen. <mark>[CHECK: the Wwft retention period (art. 33) against the current text of the law]</mark> Een systeem kan die termijn per dossier bijhouden.</p>
@@ -60,8 +67,126 @@ export default `
 <p>U hoeft niet alles tegelijk te doen. De meeste kantoren hebben al een checklist voor de intake, op papier of in het hoofd van een ervaren secretaresse. Schrijf die lijst eerst uit, per soort zaak. Welke stukken zijn altijd nodig? Welke alleen bij Wwft-zaken? Wie controleert wat, en wanneer?</p>
 <p>Als die lijst er is, is het automatiseren van de herinneringen de kleinste stap. Daarna komt het formulier, en als laatste de koppeling met uw praktijkmanagementsysteem. Zo heeft u na de eerste stap al minder nabelwerk, ook als de rest nog even duurt.</p>
 
+
+<!--block:list-->
 <h2>Privacy: geen gratis AI-hulpmiddelen, en een verwerkersovereenkomst</h2>
 <p>Intakegegevens zijn vertrouwelijk, en vaak gevoelig. De NOvA raadt af om gratis of open AI-hulpmiddelen te gebruiken voor vertrouwelijke gegevens (<a href="https://www.advocatenorde.nl/nieuws/aanbevelingen-ai-de-praktijk">NOvA, aanbevelingen AI in de praktijk</a>). Dat geldt ook voor de intake: een formulier dat antwoorden naar een gratis chatbot stuurt om ze "samen te vatten", hoort daar niet bij.</p>
 <p>Elke dienst die gegevens van uw cliënten verwerkt, heeft een verwerkersovereenkomst nodig. De NOvA heeft daar modellen voor (<a href="https://www.advocatenorde.nl/praktijkuitoefening/voor-uw-praktijk-1/gegevensbescherming-avg">NOvA, gegevensbescherming</a>). Bij een intake die we bouwen, zetten we op een rij welke diensten welke gegevens zien, zodat u weet met wie u een overeenkomst moet hebben.</p>
 <p>Werkt u al met een praktijkmanagementsysteem zoals Basenet of Kleos, dan bouwen we de intake daaromheen. <mark>[CHECK: Basenet and Kleos intake, dossier and API features before naming them]</mark> Waarom we dat doen, leest u in <a href="/nl/blog/build-on-the-software-you-already-use">waarom we bouwen op de software die u al gebruikt</a>.</p>
 ` + auditCta("nl");
+
+export const cover = { alt: "Lijntekening: vier documenten op één lijn (een ID, een UBO-schema, een getekende brief en een factuur), eindigend bij een gestippelde cirkel voor de advocaat." };
+
+export const blocks: PostBlocks = {
+  "route": {
+    "acf_fc_layout": "diagram",
+    "src": "/blog/client-intake-for-law-firms/wwft-or-exemption.nl.svg",
+    "alt": "De advocaat beslist om welke dienst het in een zaak gaat. Route 1: bijvoorbeeld een vastgoedtransactie, vermogensbeheer, het oprichten van een vennootschap, aandelentransacties of vergelijkbaar fiscaal werk. Dan geldt de Wwft: volledig cliëntenonderzoek, en een UBO-uittreksel voordat de zakelijke relatie begint. Route 2: procederen. Dan geldt de procesvrijstelling, die beperkt wordt uitgelegd. Het intakeformulier stelt de vragen en legt de uitkomst vast in het dossier.",
+    "caption": null,
+    "source": {
+      "title": "NOvA, Handleiding Wwft en UBO-register, 2022",
+      "url": "https://www.toezichtadvocatuur.nl/cms/public/files/handleiding-inleiding-wwft-en-ubo-register-voor-advocaten-27-09-2022-.pdf?94b7929bac=",
+      "target": "_blank"
+    }
+  },
+  "flow": {
+    "acf_fc_layout": "flow_diagram",
+    "title": "Voorbeeld: de vier dingen waarop u wacht",
+    "nodes": [
+      {
+        "label": "ID-bewijs",
+        "detail": "Een kopie van een geldig ID",
+        "human": false
+      },
+      {
+        "label": "UBO-uittreksel",
+        "detail": "De cliënt vraagt het op bij de KvK",
+        "human": false
+      },
+      {
+        "label": "Opdrachtbevestiging",
+        "detail": "Getekend via een link",
+        "human": false
+      },
+      {
+        "label": "Voorschot",
+        "detail": "Factuur met een betaallink",
+        "human": false
+      },
+      {
+        "label": "Zaak start",
+        "detail": "Zodra de advocaat het cliëntenonderzoek heeft afgerond",
+        "human": true
+      }
+    ],
+    "caption": "Het systeem verzamelt en herinnert. De laatste stap is van de advocaat."
+  },
+  "portal": {
+    "acf_fc_layout": "mock_ui",
+    "window": "Intakeoverzicht",
+    "caption": "Voorbeeld, fictieve cliënt. Wat de link in het bericht zou kunnen tonen.",
+    "mock": {
+      "kind": "form",
+      "title": "Uw zaak: wat we nog nodig hebben",
+      "intro": "Vier stukken. Per regel ziet u wat het is en hoe u het aanlevert.",
+      "fields": [
+        {
+          "label": "ID-bewijs",
+          "value": "kopie-id-jansen.pdf",
+          "type": "file",
+          "state": "done"
+        },
+        {
+          "label": "UBO-uittreksel",
+          "value": "Op te vragen bij de KvK",
+          "type": "file",
+          "state": "open"
+        },
+        {
+          "label": "Opdrachtbevestiging",
+          "value": "Getekend",
+          "type": "sign",
+          "state": "done"
+        },
+        {
+          "label": "Voorschot",
+          "value": "Factuur 2026-031",
+          "type": "pay",
+          "state": "open"
+        }
+      ],
+      "status": "2 van 4 ontvangen"
+    }
+  },
+  "list": {
+    "acf_fc_layout": "checklist",
+    "id": "intake-list",
+    "title": "Uw intakelijst, per soort zaak",
+    "items": [
+      {
+        "id": "i1",
+        "text": "Welke stukken altijd nodig zijn"
+      },
+      {
+        "id": "i2",
+        "text": "Welke stukken alleen bij Wwft-zaken"
+      },
+      {
+        "id": "i3",
+        "text": "Welke stukken alleen als de cliënt een rechtspersoon is"
+      },
+      {
+        "id": "i4",
+        "text": "Wie wat controleert, en wanneer"
+      },
+      {
+        "id": "i5",
+        "text": "Wanneer de advocaat het cliëntenonderzoek afrondt"
+      },
+      {
+        "id": "i6",
+        "text": "Welke diensten welke gegevens zien, en of er een verwerkersovereenkomst is"
+      }
+    ]
+  }
+};
