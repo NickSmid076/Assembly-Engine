@@ -1,7 +1,9 @@
 import { z } from "zod";
 import { link } from "../shared";
 
-export const ART = ["orbit", "well", "grid", "waves"] as const;
+import { ART } from "@/components/LineArt";
+
+export { ART };
 
 /** The blog index. A post without a body is "planned": listed honestly, never linked. ACF: native posts
  *  (category = tag; ACF `read_minutes`, `art`, `status_label`). */

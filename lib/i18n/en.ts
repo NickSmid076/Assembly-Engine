@@ -1,5 +1,6 @@
 import type { Moment } from "@/components/blocks/services/moments/schema";
 import type { LogoKey } from "@/lib/content/logos";
+import type { Art } from "@/components/LineArt";
 
 // All copy for the English site. nl.ts mirrors this shape exactly.
 // Example data in scenes is fictional (Van Dijk Accountancy, De Vries Installatie, Jansen Logistiek).
@@ -876,11 +877,16 @@ export const en = {
     all: "All", back: "All posts", placeholder: "Placeholder article", placeholderNote: "This article is a placeholder. The real text will be published soon.", related: "More to read", minRead: "min read", by: "By",
   },
   posts: [
-    { slug: "five-admin-tasks-to-automate-first", tag: "Guide", read: 8, art: "orbit", date: "Coming soon", title: "Five admin tasks every accounting firm can automate first", excerpt: "Where the quickest wins usually are, how to spot them in your own week, and what to leave alone." },
-    { slug: "what-a-free-automation-audit-looks-at", tag: "Process", read: 5, art: "well", date: "Coming soon", title: "What a free automation audit actually looks at", excerpt: "The questions we ask and the processes we map." },
-    { slug: "build-on-the-software-you-already-use", tag: "Tools", read: 6, art: "grid", date: "Coming soon", title: "Why we build on the software you already use", excerpt: "No migrations, no new logins for your team." },
-    { slug: "client-intake-for-law-firms", tag: "Legal", read: 7, art: "waves", date: "Coming soon", title: "Client intake for law firms, without the chasing", excerpt: "Checklists, reminders and filing that run themselves." },
-  ] as { slug: string; tag: string; read: number; art: "orbit" | "well" | "grid" | "waves"; date: string; title: string; excerpt: string }[],
+    { slug: "what-a-free-automation-audit-looks-at", tag: "Process", read: 6, art: "well", date: "Coming soon", index: false, title: "What a free automation audit actually looks at", excerpt: "The questions we ask in the call, and what you keep afterwards if you decide not to hire us." },
+    { slug: "five-admin-tasks-to-automate-first", tag: "Guide", read: 7, art: "orbit", date: "Coming soon", index: false, title: "Five admin tasks every accounting firm can automate first", excerpt: "Most quick wins sit in the small jobs between the systems you already have. These are the five we look at first, and how to spot them in your own week." },
+    { slug: "e-invoicing-mandatory-2030", tag: "Finance", read: 7, art: "stack", date: "Coming soon", index: false, title: "E-invoicing is expected to become mandatory in 2030. What can you do now?", excerpt: "The expected dates, what changes in VAT reporting, and a few steps that pay off now, whatever the final law looks like." },
+    { slug: "build-on-the-software-you-already-use", tag: "Tools", read: 6, art: "grid", date: "Coming soon", index: false, title: "Why we build on the software you already use", excerpt: "Each new tool is another login and another place where your data lives. Connecting what you already pay for is usually cheaper, and your team has nothing new to learn." },
+    { slug: "client-intake-for-law-firms", tag: "Legal", read: 8, art: "waves", date: "Coming soon", index: false, title: "Client intake for law firms, without the chasing", excerpt: "You can't start until the ID, the UBO extract and the signed engagement letter are in. Software can do the chasing. The advocaat still makes the call." },
+    { slug: "automatic-payment-reminders", tag: "Finance", read: 8, art: "ripple", date: "Coming soon", index: false, title: "Automatic payment reminders, without souring the relationship", excerpt: "Nine in ten Dutch SMBs deal with late payers (Exact, 2025). A fixed reminder schedule with a payment link, written in your own tone, solves most of it with the software you already have." },
+    { slug: "what-not-to-automate", tag: "Guide", read: 7, art: "fork", date: "Coming soon", index: false, title: "What not to automate, and where AI still needs a person", excerpt: "Collecting documents and sending reminders are good candidates. A risk assessment or a difficult client conversation isn't, and client files don't belong in a free chatbot." },
+    { slug: "n8n-vs-make-vs-zapier-for-dutch-firms", tag: "Tools", read: 9, art: "trio", date: "Coming soon", index: false, title: "n8n, Make or Zapier: which fits a firm that handles client data?", excerpt: "For an accounting or law firm it mostly comes down to where your client data is stored and who keeps the workflows running. We build on n8n and explain why, including when it's the wrong pick." },
+    { slug: "engagement-letters-and-conflict-checks-for-law-firms", tag: "Legal", read: 8, art: "lens", date: "Coming soon", index: false, title: "After intake: engagement letters and conflict checks without copy-paste", excerpt: "Every new matter needs a written engagement letter and a conflict check across the whole firm. A template and one search make both consistent. The advocaat still decides." },
+  ] as { slug: string; tag: string; read: number; art: Art; date: string; index: boolean; title: string; excerpt: string }[],
 };
 
 export type Dict = typeof en;
