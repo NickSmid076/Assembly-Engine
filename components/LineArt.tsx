@@ -59,7 +59,7 @@ function stack() {
     const z = -30 + k * 14, len = k === 0 ? 50 : 70 + noise(k) * 40;
     out.push(<path key={"l" + k} d={`M${pr(-58, top, z)}L${pr(-58 + len, top, z)}`} fill="none" stroke="currentColor" strokeOpacity={k === 0 ? 0.9 : 0.55} />);
   }
-  return <g className="art-float">{out}</g>;
+  return <g transform="translate(200 125) scale(1.2) translate(-200 -125)"><g className="art-float">{out}</g></g>;
 }
 /** Arcs going out from one point at a steady interval; every third arc stronger (a reminder schedule). */
 function ripple() {
