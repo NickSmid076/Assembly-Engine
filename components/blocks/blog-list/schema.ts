@@ -1,7 +1,9 @@
 import { z } from "zod";
-import { link } from "../shared";
+import { image, link } from "../shared";
 
-export const ART = ["orbit", "well", "grid", "waves"] as const;
+import { ART } from "@/components/LineArt";
+
+export { ART };
 
 /** The blog index. A post without a body is "planned": listed honestly, never linked. ACF: native posts
  *  (category = tag; ACF `read_minutes`, `art`, `status_label`). */
@@ -20,6 +22,7 @@ export const blogListSchema = z.object({
     title: z.string().min(1),
     excerpt: z.string().min(1),
     art: z.enum(ART),
+    cover: image.nullable(),
   })),
 });
 export type BlogListBlock = z.infer<typeof blogListSchema>;

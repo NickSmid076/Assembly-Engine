@@ -6,12 +6,12 @@ const EMBED_HOSTS = ["www.youtube-nocookie.com", "www.youtube.com", "player.vime
 export function cleanHtml(html: string) {
   return sanitizeHtml(html, {
     allowedTags: ["h2", "h3", "h4", "p", "br", "hr", "strong", "b", "em", "i", "u", "s", "a", "ul", "ol", "li", "blockquote", "cite",
-      "figure", "figcaption", "img", "pre", "code", "kbd", "table", "thead", "tbody", "tr", "th", "td", "iframe", "div", "span", "sup", "sub"],
+      "figure", "figcaption", "img", "pre", "code", "kbd", "table", "thead", "tbody", "tr", "th", "td", "iframe", "div", "span", "sup", "sub", "mark"],
     allowedAttributes: {
       a: ["href", "title", "target", "rel"],
       img: ["src", "alt", "width", "height", "loading", "srcset", "sizes"],
       iframe: ["src", "title", "width", "height", "allow", "allowfullscreen", "loading"],
-      th: ["scope", "colspan", "rowspan"], td: ["colspan", "rowspan"], ol: ["start", "reversed"],
+      h2: ["id"], th: ["scope", "colspan", "rowspan"], td: ["colspan", "rowspan"], ol: ["start", "reversed"],
       figure: ["class"], div: ["class"], code: ["class"],
     },
     allowedClasses: { figure: ["wp-block-embed", "wp-block-image", "wp-block-table", "wp-block-pullquote"], div: ["wp-block-embed__wrapper"], code: [/^language-/] },

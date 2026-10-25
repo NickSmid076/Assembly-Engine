@@ -29,19 +29,22 @@ import type { AboutStoryBlock } from "@/components/blocks/about-story/schema";
 import type { BlogListBlock } from "@/components/blocks/blog-list/schema";
 import type { PostHeaderBlock } from "@/components/blocks/post-header/schema";
 import type { RichTextBlock } from "@/components/blocks/rich-text/schema";
+import type { PostArticleBlock, ArticleSection } from "@/components/blocks/post-article/schema";
+import type { RelatedPostsBlock } from "@/components/blocks/related-posts/schema";
 
 export type { WPLink, WPImage, HeadingPart } from "@/components/blocks/shared";
 export type { Run, RunRow } from "@/components/blocks/how-it-runs/schema";
 export type { HeroHomeBlock, HowItRunsBlock, ProcessBlock, ServicesBlock, ProofBlock, WhyUsBlock, ClosingCtaBlock };
 export type { ServiceHeroBlock, ServiceSignatureBlock, ServiceStepsBlock, ServiceScopeBlock, ServicePrinciplesBlock, ServiceFaqBlock, ServiceOthersBlock };
-export type { CaseHeroBlock, CaseFindingsBlock, LedgerBlock, CasePagesBlock, CaseResultsBlock, CaseTimelineBlock, QuoteBlock, PageIntroBlock, ContactFormBlock, AboutHeroBlock, AboutStoryBlock, BlogListBlock, PostHeaderBlock, RichTextBlock };
+export type { CaseHeroBlock, CaseFindingsBlock, LedgerBlock, CasePagesBlock, CaseResultsBlock, CaseTimelineBlock, QuoteBlock, PageIntroBlock, ContactFormBlock, AboutHeroBlock, AboutStoryBlock, BlogListBlock, PostHeaderBlock, RichTextBlock, PostArticleBlock, ArticleSection, RelatedPostsBlock };
 
 /** Every section layout a page can hold (ACF flexible content `sections`). */
 export type Section =
   | HeroHomeBlock | HowItRunsBlock | ProcessBlock | ServicesBlock | ProofBlock | WhyUsBlock | ClosingCtaBlock
   | ServiceHeroBlock | ServiceSignatureBlock | ServiceStepsBlock | ServiceScopeBlock | ServicePrinciplesBlock | ServiceFaqBlock | ServiceOthersBlock
   | CaseHeroBlock | CaseFindingsBlock | LedgerBlock | CasePagesBlock | CaseResultsBlock | CaseTimelineBlock | QuoteBlock | PageIntroBlock | ContactFormBlock
-  | AboutHeroBlock | AboutStoryBlock | BlogListBlock | PostHeaderBlock | RichTextBlock;
+  | AboutHeroBlock | AboutStoryBlock | BlogListBlock | PostHeaderBlock | RichTextBlock
+  | PostArticleBlock | RelatedPostsBlock | ArticleSection;
 
 export type HomePage = {
   locale: Locale;

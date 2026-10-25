@@ -1,7 +1,7 @@
 // renderBlocks: turns a page's `sections` (ACF flexible content) into block components.
 // Every block's props are validated with its zod schema: in development a bad shape throws (so a WordPress
 // field change is caught immediately); in production the block is skipped and logged, never half-rendered.
-import type { ComponentType } from "react";
+import type { ComponentType, ReactNode } from "react";
 import type { z } from "zod";
 import type { Section } from "@/lib/content";
 import HeroHome from "./hero-home/HeroHome";
@@ -60,6 +60,31 @@ import { postHeaderSchema } from "./post-header/schema";
 import RichText from "./rich-text/RichText";
 import { richTextSchema } from "./rich-text/schema";
 import { quoteSchema } from "./quote/schema";
+import Prose from "./prose/Prose";
+import { proseSchema } from "./prose/schema";
+import Callout from "./callout/Callout";
+import { calloutSchema } from "./callout/schema";
+import Stat from "./stat/Stat";
+import { statSchema } from "./stat/schema";
+import Checklist from "./checklist/Checklist";
+import { checklistSchema } from "./checklist/schema";
+import BeforeAfter from "./before-after/BeforeAfter";
+import { beforeAfterSchema } from "./before-after/schema";
+import FlowDiagram from "./flow-diagram/FlowDiagram";
+import { flowDiagramSchema } from "./flow-diagram/schema";
+import Timeline from "./timeline/Timeline";
+import { timelineSchema } from "./timeline/schema";
+import ComparisonTable from "./comparison-table/ComparisonTable";
+import { comparisonTableSchema } from "./comparison-table/schema";
+import MockUi from "./mock-ui/MockUi";
+import { mockUiSchema } from "./mock-ui/schema";
+import Diagram from "./diagram/Diagram";
+import { diagramSchema } from "./diagram/schema";
+import PostArticle from "./post-article/PostArticle";
+import { postArticleSchema, type PostArticleBlock } from "./post-article/schema";
+import { prepareArticle } from "./post-article/prepare";
+import RelatedPosts from "./related-posts/RelatedPosts";
+import { relatedPostsSchema } from "./related-posts/schema";
 
 type Entry = { schema: z.ZodType; Component: ComponentType<{ content: never }> };
 
@@ -92,9 +117,22 @@ const REGISTRY: Record<Section["acf_fc_layout"], Entry> = {
   blog_list: { schema: blogListSchema, Component: BlogList },
   post_header: { schema: postHeaderSchema, Component: PostHeader },
   rich_text: { schema: richTextSchema, Component: RichText },
+  // post_article renders its own sections (see below); the component here is never called directly.
+  post_article: { schema: postArticleSchema, Component: PostArticle as never },
+  related_posts: { schema: relatedPostsSchema, Component: RelatedPosts },
+  prose: { schema: proseSchema, Component: Prose },
+  callout: { schema: calloutSchema, Component: Callout },
+  stat: { schema: statSchema, Component: Stat },
+  checklist: { schema: checklistSchema, Component: Checklist },
+  before_after: { schema: beforeAfterSchema, Component: BeforeAfter },
+  flow_diagram: { schema: flowDiagramSchema, Component: FlowDiagram },
+  timeline: { schema: timelineSchema, Component: Timeline },
+  comparison_table: { schema: comparisonTableSchema, Component: ComparisonTable },
+  mock_ui: { schema: mockUiSchema, Component: MockUi },
+  diagram: { schema: diagramSchema, Component: Diagram },
 };
 
-export function renderBlocks(sections: Section[]) {
+export function renderBlocks(sections: readonly Section[]): ReactNode[] {
   return sections.map((section, i) => {
     const entry = REGISTRY[section.acf_fc_layout];
     if (!entry) {
@@ -107,6 +145,12 @@ export function renderBlocks(sections: Section[]) {
       if (process.env.NODE_ENV !== "production") throw new Error(msg);
       console.error(msg);
       return null;
+    }
+    if (section.acf_fc_layout === "post_article") {
+      // The article container renders its own flexible content, with ids on its H2s for the table of contents.
+      const article = parsed.data as PostArticleBlock;
+      const { sections, toc } = prepareArticle(article);
+      return <PostArticle key={`post_article-${i}`} content={article} toc={toc}>{renderBlocks(sections)}</PostArticle>;
     }
     const { Component } = entry;
     return <Component key={`${section.acf_fc_layout}-${i}`} content={parsed.data as never} />;
