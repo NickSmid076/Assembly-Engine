@@ -10,7 +10,7 @@ export default `
 
 <h2>What a new package costs</h2>
 <p>The licence is the smallest part. A new package means an extra login for everyone, one more place where client data lives, and a new habit the team has to learn.</p>
-<p>Small businesses (up to fifty staff) already use about 36 apps on average (Okta, 2024). On average only 27% of an organisation's apps are connected to each other (MuleSoft, 2026). And workers lose close to four hours a week switching between programs (Harvard Business Review, 2022). All three figures come via the overview by <a href="https://www.toriihq.com/saas-statistics">Torii</a>. <mark>[CHECK: verify the Okta 2024, MuleSoft 2026 and HBR 2022 figures in the original reports; we only saw them via Torii]</mark></p>
+<p>Among Okta's customers, companies with 2,000 or fewer staff use 72 apps on average, and companies in the Netherlands 108 (<a href="https://www.okta.com/sites/default/files/2024-04/Okta-2024_Businesses_at_Work.pdf">Okta, Businesses at Work 2024</a>). Those are mostly larger organisations than a typical Dutch firm, but the direction is clear. And in a 2022 study of 20 teams, the researchers estimated that workers lose close to four hours a week getting back on track after switching between apps (<a href="https://hbr.org/2022/08/how-much-time-and-energy-do-we-waste-toggling-between-applications">Harvard Business Review, 2022</a>).</p>
 <!--block:stat-->
 
 <p>Every new package makes those numbers bigger. So we first check whether what you have can do the job.</p>
@@ -31,7 +31,7 @@ export default `
 <li>A meeting booked through Cal.com lands in the right calendar and sets up the preparation.</li>
 <li>Figures from the accounting package flow into a Power BI report every night.</li>
 </ul>
-<p><mark>[CHECK: confirm each named tool has the API or connector described here (Exact Online, Moneybird, Twinfield, Mollie, HubSpot, Cal.com, Power BI)]</mark></p>
+<p>Each of these packages has a public API, and that's what makes the connection possible.</p>
 <p>The team keeps working in the screens it knows. What goes away is the retyping.</p>
 <p>A connection does need maintenance. If a vendor changes its API, the connection has to follow. That's why we record for every connection which systems it touches and what happens when a step fails: who gets notified, and is it retried later?</p>
 <p>We usually build these connections in n8n. Why, and when another tool fits better, is in <a href="/en/blog/n8n-vs-make-vs-zapier-for-dutch-firms">n8n, Make or Zapier</a>.</p>
@@ -64,13 +64,13 @@ export const cover = { alt: "Line drawing: three existing app windows connected 
 export const blocks: PostBlocks = {
   "stat": {
     "acf_fc_layout": "stat",
-    "value": "36",
-    "label": "apps on average at small businesses with up to fifty staff",
+    "value": "72",
+    "label": "apps on average at companies with 2,000 or fewer staff",
     "source": {
-      "title": "Okta 2024, via Torii",
-      "url": "https://www.toriihq.com/saas-statistics"
+      "title": "Okta, Businesses at Work 2024",
+      "url": "https://www.okta.com/sites/default/files/2024-04/Okta-2024_Businesses_at_Work.pdf"
     },
-    "note": "Seen via Torii; still to verify in the original Okta report."
+    "note": "Okta's own customer data, so mostly larger organisations than a typical Dutch firm."
   },
   "copies": {
     "acf_fc_layout": "diagram",

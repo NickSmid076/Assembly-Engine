@@ -6,7 +6,7 @@ export default `
 <p>The Dutch government wants businesses to invoice each other electronically from 2030, and to report those invoices one by one to the Belastingdienst, the Dutch tax authority. It isn't law yet, so the dates below are expectations. Even so, there are steps you can take now that pay for themselves, whatever the final rules look like.</p>
 
 <h2>What has been decided, and what hasn't</h2>
-<p>The cabinet has chosen mandatory e-invoicing for domestic and intra-EU transactions between businesses, combined with digital VAT reporting (<a href="https://www.taxlive.nl/nl/documenten/vn-vandaag/kabinet-kiest-voor-verplichte-e-facturatie-en-digitale-rapportage-bij-binnenlandse-b2b-transacties/">Taxlive</a>). An internet consultation follows in autumn 2026. The bill should reach the Tweede Kamer, the Dutch lower house, before the 2027 summer recess (<a href="https://www.grantthornton.nl/insights/tax/btw/nederland-zet-in-op-brede-uitrol-van-e-facturatie-en-digitale-btw-rapportage/">Grant Thornton, September 2026</a>). <mark>[CHECK: has the internet consultation opened, and have any dates changed?]</mark></p>
+<p>The cabinet has chosen mandatory e-invoicing for domestic and intra-EU transactions between businesses, combined with digital VAT reporting (<a href="https://www.taxlive.nl/nl/documenten/vn-vandaag/kabinet-kiest-voor-verplichte-e-facturatie-en-digitale-rapportage-bij-binnenlandse-b2b-transacties/">Taxlive</a>). An internet consultation follows in autumn 2026. The bill should reach the Tweede Kamer, the Dutch lower house, before the 2027 summer recess (<a href="https://www.grantthornton.nl/insights/tax/btw/nederland-zet-in-op-brede-uitrol-van-e-facturatie-en-digitale-btw-rapportage/">Grant Thornton, September 2026</a>). On 25 October 2026 that consultation hadn't opened yet. The planned dates are e-invoicing between Dutch businesses from 1 July 2030 and digital reporting from 1 July 2031, with businesses under the KOR exempt (<a href="https://www.accountant.nl/nieuws/2026/9/kabinet-wil-e-facturatie-vanaf-2030-verplicht-maken/">Accountant.nl, September 2026</a>).</p>
 <p>Until the law exists, a lot can still shift: the dates, the exemptions, the technical requirements. So write "expected" next to every date, in your own planning too.</p>
 
 
@@ -40,11 +40,11 @@ export default `
 <p>Questions you can put to your software vendor:</p>
 <ol>
 <li>Can the package already send and receive structured e-invoices? In which format?</li>
-<li>Over which network? Many vendors work with Peppol. <mark>[CHECK: whether Peppol will be the required network or format in the Dutch bill; the SRA article doesn't say]</mark></li>
+<li>Over which network? Many vendors work with Peppol. Which network the Dutch rules will require hasn't been decided yet.</li>
 <li>What's the plan for per-invoice digital reporting, and when will it be available?</li>
 <li>Will your connections (with your CRM, your web shop or your payment provider) still work, or do they need to change too?</li>
 </ol>
-<p><mark>[CHECK: e-invoicing support in Moneybird, Exact Online and Twinfield before naming any of them as ready]</mark></p>
+<p>We don't name packages as ready here, because support changes quickly and the Dutch requirements aren't fixed yet. Your vendor's answer to these questions tells you more.</p>
 
 <h2>What accounting firms can offer their clients</h2>
 <p>For an accounting or bookkeeping firm, this is a conversation you can have with every business client from 2027. Which software does the client use? Do they still invoice from Word or Excel? Are they under the KOR, and do they receive e-invoices?</p>

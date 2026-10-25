@@ -7,7 +7,7 @@ export default `
 
 <h2>Wat de Verordening op de advocatuur schriftelijk vraagt</h2>
 <p>Sinds 1 januari 2025 geldt een gewijzigd artikel 7.5 van de Verordening op de advocatuur (Voda). Volgens de toelichting moeten belangrijke afspraken met de cliënt schriftelijk worden vastgelegd, "zoals de opdrachtbevestiging", en daar horen ook de afspraken over het honorarium bij (<a href="https://www.advocatenorde.nl/voor-advocaten/wet-en-regelgeving/recente-wijzigingsbesluiten/verordening-op-de-advocatuur-0">NOvA, wijzigingsbesluit Voda</a>).</p>
-<p>Daarnaast regelt gedragsregel 16 wat u de cliënt over het honorarium moet vertellen. <mark>[CHECK: gedragsregel 16 (informing clients about fees) was not retrieved; read it before describing what it requires]</mark></p>
+<p>Daarnaast vraagt gedragsregel 17 dat er bij het aanvaarden van de opdracht duidelijke afspraken zijn gemaakt over uw honorarium, de doorbelasting van kosten en de wijze van declareren. Gedragsregel 16 vraagt u de cliënt goed te informeren (<a href="https://www.advocatenorde.nl/voor-advocaten/wet-en-regelgeving/gedragsregels/gedragsregels-advocatuur/de-advocaat-de-verhouding">NOvA, Gedragsregels advocatuur</a>).</p>
 <p>Voor elke nieuwe zaak betekent dat: een opdrachtbevestiging op papier, met de afspraken over omvang en honorarium erin. Dat is precies het soort document dat elke keer grotendeels hetzelfde is, en op een paar plekken net anders.</p>
 
 <h2>Een conflictcheck over het hele kantoor</h2>
@@ -16,7 +16,7 @@ export default `
 <p>Daar kan software helpen. Een zoekopdracht die bij elke nieuwe zaak automatisch draait, over alle namen van cliënten, wederpartijen en betrokkenen, met varianten in schrijfwijze en KvK-nummers erbij. De uitkomst is een lijst met mogelijke treffers, die in het dossier wordt vastgelegd.</p>
 <p>Wat de software niet doet: beslissen of een treffer een conflict is. Of een eerdere zaak tegen dezelfde partij een probleem is, en of de uitzonderingen uit lid 3 en 4 van toepassing zijn, beoordeelt de advocaat. De software vindt de overeenkomsten; de advocaat weegt ze.</p>
 <p>Een voorbeeld (fictief): een nieuwe cliënt, Bakkerij Smit B.V., wil procederen tegen een leverancier. De zoekopdracht vindt drie treffers. De leverancier was vier jaar geleden wederpartij in een andere zaak. Een bestuurder van de bakkerij komt voor als betrokkene in een lopend dossier. En er is een bedrijf met een bijna gelijke naam dat cliënt van het kantoor is. De software zet die drie treffers in het dossier. De advocaat bekijkt ze, stelt vast dat het derde bedrijf een ander bedrijf is, en legt per treffer vast waarom er wel of geen conflict is.</p>
-<p><mark>[CHECK: conflict-check features of Basenet, Kleos and Legalsense before naming them]</mark> Veel praktijkmanagementsystemen hebben al een zoekfunctie. Vaak zit de winst in het automatisch laten draaien ervan, en in het vastleggen van de uitkomst, zodat het niet afhangt van iemand die eraan denkt.</p>
+<p>Veel praktijkmanagementsystemen hebben al een zoekfunctie. Vaak zit de winst in het automatisch laten draaien ervan, en in het vastleggen van de uitkomst, zodat het niet afhangt van iemand die eraan denkt.</p>
 
 
 <!--block:firm-->
@@ -38,7 +38,7 @@ export default `
 
 <!--block:compare-->
 <h2>Laten tekenen en opslaan zonder handmatige herinneringen</h2>
-<p>Na goedkeuring gaat de opdrachtbevestiging naar de cliënt, met een link om digitaal te tekenen. <mark>[CHECK: Signhost, ondertekenen.nl and other e-signing providers, and how they connect to Basenet or Kleos]</mark> Als er na een paar dagen niet is getekend, gaat er een herinnering uit. Na de tweede herinnering komt er een taak bij de secretaresse of de advocaat om te bellen.</p>
+<p>Na goedkeuring gaat de opdrachtbevestiging naar de cliënt, met een link om digitaal te tekenen. Als er na een paar dagen niet is getekend, gaat er een herinnering uit. Na de tweede herinnering komt er een taak bij de secretaresse of de advocaat om te bellen.</p>
 <p>Het getekende document komt vanzelf in het dossier, met de datum van ondertekening. Dan kunt u later altijd laten zien wanneer de afspraken zijn vastgelegd.</p>
 <p>Dat helpt ook als de deken langskomt. Elk dossier heeft dan dezelfde onderdelen op dezelfde plek: de uitkomst van de conflictcheck met de afweging van de advocaat, de getekende opdrachtbevestiging en de datum van ondertekening. Niemand hoeft die nog bij elkaar te zoeken.</p>
 <p>Dezelfde regel als bij de intake geldt hier: automatische berichten moeten per zaak uit te zetten zijn, bijvoorbeeld als er een melding aan de FIU is gedaan. Dat staat uitgelegd in het <a href="/nl/blog/client-intake-for-law-firms">artikel over de intake</a>.</p>

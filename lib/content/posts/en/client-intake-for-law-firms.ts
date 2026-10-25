@@ -10,22 +10,22 @@ export default `
 <p>The last two steps are covered in a separate article: <a href="/en/blog/engagement-letters-and-conflict-checks-for-law-firms">engagement letters and conflict checks without copy-paste</a>. This one is mostly about the first part: the documents you need from the client.</p>
 
 <h2>When the Wwft applies, and when the procesvrijstelling does</h2>
-<p>Advocaten fall under the Wwft only for specific services. Think of property transactions, managing assets, setting up companies, share transactions and comparable tax work. Litigation is covered by the procesvrijstelling, the exemption for litigation work. That exemption is interpreted restrictively (<a href="https://www.toezichtadvocatuur.nl/cms/public/files/handleiding-inleiding-wwft-en-ubo-register-voor-advocaten-27-09-2022-.pdf?94b7929bac=">NOvA, Handleiding Wwft en UBO-register, 2022</a>). <mark>[CHECK: is the 2022 handleiding still the current version?]</mark></p>
+<p>Advocaten fall under the Wwft only for specific services. Think of property transactions, managing assets, setting up companies, share transactions and comparable tax work. Litigation is covered by the procesvrijstelling, the exemption for litigation work. That exemption is interpreted restrictively (<a href="https://www.advocatenorde.nl/sites/default/files/2026-09/Inleiding%20Wwft%20en%20UBO-register%20voor%20advocaten%2007-05-2025.pdf">NOvA, Handleiding Wwft en UBO-register, 2025</a>).</p>
 <p>The first orientation meeting is still outside it. But the client due diligence has to be complete before the business relationship starts, and without a UBO extract you may not enter into a business relationship at all (same source).</p>
 <p>Whether a matter falls under the Wwft is the advocaat's decision. An intake form can ask the questions that belong to that decision, and record the outcome. Then every file shows, in the same place, why a matter does or doesn't fall under the Wwft.</p>
-<p><mark>[CHECK: the Wwft is due to be replaced by EU AML rules on 10 July 2027; confirm the date and add a dated note when this is published]</mark> According to the NOvA, the Dutch bar association, the Wwft will be replaced by EU anti-money-laundering rules on 10 July 2027 (<a href="https://www.advocatenorde.nl/praktijkuitoefening/wwft">NOvA, Wwft</a>). We'll update this article when that happens.</p>
+<p>Note, as of October 2026: on 10 July 2027 the EU anti-money-laundering regulation (AMLR) takes effect, and the Wwft lapses. From then on, advocaten work directly under the AMLR (<a href="https://www.advocatenorde.nl/voor-advocaten/wwft-en-sanctieregelgeving/europees-aml-pakket">NOvA, Europees AML-pakket</a>). We'll update this article before that date.</p>
 
 
 <!--block:route-->
 <h2>The four moments you wait on the client</h2>
 <p>In almost every intake you wait on four things.</p>
 <h3>1. The ID document</h3>
-<p>A copy of a valid ID, or an identification through a service such as iDIN. <mark>[CHECK: iDIN and the ID-verification features of Basenet and Kleos before naming them]</mark></p>
+<p>A copy of a valid ID document. How you identify the client and verify that identity is set out in the NOvA handleiding.</p>
 <h3>2. The UBO extract</h3>
 <p>Since 1 August 2024, advocaten must ask the client for a certified UBO extract from the KvK register (the Dutch register of ultimate beneficial owners). The client has to request it themselves (<a href="https://www.advocatenorde.nl/praktijkuitoefening/wwft">NOvA, Wwft</a>). That's exactly the kind of step clients get stuck on, because they don't know where to get it. A reminder with a short explanation and the right link saves a phone call.</p>
 <p>The form only asks for documents that fit the type of client. A UBO extract, for example, only comes into play when the client is a legal entity.</p>
 <h3>3. The signature</h3>
-<p>The engagement letter has to come back signed. With an e-signing service, the client gets a link and you see when it's been signed. <mark>[CHECK: e-signing providers and how they connect to Basenet or Kleos]</mark></p>
+<p>The engagement letter has to come back signed. With an e-signing service, the client gets a link and you see when it's been signed.</p>
 <h3>4. The advance payment</h3>
 <p>Many firms ask for an advance before work begins. An invoice with a payment link, and a reminder if it's still open after a few days, means nobody has to track it by hand.</p>
 <p>We have no figures on how much time firms spend on this chasing. As far as we know, none exist for the Netherlands. If you want to measure it in your own firm, keep a tally for a month of how many emails and calls each new matter takes.</p>
@@ -48,10 +48,10 @@ export default `
 
 <p>We think that's nicer for the client too. Someone who has just talked to an advocaat about a difficult matter doesn't want five separate emails with requests. One overview, showing each item and why it's needed, makes it easier to respond quickly. We have no research on how clients experience this.</p>
 <p>Every step is recorded with a date. That helps with supervision. According to the dekens, the local bar presidents who supervise advocaten, the most common finding in Wwft inspections is a risk assessment with no written justification, or with a generic line such as "all factors have been checked" (<a href="https://www.toezichtadvocatuur.nl/cms/public/files/communicatie/20250311-advocatenblad-maart.pdf?dc96f3e2af=">Dekenberaad, March 2025</a>). A fixed form makes the advocaat answer the same questions every time, and puts those answers in the file.</p>
-<p>The retention period belongs here too: you have to keep the due-diligence documents for a fixed period, and delete them afterwards. <mark>[CHECK: the Wwft retention period (art. 33) against the current text of the law]</mark> A system can track that period per file.</p>
+<p>The retention period belongs here too: you keep the due-diligence data for five years after the business relationship ends, or five years after the transaction (<a href="https://wetten.overheid.nl/BWBR0024282">Wwft, article 33</a>). A system can track that period per file.</p>
 
 <h3>Reminders you can switch off per matter</h3>
-<p>There's one situation where automatic messages must stop. When a report has been made to the FIU (the Dutch financial intelligence unit), the client may not be told about it (<a href="https://www.toezichtadvocatuur.nl/cms/public/files/handleiding-inleiding-wwft-en-ubo-register-voor-advocaten-27-09-2022-.pdf?94b7929bac=">NOvA, Handleiding Wwft</a>). A system that cheerfully keeps sending reminders could then become a problem. That's why we build every intake so the advocaat can pause the automatic messages for a matter with a single action.</p>
+<p>There's one situation where automatic messages must stop. When a report has been made to the FIU (the Dutch financial intelligence unit), the client may not be told about it (<a href="https://www.advocatenorde.nl/sites/default/files/2026-09/Inleiding%20Wwft%20en%20UBO-register%20voor%20advocaten%2007-05-2025.pdf">NOvA, Handleiding Wwft</a>). A system that cheerfully keeps sending reminders could then become a problem. That's why we build every intake so the advocaat can pause the automatic messages for a matter with a single action.</p>
 
 <h2>What stays with the advocaat</h2>
 <p>The software collects documents, sends reminders and keeps the file up to date. There are a few things it never does:</p>
@@ -72,7 +72,7 @@ export default `
 <h2>Privacy: no free AI tools, and a data processing agreement</h2>
 <p>Intake data is confidential, and often sensitive. The NOvA advises against using free or open AI tools for confidential data (<a href="https://www.advocatenorde.nl/nieuws/aanbevelingen-ai-de-praktijk">NOvA, AI recommendations</a>). That applies to intake too: a form that sends answers to a free chatbot to "summarise" them doesn't belong in it.</p>
 <p>Every service that processes your clients' data needs a data processing agreement (verwerkersovereenkomst). The NOvA provides model agreements (<a href="https://www.advocatenorde.nl/praktijkuitoefening/voor-uw-praktijk-1/gegevensbescherming-avg">NOvA, data protection</a>). For every intake we build, we list which services see which data, so you know who you need an agreement with.</p>
-<p>If you already use a practice management system such as Basenet or Kleos, we build the intake around it. <mark>[CHECK: Basenet and Kleos intake, dossier and API features before naming them]</mark> Why we do that is in <a href="/en/blog/build-on-the-software-you-already-use">why we build on the software you already use</a>.</p>
+<p>If you already use a practice management system, we build the intake around it, as far as its API or export options allow. Why we do that is in <a href="/en/blog/build-on-the-software-you-already-use">why we build on the software you already use</a>.</p>
 ` + auditCta("en");
 
 export const cover = { alt: "Line drawing: four documents along one line (an ID, a UBO chart, a signed letter and an invoice), ending at a dashed circle for the advocaat." };
@@ -84,8 +84,8 @@ export const blocks: PostBlocks = {
     "alt": "The advocaat decides which service a matter concerns. Route 1: for example a property transaction, managing assets, setting up a company, share transactions or comparable tax work. Then the Wwft applies: full client due diligence, and a UBO extract before the business relationship starts. Route 2: litigation. Then the procesvrijstelling applies, the exemption for litigation work, which is interpreted restrictively. The intake form asks the questions and records the outcome in the file.",
     "caption": null,
     "source": {
-      "title": "NOvA, Handleiding Wwft en UBO-register, 2022",
-      "url": "https://www.toezichtadvocatuur.nl/cms/public/files/handleiding-inleiding-wwft-en-ubo-register-voor-advocaten-27-09-2022-.pdf?94b7929bac=",
+      "title": "NOvA, Handleiding Wwft en UBO-register, 2025",
+      "url": "https://www.advocatenorde.nl/sites/default/files/2026-09/Inleiding%20Wwft%20en%20UBO-register%20voor%20advocaten%2007-05-2025.pdf",
       "target": "_blank"
     }
   },

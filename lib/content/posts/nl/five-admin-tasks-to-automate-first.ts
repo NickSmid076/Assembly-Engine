@@ -6,7 +6,7 @@ export default `
 <p>Die volgorde is onze eigen keuze, op basis van waar we bij kantoren meestal beginnen. Het is geen ranglijst uit onderzoek, en we weten van geen enkele Nederlandse bron die meet hoeveel uur elke klus kost.</p>
 
 <h2>Het zit in de eindeloze kleine taken</h2>
-<p>Vier op de vijf accountancyprofessionals (79%) hebben soms of structureel te veel werk. Een op de vijf (20%) noemt "eindeloze kleine taken" als grootste frustratie (<a href="https://www.accountancyvanmorgen.nl/2025/08/06/vier-op-vijf-accountants-vinden-werkdruk-te-hoog/">Accountancy van Morgen, augustus 2025</a>). <mark>[CHECK: sample size of the survey behind the 79% and 20% (not stated in the article)]</mark> Hetzelfde onderzoek laat zien dat de verwerking van facturen al voor 78% geautomatiseerd is, en rapportages maar voor 38%.</p>
+<p>Vier op de vijf accountancyprofessionals (79%) hebben soms of structureel te veel werk. Een op de vijf (20%) noemt "eindeloze kleine klusjes" als iets wat energie kost of frustreert (<a href="https://www.accountancyvanmorgen.nl/2025/08/06/vier-op-vijf-accountants-vinden-werkdruk-te-hoog/">Accountancy van Morgen, augustus 2025</a>). Het onderzoek is in mei 2025 gedaan door Wolters Kluwer; hoeveel mensen meededen, staat niet in het artikel. Hetzelfde onderzoek laat zien dat de verwerking van facturen al voor 78% geautomatiseerd is, en rapportages maar voor 38%.</p>
 <p>In ander onderzoek combineert 57% van de Nederlandse accountants Excel met handmatige controles voor werkdossiers, jaarrekeningen en rapportages. Dat is het hoogste aandeel van de vijf onderzochte landen; in het Verenigd Koninkrijk is het 31%. En 84% denkt minstens een uur per dag terug te kunnen winnen (<a href="https://www.accountant.nl/nieuws/2026/9/voor-zes-op-de-tien-accountants-is-ai-de-grootste-gamechanger-voor-hun-beroep/">Accountant.nl, onderzoek van Silverfin en Censuswide, september 2026</a>).</p>
 <p>Extra mensen aannemen lost het niet op. Bij kantoren met minder dan tien medewerkers staat bijna een kwart van de vacatures open (cijfers van de SRA over 2023, via <a href="https://www.accountancyvanmorgen.nl/2025/07/03/ict-accountancy-2025-trends-cijfers-en-knelpunten-in-de-sector/">Accountancy van Morgen</a>). Wie niet kan bijwerven, moet het werk zelf kleiner maken.</p>
 
@@ -15,20 +15,20 @@ export default `
 <h2>1. Klanten achter stukken aan voor de IB en Vpb</h2>
 <p>Elk seizoen hetzelfde: een lijst met klanten, een lijst met ontbrekende stukken, en iemand die mailt, belt en nog eens mailt. Dat nabellen is goed te automatiseren. Een klant krijgt een persoonlijke lijst met wat er nog ontbreekt. Wat binnenkomt, wordt afgevinkt. Wie na een week niets heeft gestuurd, krijgt vanzelf een herinnering, en uw medewerker ziet in één overzicht wie er nog openstaat.</p>
 <p>Een voorbeeld, met een fictief kantoor: 150 IB-klanten krijgen in februari elk één bericht met een persoonlijke lijst. Na een week krijgt wie nog niets heeft gestuurd een herinnering, na drie weken nog een. Pas daarna belt iemand, en alleen de klanten die dan nog openstaan. Het bellen verdwijnt dus niet. Het wordt een kortere lijst.</p>
-<p>Veel pakketten hebben al een portaal of een functie om documenten op te vragen. Vaak ontbreekt alleen de koppeling met het overzicht dat uw kantoor zelf bijhoudt. <mark>[CHECK: current document-request features in Exact, Twinfield, Moneybird and SnelStart before naming any]</mark></p>
+<p>Veel pakketten hebben al een portaal of een functie om documenten op te vragen. Vaak ontbreekt alleen de koppeling met het overzicht dat uw kantoor zelf bijhoudt.</p>
 <p>Wat een mens blijft doen: beoordelen of de aangeleverde stukken kloppen en compleet zijn. De software weet dat er een jaaropgave is binnengekomen. Of het de goede is, ziet uw medewerker.</p>
 
 
 <!--block:t1-->
 <h2>2. Machtigingen en deadlines bijhouden</h2>
-<p>Om vooraf ingevulde aangiftegegevens (VIA) van een IB-klant te ontvangen, heeft u als intermediair een actieve doorlopende machtiging nodig. Voor het afgelopen seizoen moest die uiterlijk 1 november 2026 rond zijn (<a href="https://www.taxlive.nl/nl/documenten/nieuws/deadline-doorlopende-machtiging-via-vervroegd-naar-1-november/">Taxlive</a>; <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/intermediairs/aangifte_doen/serviceberichten_aanslag/doorlopende-machtiging-belastingmiddel">Belastingdienst</a>). <mark>[CHECK: the machtiging deadline for the next season (aangiftejaar 2027); don't present 1 Nov 2026 as upcoming]</mark></p>
+<p>Om vooraf ingevulde aangiftegegevens (VIA) van een IB-klant te ontvangen, heeft u als intermediair een actieve doorlopende machtiging nodig. Voor belastingjaar 2026 moet die uiterlijk 1 november 2026 rond zijn; eerder was dat 1 december (<a href="https://www.taxlive.nl/nl/documenten/nieuws/deadline-doorlopende-machtiging-via-vervroegd-naar-1-november/">Taxlive</a>; <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/intermediairs/aangifte_doen/serviceberichten_aanslag/doorlopende-machtiging-belastingmiddel">Belastingdienst</a>). Kijk voor latere jaren bij de Belastingdienst.</p>
 <p>Zo'n datum hoort niet in iemands hoofd of in een losse Excel-lijst. Een automatisering kan per klant bijhouden of de machtiging er is, wanneer de klant moet reageren en wie er nog een herinnering nodig heeft. Een paar weken voor de deadline krijgt u een lijst met de klanten waarvoor het nog niet rond is. Dezelfde aanpak werkt voor andere vaste termijnen, zoals uitstelregelingen en aangiftedata.</p>
 
 
 <!--block:t2-->
 <h2>3. Bank- en inkoopfactuurregels bijstellen</h2>
 <p>Als de boeking van bankmutaties en inkoopfacturen veel handwerk geeft, is de reflex vaak een nieuw pakket of een nieuwe scanner. Meestal ligt het dichterbij. Denk aan de vaste maandelijkse betaling aan de verhuurder van het kantoorpand, de energieleverancier of de leasemaatschappij. Als die niet vanzelf op de juiste grootboekrekening komt, kijkt iemand er twaalf keer per jaar naar. De regels die bepalen hoe een terugkerende betaling of leverancier wordt geboekt, zijn ooit ingesteld en daarna niet meer bijgehouden.</p>
-<p>We kijken welke mutaties elke maand met de hand worden geboekt en of daar een vaste regel voor kan komen. Dat is saai werk, en het levert direct iets op in de software die u al heeft. <mark>[CHECK: current bank-rule features in Exact, Twinfield, Moneybird and SnelStart]</mark></p>
+<p>We kijken welke mutaties elke maand met de hand worden geboekt en of daar een vaste regel voor kan komen. Dat is saai werk, en het levert direct iets op in de software die u al heeft.</p>
 <p>Een mens blijft kijken naar wat afwijkt: een nieuwe leverancier, een ongebruikelijk bedrag, een betaling die nergens bij past.</p>
 
 
@@ -77,7 +77,7 @@ export const blocks: PostBlocks = {
       "title": "Accountancy van Morgen, augustus 2025",
       "url": "https://www.accountancyvanmorgen.nl/2025/08/06/vier-op-vijf-accountants-vinden-werkdruk-te-hoog/"
     },
-    "note": "De steekproefgrootte staat niet in het artikel; nog te controleren."
+    "note": "Onderzoek van Wolters Kluwer, mei 2025. Het aantal deelnemers staat niet in het artikel."
   },
   "t1": {
     "acf_fc_layout": "before_after",

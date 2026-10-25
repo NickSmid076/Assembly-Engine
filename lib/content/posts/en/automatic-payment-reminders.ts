@@ -18,7 +18,7 @@ export default `
 <p>One caveat: elsewhere in the same report, "almost 3%" is given for invoices that are never paid. We use the 2.4%.</p>
 
 <h2>Which payment terms you can agree</h2>
-<p>Since 1 July 2023, large companies in the Netherlands must pay their SMB suppliers within 30 days. Other business relationships keep a maximum of 60 days (<a href="https://factua.nl/blogs/betalingstermijn-grootbedrijf-van-60-30-dagen-van-kracht">Factua</a>). <mark>[CHECK: status of the EU Late Payment Regulation, which may change these terms]</mark></p>
+<p>Since 1 July 2023, large companies in the Netherlands must pay their SMB suppliers within 30 days. Other business relationships keep a maximum of 60 days, and without an agreed term the default is 30 days (<a href="https://ondernemersplein.overheid.nl/wetten-en-regels/betalingstermijn-incassokosten-en-wettelijke-rente/">Ondernemersplein</a>). An EU proposal from 2023 for a strict 30-day maximum across Europe has stalled, because around half of the member states don't support it (<a href="https://www.gtreview.com/news/europe/exclusive-eu-to-scrap-late-payment-reforms-after-industry-backlash/">GTR</a>). Until that changes, the Dutch rules above apply.</p>
 <p>The term on your invoice is also the starting point of your reminder schedule. The shorter and clearer the term, the sooner you know something needs to happen.</p>
 
 <h2>A reminder schedule: first reminder, second reminder, final notice</h2>
@@ -27,7 +27,7 @@ export default `
 <!--block:schedule-->
 
 <p>What matters most is that the schedule is fixed. Every invoice follows the same route, however busy the week is. That feels fairer to customers too: nobody gets a stern email because someone in the office happened to have a bad day.</p>
-<p>Be careful with collection costs for business customers. What you may charge depends on what you agreed and on the law. <mark>[CHECK: whether the statutory WIK scale applies to B2B by default, whether €40 is the minimum commercial collection fee (art. 6:96 BW), and the current WIK cap; use Rijksoverheid or Ondernemersplein, not Stripe]</mark> So we give no legal advice on the amounts here; have it checked if needed.</p>
+<p>Be careful with collection costs for business customers. If a business customer pays late, you're entitled to at least €40 in compensation, and you don't have to send a reminder first. Without other agreements the statutory scale applies, up to a maximum of €6,775. With a business customer you may agree something different in the contract (<a href="https://ondernemersplein.overheid.nl/wetten-en-regels/betalingstermijn-incassokosten-en-wettelijke-rente/">Ondernemersplein</a>). We give no legal advice on the amounts beyond that; have it checked if needed.</p>
 
 <h2>What belongs in every reminder</h2>
 <ul>
@@ -42,15 +42,15 @@ export default `
 <p>A reminder schedule has to be able to stop. When a customer says something is wrong, a colleague should be able to pause the reminders for that invoice in one click. Otherwise a customer who has just called still gets an automatic final notice, and that's how a good relationship gets damaged.</p>
 
 <h2>Consumers are different: the veertiendagenbrief</h2>
-<p>If you invoice consumers, different rules apply. Before you may charge collection costs, you have to send a veertiendagenbrief, the fourteen-day letter: a final notice giving the customer fourteen more days to pay without extra costs (<a href="https://stripe.com/nl/resources/more/dutch-debt-collection-costs-act">Stripe</a>). <mark>[CHECK: veertiendagenbrief requirements against Rijksoverheid or Ondernemersplein]</mark></p>
+<p>If you invoice consumers, different rules apply. Before you may charge collection costs, you have to send a free reminder first (<a href="https://ondernemersplein.overheid.nl/wetten-en-regels/betalingstermijn-incassokosten-en-wettelijke-rente/">Ondernemersplein</a>). In practice that's the veertiendagenbrief, the fourteen-day letter: it gives the customer fourteen days to pay, counted from the day after they receive it, and states what happens if they don't, including the collection costs. The rule is in article 6:96 paragraph 6 of the Dutch Civil Code, and the courts have agreed on how to word the deadline (<a href="https://www.rechtspraak.nl/voor-advocaten-en-juristen/reglementen-procedures-en-formulieren/civiel/tarieven-kosten-vergoedingen/aanbeveling-14-dagenbrief">Rechtspraak, aanbeveling 14-dagenbrief</a>).</p>
 <p>In an automatic schedule that means a separate route for consumer customers, with the fourteen-day letter as a fixed step, with the right text and date in it. Then the step can't be skipped by accident.</p>
 
 
 <!--block:routes-->
 <h2>A payment link, and reconciliation that happens by itself</h2>
-<p>A reminder works better when paying is one click away. Put a payment link in every invoice and every reminder, for example through Mollie or your accounting package's payment feature. The customer clicks, pays, and doesn't have to retype an IBAN or invoice number. <mark>[CHECK: how Mollie payment links behave (expiry, partial payments, methods)]</mark> <mark>[CHECK: the iDEAL to Wero transition timeline, if a payment method is named]</mark></p>
+<p>A reminder works better when paying is one click away. Put a payment link in every invoice and every reminder, for example through Mollie or your accounting package's payment feature. The customer clicks, pays, and doesn't have to retype an IBAN or invoice number.</p>
 <p>The second benefit is on your side. When the payment comes in through the link, it can be matched to the right invoice automatically. Moneybird does this, for example, for the payment methods it offers itself (<a href="https://www.adyen.com/nl_NL/knowledge-hub/moneybird-en-adyen-een-geintegreerde-betaalrekening-voor-automatische-boekhouding">Adyen on Moneybird</a>). The reminder schedule then stops as soon as the invoice is paid, and nobody gets a reminder for an invoice settled yesterday.</p>
-<p>Many accounting packages already have a reminder feature. <mark>[CHECK: the built-in reminder features in Moneybird, Exact Online and Twinfield]</mark> Often it's enough to set that up properly. We only build something around it when you need more, such as a call task for a colleague, or reminders that take agreements from your CRM into account.</p>
+<p>Many accounting packages already have a reminder feature. Often it's enough to set that up properly. We only build something around it when you need more, such as a call task for a colleague, or reminders that take agreements from your CRM into account.</p>
 
 <h2>Keep it human, and know when to pick up the phone</h2>
 <p>Automatic here means on time and every time. It doesn't have to sound like a machine. Write the texts yourself, in the tone you use with the customer. Put the name of a real colleague under the message, with a phone number.</p>
@@ -126,10 +126,10 @@ export const blocks: PostBlocks = {
     "acf_fc_layout": "diagram",
     "src": "/blog/automatic-payment-reminders/two-routes.en.svg",
     "alt": "Two routes. Business customers, example schedule: a heads-up with payment link 3 days before the due date, a first reminder at 7 days, a second reminder with a new deadline at 21 days, a colleague calls at 35 days, then a final notice. Consumers: reminders, then the veertiendagenbrief giving fourteen more days to pay without extra costs, and only then may collection costs be charged.",
-    "caption": "The consumer route is still to be checked against Rijksoverheid or Ondernemersplein.",
+    "caption": null,
     "source": {
-      "title": "Stripe",
-      "url": "https://stripe.com/nl/resources/more/dutch-debt-collection-costs-act",
+      "title": "Rechtspraak, aanbeveling 14-dagenbrief",
+      "url": "https://www.rechtspraak.nl/voor-advocaten-en-juristen/reglementen-procedures-en-formulieren/civiel/tarieven-kosten-vergoedingen/aanbeveling-14-dagenbrief",
       "target": "_blank"
     }
   },

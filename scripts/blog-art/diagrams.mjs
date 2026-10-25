@@ -238,10 +238,10 @@ D["what-not-to-automate/four-and-one"] = {
   },
 };
 
-/** 8 · Tasks vs executions for the same five-step workflow (Virtua.Cloud figures). */
+/** 8 · Tasks vs executions for the same five-step workflow. Zapier counts successful actions, not the trigger (Zapier help); n8n counts one run (n8n pricing). */
 D["n8n-vs-make-vs-zapier-for-dutch-firms/tasks-vs-executions"] = {
-  en: { label: "Example · one workflow, five steps, 100 runs a day", steps: ["Check email", "Save attachment", "Find client in CRM", "Tick off document", "Notify staff"], z: "Zapier · per task", zT: "5 per run", zM: "about 15,000 tasks a month", n: "n8n · per execution", nT: "1 per run", nM: "about 3,000 executions a month" },
-  nl: { label: "Voorbeeld · één workflow, vijf stappen, 100 keer per dag", steps: ["E-mail controleren", "Bijlage opslaan", "Klant zoeken in CRM", "Stuk afvinken", "Medewerker seinen"], z: "Zapier · per taak", zT: "5 per keer", zM: "ongeveer 15.000 taken per maand", n: "n8n · per uitvoering", nT: "1 per keer", nM: "ongeveer 3.000 uitvoeringen per maand" },
+  en: { label: "Example · one workflow, a trigger and four actions, 100 runs a day", steps: ["Check email", "Save attachment", "Find client in CRM", "Tick off document", "Notify staff"], z: "Zapier · per task (the trigger doesn’t count)", zT: "4 per run", zM: "about 12,000 tasks a month", n: "n8n · per execution", nT: "1 per run", nM: "about 3,000 executions a month" },
+  nl: { label: "Voorbeeld · één workflow, een trigger en vier acties, 100 keer per dag", steps: ["E-mail controleren", "Bijlage opslaan", "Klant zoeken in CRM", "Stuk afvinken", "Medewerker seinen"], z: "Zapier · per taak (de trigger telt niet)", zT: "4 per keer", zM: "ongeveer 12.000 taken per maand", n: "n8n · per uitvoering", nT: "1 per keer", nM: "ongeveer 3.000 uitvoeringen per maand" },
   draw(L, W, P, wide) {
     let s = "", y = P;
     const l = label(P, y, L.label, W - 2 * P); s += l.svg; y += l.h + 12;
@@ -256,7 +256,7 @@ D["n8n-vs-make-vs-zapier-for-dutch-firms/tasks-vs-executions"] = {
         const x = P + i * (nw + gap);
         o += card(x, top, nw, { ...b, minH: H }).svg;
         if (i < n - 1) o += line(x + nw, top + H / 2, x + nw + gap, top + H / 2, { stroke: C.cobalt, sw: 1.5 });
-        if (perStep) o += circle(x + nw / 2, top, 9, { fill: C.cobalt, stroke: C.white, sw: 2 }) + `<text x="${f(x + nw / 2)}" y="${f(top + 4)}" font-size="11" font-weight="600" text-anchor="middle" fill="#fff">1</text>`;
+        if (perStep && i > 0) o += circle(x + nw / 2, top, 9, { fill: C.cobalt, stroke: C.white, sw: 2 }) + `<text x="${f(x + nw / 2)}" y="${f(top + 4)}" font-size="11" font-weight="600" text-anchor="middle" fill="#fff">1</text>`;
       });
       if (!perStep) o += circle(P + aw - 4, top - 8, 9, { fill: C.ink, stroke: C.white, sw: 2 }) + `<text x="${f(P + aw - 4)}" y="${f(top - 4)}" font-size="11" font-weight="600" text-anchor="middle" fill="#fff">1</text>`;
       y = top + H + (perStep ? 12 : 20);

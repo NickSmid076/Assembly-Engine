@@ -10,7 +10,7 @@ export default `
 
 <h2>Wat een nieuw pakket kost</h2>
 <p>De licentie is het kleinste deel. Een nieuw pakket betekent een extra login voor iedereen, een extra plek waar klantgegevens staan, en een nieuwe gewoonte die het team moet aanleren.</p>
-<p>Kleine bedrijven (tot vijftig medewerkers) gebruiken gemiddeld al zo'n 36 apps (Okta, 2024). Gemiddeld is maar 27% van de apps in een organisatie met elkaar verbonden (MuleSoft, 2026). En werknemers verliezen bijna vier uur per week aan het wisselen tussen programma's (Harvard Business Review, 2022). Alle drie de cijfers komen via het overzicht van <a href="https://www.toriihq.com/saas-statistics">Torii</a>. <mark>[CHECK: verify the Okta 2024, MuleSoft 2026 and HBR 2022 figures in the original reports; we only saw them via Torii]</mark></p>
+<p>Bij de klanten van Okta gebruiken bedrijven met 2.000 of minder medewerkers gemiddeld 72 apps, en bedrijven in Nederland 108 (<a href="https://www.okta.com/sites/default/files/2024-04/Okta-2024_Businesses_at_Work.pdf">Okta, Businesses at Work 2024</a>). Dat zijn meestal grotere organisaties dan een gemiddeld Nederlands kantoor, maar de richting is duidelijk. En in een onderzoek uit 2022 bij 20 teams schatten de onderzoekers dat werknemers bijna vier uur per week kwijt zijn aan het weer op gang komen na het wisselen tussen apps (<a href="https://hbr.org/2022/08/how-much-time-and-energy-do-we-waste-toggling-between-applications">Harvard Business Review, 2022</a>).</p>
 <!--block:stat-->
 
 <p>Elk nieuw pakket maakt die getallen groter. Daarom kijken we eerst of wat u al heeft het werk kan doen.</p>
@@ -31,7 +31,7 @@ export default `
 <li>Een afspraak die via Cal.com wordt geboekt, komt in de juiste agenda en zet de voorbereiding klaar.</li>
 <li>Cijfers uit het boekhoudpakket lopen elke nacht door naar een rapportage in Power BI.</li>
 </ul>
-<p><mark>[CHECK: confirm each named tool has the API or connector described here (Exact Online, Moneybird, Twinfield, Mollie, HubSpot, Cal.com, Power BI)]</mark></p>
+<p>Elk van deze pakketten heeft een openbare API, en daardoor kan de koppeling bestaan.</p>
 <p>Het team blijft werken in de schermen die het kent. Wat verdwijnt, is het overtypen.</p>
 <p>Een koppeling heeft wel onderhoud nodig. Als een leverancier zijn API wijzigt, moet de koppeling mee. Daarom leggen we bij elke koppeling vast welke systemen erin zitten en wat er gebeurt als een stap mislukt: wie krijgt een melding, en wordt het later opnieuw geprobeerd? Wij bouwen die koppelingen meestal in n8n. Waarom, en wanneer een ander hulpmiddel beter past, leest u in <a href="/nl/blog/n8n-vs-make-vs-zapier-for-dutch-firms">n8n, Make of Zapier</a>.</p>
 
@@ -63,13 +63,13 @@ export const cover = { alt: "Lijntekening: drie bestaande programmavensters, ver
 export const blocks: PostBlocks = {
   "stat": {
     "acf_fc_layout": "stat",
-    "value": "36",
-    "label": "apps gebruiken kleine bedrijven met maximaal vijftig medewerkers gemiddeld",
+    "value": "72",
+    "label": "apps gebruiken bedrijven met 2.000 of minder medewerkers gemiddeld",
     "source": {
-      "title": "Okta 2024, via Torii",
-      "url": "https://www.toriihq.com/saas-statistics"
+      "title": "Okta, Businesses at Work 2024",
+      "url": "https://www.okta.com/sites/default/files/2024-04/Okta-2024_Businesses_at_Work.pdf"
     },
-    "note": "Gezien via Torii; nog te controleren in het oorspronkelijke Okta-rapport."
+    "note": "Klantgegevens van Okta zelf, dus meestal grotere organisaties dan een gemiddeld Nederlands kantoor."
   },
   "copies": {
     "acf_fc_layout": "diagram",

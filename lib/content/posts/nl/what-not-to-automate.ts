@@ -59,15 +59,15 @@ export default `
 <p>Is het antwoord op vraag 1 "het hangt ervan af", of op vraag 4 "ja", laat het dan bij een mens. Is het antwoord op vraag 3 "ja", breng dan eerst de afspraken op orde voordat u iets bouwt.</p>
 
 <h2>Wat de AI Act in 2026 van een klein kantoor vraagt</h2>
-<p>De meeste kantoren gebruiken AI en bouwen het niet zelf. Voor die groep zijn de verplichtingen beperkt, maar ze bestaan wel. <mark>[CHECK: final publication of the AI Act Omnibus in the Official Journal and any later amendments]</mark></p>
+<p>De meeste kantoren gebruiken AI en bouwen het niet zelf. Voor die groep zijn de verplichtingen beperkt, maar ze bestaan wel. De punten hieronder volgen de AI Act zoals gewijzigd door de AI-omnibus, Verordening (EU) 2026/1744, die sinds 27 juli 2026 geldt (<a href="https://www.hunton.com/privacy-and-cybersecurity-law-blog/eu-digital-omnibus-on-ai-enters-into-force">Hunton</a>).</p>
 <ul>
-<li>Sinds februari 2025 moet u zorgen dat medewerkers die met AI werken daar voldoende kennis van hebben (artikel 4, AI-geletterdheid).</li>
+<li>Sinds februari 2025 moet u maatregelen nemen zodat medewerkers die met AI werken daar genoeg van weten (artikel 4, AI-geletterdheid).</li>
 <li>Sinds 2 augustus 2026 gelden transparantieregels: mensen moeten weten wanneer ze met een AI-systeem te maken hebben (artikel 50).</li>
-<li>De regels voor AI-systemen met een hoog risico zijn uitgesteld tot december 2027 (<a href="https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/">Gibson Dunn</a>).</li>
+<li>De belangrijkste regels voor AI-systemen met een hoog risico gelden vanaf 2 december 2027, en voor AI in gereguleerde producten vanaf 2 augustus 2028 (<a href="https://www.hunton.com/privacy-and-cybersecurity-law-blog/eu-digital-omnibus-on-ai-enters-into-force">Hunton</a>).</li>
 </ul>
 <!--block:aiact-->
 
-<p>Een gewone mailflow of factuurautomatisering valt niet onder "hoog risico". Wie zegt dat uw herinneringsmails onder strenge AI-regels vallen, overdrijft. Wie AI gebruikt in contact met klanten, moet wel aan de transparantieregel denken. Ook de beroepsorganisatie van accountants heeft hier materiaal over gepubliceerd. <mark>[CHECK: the NBA Leidraad AI in Control and the 2026 Dilemmapp brochure were not read; read them before referring to them]</mark></p>
+<p>Een gewone mailflow of factuurautomatisering valt niet onder "hoog risico". Wie zegt dat uw herinneringsmails onder strenge AI-regels vallen, overdrijft. Wie AI gebruikt in contact met klanten, moet wel aan de transparantieregel denken. Voor accountants heeft de NBA in oktober 2024 een leidraad gepubliceerd over het beheersen van AI in de praktijk (<a href="https://www.nba.nl/siteassets/tools-en-ondersteuning/publicaties/2024/nba-leidraad-ai-in-control.pdf">NBA, AI in Control</a>).</p>
 <p>Waar automatiseren wel goed werkt, leest u in <a href="/nl/blog/five-admin-tasks-to-automate-first">vijf administratieve taken om als eerste te automatiseren</a> en <a href="/nl/blog/client-intake-for-law-firms">cliëntintake voor advocatenkantoren</a>.</p>
 ` + auditCta("nl");
 
@@ -117,12 +117,12 @@ export const blocks: PostBlocks = {
   },
   "aiact": {
     "acf_fc_layout": "callout",
-    "tone": "check",
+    "tone": "note",
     "title": "Wat we niet beweren",
-    "body": "Een gewone e-mailflow of factuurautomatisering is geen AI met een hoog risico. De AI Act Omnibus moet nog in de definitief gepubliceerde vorm worden gecontroleerd voordat dit artikel live gaat.",
+    "body": "Een gewone e-mailflow of factuurautomatisering is geen AI met een hoog risico. De data hierboven volgen de AI-omnibus zoals die in juli 2026 is gepubliceerd.",
     "link": {
-      "title": "Gibson Dunn",
-      "url": "https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/",
+      "title": "Hunton",
+      "url": "https://www.hunton.com/privacy-and-cybersecurity-law-blog/eu-digital-omnibus-on-ai-enters-into-force",
       "target": "_blank"
     }
   }

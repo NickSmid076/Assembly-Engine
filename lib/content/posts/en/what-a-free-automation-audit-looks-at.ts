@@ -29,7 +29,7 @@ export default `
 
 <p>Your numbers may come out higher or lower. Sometimes the result is so small that automating isn't worth it, and that is a useful result too. That's why we do the sum.</p>
 <p>You can also do this sum yourself before you call us. Pick a job your team complains about. Estimate how long it takes, interruptions included. Count for a week how often it happens, and multiply by the hourly cost. The figure is rough. It does give you a floor for what a solution may cost per year.</p>
-<p>Time isn't the only cost either. With reminders, there's also money that arrives later: on average, Dutch SMBs are paid late on 14.2% of their invoices (<a href="https://files.exact.com/static/web/pdf/mkb-barometer/2025/NL_All-mkb-barometer-2025.pdf">Exact MKB Barometer 2025</a>). And people who switch between programs all day lose close to four hours a week doing it, according to Harvard Business Review research from 2022 (via <a href="https://www.toriihq.com/saas-statistics">Torii</a>). <mark>[CHECK: verify the 4 hours a week in the original HBR 2022 study; we only saw it via Torii]</mark></p>
+<p>Time isn't the only cost either. With reminders, there's also money that arrives later: on average, Dutch SMBs are paid late on 14.2% of their invoices (<a href="https://files.exact.com/static/web/pdf/mkb-barometer/2025/NL_All-mkb-barometer-2025.pdf">Exact MKB Barometer 2025</a>). And in a 2022 study of 20 teams, researchers estimated that people lose close to four hours a week getting back on track after switching between apps (<a href="https://hbr.org/2022/08/how-much-time-and-energy-do-we-waste-toggling-between-applications">Harvard Business Review, 2022</a>).</p>
 
 
 <!--block:prepare-->

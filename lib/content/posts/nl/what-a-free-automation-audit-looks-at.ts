@@ -29,7 +29,7 @@ export default `
 
 <p>Bij u kan dat hoger of lager uitvallen. Soms is de uitkomst zo klein dat automatiseren de moeite niet waard is, en dat is ook een bruikbare uitkomst. Daarom rekenen we het uit.</p>
 <p>U kunt deze som ook zelf maken voordat u ons belt. Kies een klus waar uw team over klaagt. Schat hoe lang hij duurt, met de onderbrekingen erbij. Tel een week lang hoe vaak hij voorkomt, en vermenigvuldig met de uurkosten. Het getal is ruw. Het geeft wel een ondergrens voor wat een oplossing per jaar mag kosten.</p>
-<p>Tijd is ook niet de enige post. Bij herinneringen gaat het ook om geld dat later binnenkomt: in het mkb wordt gemiddeld 14,2% van de facturen te laat betaald (<a href="https://files.exact.com/static/web/pdf/mkb-barometer/2025/NL_All-mkb-barometer-2025.pdf">Exact MKB Barometer 2025</a>). En wie de hele dag tussen programma's wisselt, verliest daar volgens onderzoek van Harvard Business Review uit 2022 bijna vier uur per week aan (via <a href="https://www.toriihq.com/saas-statistics">Torii</a>). <mark>[CHECK: verify the 4 hours a week in the original HBR 2022 study; we only saw it via Torii]</mark></p>
+<p>Tijd is ook niet de enige post. Bij herinneringen gaat het ook om geld dat later binnenkomt: in het mkb wordt gemiddeld 14,2% van de facturen te laat betaald (<a href="https://files.exact.com/static/web/pdf/mkb-barometer/2025/NL_All-mkb-barometer-2025.pdf">Exact MKB Barometer 2025</a>). En in een onderzoek uit 2022 bij 20 teams schatten onderzoekers dat mensen bijna vier uur per week kwijt zijn aan het weer op gang komen na het wisselen tussen apps (<a href="https://hbr.org/2022/08/how-much-time-and-energy-do-we-waste-toggling-between-applications">Harvard Business Review, 2022</a>).</p>
 
 
 <!--block:prepare-->

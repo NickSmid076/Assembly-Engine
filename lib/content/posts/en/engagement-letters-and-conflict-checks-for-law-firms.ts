@@ -7,7 +7,7 @@ export default `
 
 <h2>What the Verordening op de advocatuur requires in writing</h2>
 <p>Since 1 January 2025, an amended article 7.5 of the Verordening op de advocatuur (Voda, the bar's regulation for advocaten) applies. According to the explanatory notes, important agreements with the client must be recorded in writing, "such as the engagement letter" ("zoals de opdrachtbevestiging"), and that includes the fee agreements (<a href="https://www.advocatenorde.nl/voor-advocaten/wet-en-regelgeving/recente-wijzigingsbesluiten/verordening-op-de-advocatuur-0">NOvA, Voda amendment</a>).</p>
-<p>On top of that, gedragsregel 16 (rule of conduct 16) covers what you must tell the client about fees. <mark>[CHECK: gedragsregel 16 (informing clients about fees) was not retrieved; read it before describing what it requires]</mark></p>
+<p>On top of that, gedragsregel 17 (rule of conduct 17) asks that when you accept the engagement, clear agreements have been made about your fee, how costs are passed on and how you invoice. Gedragsregel 16 asks you to keep the client informed (<a href="https://www.advocatenorde.nl/voor-advocaten/wet-en-regelgeving/gedragsregels/gedragsregels-advocatuur/de-advocaat-de-verhouding">NOvA, Gedragsregels advocatuur</a>).</p>
 <p>For every new matter that means an engagement letter on paper, with the agreements on scope and fees in it. That's exactly the kind of document that is mostly the same every time, and slightly different in a few places.</p>
 
 <h2>A conflict check across the whole firm</h2>
@@ -16,7 +16,7 @@ export default `
 <p>Software can help here. A search that runs automatically for every new matter, across all names of clients, opposing parties and other people involved, with spelling variants and KvK numbers included. The result is a list of possible matches, recorded in the file.</p>
 <p>What the software doesn't do: decide whether a match is a conflict. Whether an earlier matter against the same party is a problem, and whether the exceptions in paragraphs 3 and 4 apply, is for the advocaat to judge. The software finds the matches; the advocaat weighs them.</p>
 <p>An example (fictional): a new client, Bakkerij Smit B.V., wants to litigate against a supplier. The search finds three matches. The supplier was the opposing party in another matter four years ago. A director of the bakery appears as a party involved in an open file. And there's a company with an almost identical name that is a client of the firm. The software puts those three matches in the file. The advocaat reviews them, establishes that the third is a different company, and records for each match why there is or isn't a conflict.</p>
-<p><mark>[CHECK: conflict-check features of Basenet, Kleos and Legalsense before naming them]</mark> Many practice management systems already have a search function. The gain is often in running it automatically, and in recording the result, so it doesn't depend on someone remembering.</p>
+<p>Many practice management systems already have a search function. The gain is often in running it automatically, and in recording the result, so it doesn't depend on someone remembering.</p>
 
 
 <!--block:firm-->
@@ -38,7 +38,7 @@ export default `
 
 <!--block:compare-->
 <h2>Getting it signed and filed without manual reminders</h2>
-<p>Once approved, the engagement letter goes to the client with a link to sign digitally. <mark>[CHECK: Signhost, ondertekenen.nl and other e-signing providers, and how they connect to Basenet or Kleos]</mark> If it hasn't been signed after a few days, a reminder goes out. After the second reminder, the secretary or advocaat gets a task to call.</p>
+<p>Once approved, the engagement letter goes to the client with a link to sign digitally. If it hasn't been signed after a few days, a reminder goes out. After the second reminder, the secretary or advocaat gets a task to call.</p>
 <p>The signed document lands in the file automatically, with the date of signing. That way you can always show later when the agreements were recorded.</p>
 <p>That helps when the deken (the local bar president who supervises advocaten) visits as well. Every file then has the same parts in the same place: the result of the conflict check with the advocaat's assessment, the signed engagement letter and the date it was signed. Nobody has to dig them up.</p>
 <p>The same rule as at intake applies here: automatic messages must be switchable off per matter, for example when a report has been made to the FIU. That's explained in the <a href="/en/blog/client-intake-for-law-firms">article on intake</a>.</p>

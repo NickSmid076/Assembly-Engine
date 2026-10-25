@@ -59,15 +59,15 @@ export default `
 <p>If the answer to question 1 is "it depends", or to question 4 is "yes", keep it with a person. If the answer to question 3 is "yes", sort out the agreements before you build anything.</p>
 
 <h2>What the AI Act asks of a small firm in 2026</h2>
-<p>Most firms use AI rather than build it. For that group the obligations are limited, though they do exist. <mark>[CHECK: final publication of the AI Act Omnibus in the Official Journal and any later amendments]</mark></p>
+<p>Most firms use AI rather than build it. For that group the obligations are limited, though they do exist. The points below follow the AI Act as amended by the AI omnibus, Regulation (EU) 2026/1744, in force since 27 July 2026 (<a href="https://www.hunton.com/privacy-and-cybersecurity-law-blog/eu-digital-omnibus-on-ai-enters-into-force">Hunton</a>).</p>
 <ul>
-<li>Since February 2025 you have to make sure staff who work with AI know enough about it (article 4, AI literacy).</li>
+<li>Since February 2025 you have to take measures so that staff who work with AI know enough about it (article 4, AI literacy).</li>
 <li>Since 2 August 2026, transparency rules apply: people have to know when they're dealing with an AI system (article 50).</li>
-<li>The rules for high-risk AI systems have been postponed to December 2027 (<a href="https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/">Gibson Dunn</a>).</li>
+<li>The main rules for high-risk AI systems apply from 2 December 2027, and for AI in regulated products from 2 August 2028 (<a href="https://www.hunton.com/privacy-and-cybersecurity-law-blog/eu-digital-omnibus-on-ai-enters-into-force">Hunton</a>).</li>
 </ul>
 <!--block:aiact-->
 
-<p>An ordinary email flow or invoice automation isn't "high risk". Anyone who tells you your reminder emails fall under strict AI rules is exaggerating. If you use AI in contact with clients, you do need to think about the transparency rule. The Dutch professional body for accountants has also published material on this. <mark>[CHECK: the NBA Leidraad AI in Control and the 2026 Dilemmapp brochure were not read; read them before referring to them]</mark></p>
+<p>An ordinary email flow or invoice automation isn't "high risk". Anyone who tells you your reminder emails fall under strict AI rules is exaggerating. If you use AI in contact with clients, you do need to think about the transparency rule. For accountants, the NBA (their professional body) published a guide in October 2024 on keeping AI under control in practice (<a href="https://www.nba.nl/siteassets/tools-en-ondersteuning/publicaties/2024/nba-leidraad-ai-in-control.pdf">NBA, AI in Control</a>).</p>
 <p>For where automation does work well, read <a href="/en/blog/five-admin-tasks-to-automate-first">five admin tasks to automate first</a> and <a href="/en/blog/client-intake-for-law-firms">client intake for law firms</a>.</p>
 ` + auditCta("en");
 
@@ -117,12 +117,12 @@ export const blocks: PostBlocks = {
   },
   "aiact": {
     "acf_fc_layout": "callout",
-    "tone": "check",
+    "tone": "note",
     "title": "What we don't claim",
-    "body": "An ordinary email flow or invoice automation isn't high-risk AI. The AI Act Omnibus still has to be checked in its final published form before this article goes live.",
+    "body": "An ordinary email flow or invoice automation isn't high-risk AI. The dates above follow the AI omnibus as published in July 2026.",
     "link": {
-      "title": "Gibson Dunn",
-      "url": "https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/",
+      "title": "Hunton",
+      "url": "https://www.hunton.com/privacy-and-cybersecurity-law-blog/eu-digital-omnibus-on-ai-enters-into-force",
       "target": "_blank"
     }
   }

@@ -6,7 +6,7 @@ export default `
 <p>Het kabinet wil dat bedrijven elkaar vanaf 2030 elektronisch factureren, en dat ze die facturen per stuk digitaal aan de Belastingdienst melden. Dat is nog geen wet. De data hieronder zijn dus verwachtingen. Toch kunt u nu al stappen zetten die zich terugbetalen, hoe de regels er straks ook precies uitzien.</p>
 
 <h2>Wat is besloten, en wat nog niet</h2>
-<p>Het kabinet heeft gekozen voor verplichte e-facturatie bij binnenlandse en Europese transacties tussen bedrijven, gecombineerd met digitale btw-rapportage (<a href="https://www.taxlive.nl/nl/documenten/vn-vandaag/kabinet-kiest-voor-verplichte-e-facturatie-en-digitale-rapportage-bij-binnenlandse-b2b-transacties/">Taxlive</a>). In het najaar van 2026 volgt een internetconsultatie. Het wetsvoorstel moet vóór het zomerreces van 2027 bij de Tweede Kamer liggen (<a href="https://www.grantthornton.nl/insights/tax/btw/nederland-zet-in-op-brede-uitrol-van-e-facturatie-en-digitale-btw-rapportage/">Grant Thornton, september 2026</a>). <mark>[CHECK: has the internet consultation opened, and have any dates changed?]</mark></p>
+<p>Het kabinet heeft gekozen voor verplichte e-facturatie bij binnenlandse en Europese transacties tussen bedrijven, gecombineerd met digitale btw-rapportage (<a href="https://www.taxlive.nl/nl/documenten/vn-vandaag/kabinet-kiest-voor-verplichte-e-facturatie-en-digitale-rapportage-bij-binnenlandse-b2b-transacties/">Taxlive</a>). In het najaar van 2026 volgt een internetconsultatie. Het wetsvoorstel moet vóór het zomerreces van 2027 bij de Tweede Kamer liggen (<a href="https://www.grantthornton.nl/insights/tax/btw/nederland-zet-in-op-brede-uitrol-van-e-facturatie-en-digitale-btw-rapportage/">Grant Thornton, september 2026</a>). Op 25 oktober 2026 was die consultatie nog niet geopend. De geplande data zijn e-facturatie tussen Nederlandse bedrijven vanaf 1 juli 2030 en digitale rapportage vanaf 1 juli 2031, met een uitzondering voor ondernemers in de KOR (<a href="https://www.accountant.nl/nieuws/2026/9/kabinet-wil-e-facturatie-vanaf-2030-verplicht-maken/">Accountant.nl, september 2026</a>).</p>
 <p>Tot die wet er is, kan er nog van alles schuiven: de data, de uitzonderingen, de technische eisen. Schrijf dus overal "verwacht" bij, ook in uw eigen planning.</p>
 
 
@@ -41,11 +41,11 @@ export default `
 <p>Vragen die u uw leverancier kunt stellen:</p>
 <ol>
 <li>Kan het pakket nu al gestructureerde e-facturen versturen en ontvangen? In welk formaat?</li>
-<li>Via welk netwerk gaat dat? Veel leveranciers werken met Peppol. <mark>[CHECK: whether Peppol will be the required network or format in the Dutch bill; the SRA article doesn't say]</mark></li>
+<li>Via welk netwerk gaat dat? Veel leveranciers werken met Peppol. Welk netwerk de Nederlandse regels gaan voorschrijven, is nog niet besloten.</li>
 <li>Wat is het plan voor de digitale rapportage per factuur, en wanneer komt dat?</li>
 <li>Werken uw koppelingen (met uw CRM, uw webshop of uw betaalprovider) straks nog, of moeten die mee veranderen?</li>
 </ol>
-<p><mark>[CHECK: e-invoicing support in Moneybird, Exact Online and Twinfield before naming any of them as ready]</mark></p>
+<p>We noemen hier geen pakketten die er al klaar voor zijn, omdat de ondersteuning snel verandert en de Nederlandse eisen nog niet vastliggen. Het antwoord van uw leverancier op deze vragen zegt meer.</p>
 
 <h2>Wat accountantskantoren hun klanten kunnen bieden</h2>
 <p>Voor een accountants- of administratiekantoor is dit een gesprek dat u vanaf 2027 met elke zakelijke klant kunt voeren. Welke software gebruikt de klant? Factureert die nog in Word of in Excel? Valt de klant onder de KOR, en ontvangt hij wel e-facturen?</p>

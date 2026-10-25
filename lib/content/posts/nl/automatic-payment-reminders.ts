@@ -18,7 +18,7 @@ export default `
 <p>Een kanttekening: elders in hetzelfde rapport staat "bijna 3%" voor facturen die nooit worden betaald. Wij houden de 2,4% aan.</p>
 
 <h2>Welke betaaltermijn u mag afspreken</h2>
-<p>Sinds 1 juli 2023 moeten grote bedrijven hun mkb-leveranciers binnen 30 dagen betalen. Voor andere zakelijke relaties blijft een maximum van 60 dagen gelden (<a href="https://factua.nl/blogs/betalingstermijn-grootbedrijf-van-60-30-dagen-van-kracht">Factua</a>). <mark>[CHECK: status of the EU Late Payment Regulation, which may change these terms]</mark></p>
+<p>Sinds 1 juli 2023 moeten grote bedrijven hun mkb-leveranciers binnen 30 dagen betalen. Voor andere zakelijke relaties blijft een maximum van 60 dagen gelden, en zonder afgesproken termijn is het 30 dagen (<a href="https://ondernemersplein.overheid.nl/wetten-en-regels/betalingstermijn-incassokosten-en-wettelijke-rente/">Ondernemersplein</a>). Een Europees voorstel uit 2023 voor een strikt maximum van 30 dagen in heel Europa ligt stil, omdat ongeveer de helft van de lidstaten het niet steunt (<a href="https://www.gtreview.com/news/europe/exclusive-eu-to-scrap-late-payment-reforms-after-industry-backlash/">GTR</a>). Zolang dat zo blijft, gelden de Nederlandse regels hierboven.</p>
 <p>De termijn die u op de factuur zet, is ook het startpunt van uw herinneringsschema. Hoe korter en duidelijker de termijn, hoe eerder u weet dat er iets moet gebeuren.</p>
 
 <h2>Een herinneringsschema: eerste herinnering, tweede herinnering, aanmaning</h2>
@@ -27,7 +27,7 @@ export default `
 <!--block:schedule-->
 
 <p>Het belangrijkste is dat het schema vast is. Elke factuur volgt dezelfde route, ongeacht hoe druk het die week is. Dat voelt voor klanten ook eerlijker: niemand krijgt een strenge mail omdat iemand op kantoor toevallig een slechte dag had.</p>
-<p>Over incassokosten bij zakelijke klanten moet u voorzichtig zijn. Wat u mag rekenen, hangt af van wat u heeft afgesproken en van de wet. <mark>[CHECK: whether the statutory WIK scale applies to B2B by default, whether €40 is the minimum commercial collection fee (art. 6:96 BW), and the current WIK cap; use Rijksoverheid or Ondernemersplein, not Stripe]</mark> We geven hier dus geen juridisch advies over de bedragen; laat dat zo nodig toetsen.</p>
+<p>Over incassokosten bij zakelijke klanten moet u voorzichtig zijn. Betaalt een zakelijke klant te laat, dan heeft u recht op minimaal €&nbsp;40 vergoeding, en u hoeft niet eerst een aanmaning te sturen. Zonder andere afspraken geldt de wettelijke staffel, met een maximum van €&nbsp;6.775. Met een zakelijke klant mag u in het contract iets anders afspreken (<a href="https://ondernemersplein.overheid.nl/wetten-en-regels/betalingstermijn-incassokosten-en-wettelijke-rente/">Ondernemersplein</a>). Verder geven we geen juridisch advies over de bedragen; laat dat zo nodig toetsen.</p>
 
 <h2>Wat er in elke herinnering hoort</h2>
 <ul>
@@ -42,15 +42,15 @@ export default `
 <p>Een herinneringsschema moet kunnen stoppen. Als een klant laat weten dat er iets niet klopt, moet een collega de herinneringen voor die factuur met één klik kunnen pauzeren. Anders krijgt een klant die net heeft gebeld nog een automatische aanmaning, en zo raakt een goede relatie beschadigd.</p>
 
 <h2>Bij particulieren: de veertiendagenbrief</h2>
-<p>Factureert u aan consumenten, dan gelden andere regels. Voordat u incassokosten mag rekenen, moet u een veertiendagenbrief sturen: een laatste aanmaning waarin de klant nog veertien dagen krijgt om te betalen zonder extra kosten (<a href="https://stripe.com/nl/resources/more/dutch-debt-collection-costs-act">Stripe</a>). <mark>[CHECK: veertiendagenbrief requirements against Rijksoverheid or Ondernemersplein]</mark></p>
+<p>Factureert u aan consumenten, dan gelden andere regels. Voordat u incassokosten mag rekenen, moet u eerst een kosteloze aanmaning sturen (<a href="https://ondernemersplein.overheid.nl/wetten-en-regels/betalingstermijn-incassokosten-en-wettelijke-rente/">Ondernemersplein</a>). In de praktijk is dat de veertiendagenbrief: de klant krijgt veertien dagen om te betalen, gerekend vanaf de dag na ontvangst, en de brief vermeldt wat er gebeurt als hij niet betaalt, inclusief de incassokosten. De regel staat in artikel 6:96 lid 6 BW, en de rechtspraak heeft afgesproken hoe u de termijn formuleert (<a href="https://www.rechtspraak.nl/voor-advocaten-en-juristen/reglementen-procedures-en-formulieren/civiel/tarieven-kosten-vergoedingen/aanbeveling-14-dagenbrief">Rechtspraak, aanbeveling 14-dagenbrief</a>).</p>
 <p>In een automatisch schema betekent dat: een aparte route voor particuliere klanten, waarin de veertiendagenbrief een vaste stap is, met de juiste tekst en datum erin. Dan kan die stap niet per ongeluk worden overgeslagen.</p>
 
 
 <!--block:routes-->
 <h2>Een betaallink, en afletteren dat vanzelf gaat</h2>
-<p>Een herinnering werkt beter als betalen direct kan. Zet in elke factuur en elke herinnering een betaallink, bijvoorbeeld via Mollie of de betaalfunctie van uw boekhoudpakket. De klant klikt, betaalt, en hoeft geen IBAN of factuurnummer over te typen. <mark>[CHECK: how Mollie payment links behave (expiry, partial payments, methods)]</mark> <mark>[CHECK: the iDEAL to Wero transition timeline, if a payment method is named]</mark></p>
+<p>Een herinnering werkt beter als betalen direct kan. Zet in elke factuur en elke herinnering een betaallink, bijvoorbeeld via Mollie of de betaalfunctie van uw boekhoudpakket. De klant klikt, betaalt, en hoeft geen IBAN of factuurnummer over te typen.</p>
 <p>Het tweede voordeel zit aan uw kant. Als de betaling via de link binnenkomt, kan die automatisch aan de juiste factuur worden gekoppeld. Moneybird doet dat bijvoorbeeld voor de betaalmethoden die het zelf aanbiedt (<a href="https://www.adyen.com/nl_NL/knowledge-hub/moneybird-en-adyen-een-geintegreerde-betaalrekening-voor-automatische-boekhouding">Adyen over Moneybird</a>). Dan stopt het herinneringsschema zodra er betaald is, en krijgt niemand een herinnering voor een factuur die gisteren al is voldaan.</p>
-<p>Veel boekhoudpakketten hebben zelf al een herinneringsfunctie. <mark>[CHECK: the built-in reminder features in Moneybird, Exact Online and Twinfield]</mark> Vaak is het genoeg om die goed in te stellen. Wij bouwen er alleen iets omheen als u meer nodig heeft, bijvoorbeeld een belactie voor de collega, of herinneringen die rekening houden met afspraken uit uw CRM.</p>
+<p>Veel boekhoudpakketten hebben zelf al een herinneringsfunctie. Vaak is het genoeg om die goed in te stellen. Wij bouwen er alleen iets omheen als u meer nodig heeft, bijvoorbeeld een belactie voor de collega, of herinneringen die rekening houden met afspraken uit uw CRM.</p>
 
 <h2>Houd het menselijk, en weet wanneer u moet bellen</h2>
 <p>Automatisch betekent hier: op tijd en elke keer. Het hoeft niet te klinken als een machine. Schrijf de teksten zelf, in de toon waarop u ook met de klant praat. Zet de naam van een echte collega onder het bericht, met een telefoonnummer.</p>
@@ -127,10 +127,10 @@ export const blocks: PostBlocks = {
     "acf_fc_layout": "diagram",
     "src": "/blog/automatic-payment-reminders/two-routes.nl.svg",
     "alt": "Twee routes. Zakelijke klanten, voorbeeldschema: een seintje met betaallink 3 dagen voor de vervaldatum, een eerste herinnering na 7 dagen, een tweede herinnering met nieuwe termijn na 21 dagen, een collega belt na 35 dagen, daarna een aanmaning. Particulieren: herinneringen, dan de veertiendagenbrief met nog veertien dagen om zonder extra kosten te betalen, en pas daarna mogen incassokosten worden gerekend.",
-    "caption": "De route voor particulieren moet nog worden gecontroleerd bij Rijksoverheid of Ondernemersplein.",
+    "caption": null,
     "source": {
-      "title": "Stripe",
-      "url": "https://stripe.com/nl/resources/more/dutch-debt-collection-costs-act",
+      "title": "Rechtspraak, aanbeveling 14-dagenbrief",
+      "url": "https://www.rechtspraak.nl/voor-advocaten-en-juristen/reglementen-procedures-en-formulieren/civiel/tarieven-kosten-vergoedingen/aanbeveling-14-dagenbrief",
       "target": "_blank"
     }
   },
